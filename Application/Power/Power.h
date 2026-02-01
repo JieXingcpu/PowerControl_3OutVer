@@ -28,7 +28,7 @@ typedef enum
   POWER_ON_1_AND_3 = 0x05,
   POWER_ON_2_AND_3 = 0x06,
   POWER_ON_ALL = 0x07,
-  POWER_ERROR
+  POWER_DO_NONE
 } Power_State;
 
 typedef struct Power_Control

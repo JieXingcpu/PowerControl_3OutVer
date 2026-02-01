@@ -58,6 +58,8 @@
 /* USER CODE BEGIN PV */
 Power_Control power;
 INA3221_STATE Ina3221_State;
+INA3221 power_read;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -116,10 +118,11 @@ int main(void)
   /* USER CODE BEGIN 2 */
   Button_Init();
   Init_Power_Control(&power);
-  // INA3221_Init();
+  Init_Power_Read(&power_read);
   // HAL_TIM_Base_Start_IT(&htim1);
   // HAL_TIM_Base_Start_IT(&htim3);
   power.Init(&power);
+  Ina3221_State = power_read.Init(&power_read);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -143,20 +146,13 @@ int main(void)
       LED_Switch(LED_RUN_3, LED_FLOWING_3);
     }
     /*POWER部分*/
-    // Ina3221_State = power.Read_Loop(&power, &power);
-    switch (Ina3221_State) 
+    Ina3221_State = power_read.Read_Loop(&power_read, &power);
+    if(Ina3221_State==INA3221_STATE_READ_OK)
     {
-      case INA3221_STATE_READ_OK:
-
-        break;
-      case INA3221_STATE_ERROR:
-
-        //处理错误情况
-        break;
-      default:
-        break;
+      /*进行一次电源检测*/
+      power_read.Control_Loop(&power_read, &power);
     }
-
+    HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }

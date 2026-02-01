@@ -92,7 +92,7 @@ static Power_State Power_Switch(Power_Control *self, Power_Output_Channel channe
       return self->Power_Channel_State;
       break;
     default:
-      return POWER_ERROR;
+      return POWER_DO_NONE;
   }
 }
 
