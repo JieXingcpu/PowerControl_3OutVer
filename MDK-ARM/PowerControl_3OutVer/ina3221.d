@@ -1,17 +1,17 @@
 powercontrol_3outver/ina3221.o: ..\Application\INA3221\INA3221.c \
   ..\Application\INA3221\INA3221.h D:\Keil\ARM\ARMCLANG\include\stdint.h \
-  ..\Application\Power\Power.h ..\Application\INA3221\INA3221_Register.h \
-  ..\Core\Inc\i2c.h ..\Core\Inc\main.h \
-  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
+  ..\Application\Power\Power.h ..\Application\BUZZER\Buzzer.h \
+  ..\Application\INA3221\INA3221_Register.h ..\Core\Inc\i2c.h \
+  ..\Core\Inc\main.h ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
   ..\Core\Inc\stm32f1xx_hal_conf.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h \
   ..\Drivers\CMSIS\Include\core_cm3.h \
-  e:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_version.h \
-  e:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_compiler.h \
-  e:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_armclang.h \
+  E:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_version.h \
+  E:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_compiler.h \
+  E:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_armclang.h \
   D:\Keil\ARM\ARMCLANG\include\arm_compat.h \
   D:\Keil\ARM\ARMCLANG\include\arm_acle.h \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h \
@@ -28,6 +28,7 @@ powercontrol_3outver/ina3221.o: ..\Application\INA3221\INA3221.c \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h \
+  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_iwdg.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \

@@ -1,5 +1,6 @@
 powercontrol_3outver/power.o: ..\Application\Power\Power.c \
-  ..\Application\Power\Power.h ..\Core\Inc\gpio.h ..\Core\Inc\main.h \
+  ..\Application\Power\Power.h ..\Application\LED\LED.h \
+  ..\Core\Inc\gpio.h ..\Core\Inc\main.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h \
   ..\Core\Inc\stm32f1xx_hal_conf.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h \
@@ -8,9 +9,9 @@ powercontrol_3outver/power.o: ..\Application\Power\Power.c \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h \
   ..\Drivers\CMSIS\Include\core_cm3.h \
   D:\Keil\ARM\ARMCLANG\include\stdint.h \
-  e:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_version.h \
-  e:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_compiler.h \
-  e:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_armclang.h \
+  E:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_version.h \
+  E:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_compiler.h \
+  E:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_armclang.h \
   D:\Keil\ARM\ARMCLANG\include\arm_compat.h \
   D:\Keil\ARM\ARMCLANG\include\arm_acle.h \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h \
@@ -27,6 +28,7 @@ powercontrol_3outver/power.o: ..\Application\Power\Power.c \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_i2c.h \
+  ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_iwdg.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \

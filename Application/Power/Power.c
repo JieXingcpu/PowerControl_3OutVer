@@ -1,9 +1,10 @@
 #include "Power.h"
 
+#include "LED.h"
 #include "gpio.h"
 
 static Power_State Power_Init(Power_Control *self);
-static Power_State Power_Switch(Power_Control *self, Power_Output_Channel channel, Channel_State state);
+static Power_State Power_Switch(Power_Control *self, Power_Output_Channel channel, Channel_State state, Power_Output_Channel danger_channel);
 static Power_State Power_Read_Channel_State(Power_Control *self);
 /**
   * @brief  初始化电源控制结构体
@@ -36,63 +37,72 @@ static Power_State Power_Init(Power_Control *self)
   * @param  self: Power_Control结构体的指针
   * @retval Power_State
  */
-static Power_State Power_Read_Channel_State(Power_Control *self)
-{
-  return self->Power_Channel_State;
-}
+static Power_State Power_Read_Channel_State(Power_Control *self) { return self->Power_Channel_State; }
 /**
   * @brief  改变输出通道状态
   * @param  self: Power_Control结构体的指针
   * @param  channel: 输出通道,可使用按位操作
   * @retval Power_State
  */
-static Power_State Power_Switch(Power_Control *self, Power_Output_Channel channel, Channel_State state)
+static Power_State Power_Switch(Power_Control *self, Power_Output_Channel channel, Channel_State state, Power_Output_Channel danger_channel)
 {
-  GPIO_PinState pin_state=(state == POWER_ON) ? GPIO_PIN_SET : GPIO_PIN_RESET;
-  switch(channel)
+  GPIO_PinState pin_state = (state == POWER_ON) ? GPIO_PIN_SET : GPIO_PIN_RESET;
+  if(channel & POWER_OUT_1)
   {
-    case POWER_OUT_1:
-      HAL_GPIO_WritePin(OUT_1_GPIO_Port, OUT_1_Pin, pin_state);
-      self->Power_Channel_State= (state==POWER_ON) ? self->Power_Channel_State | POWER_ON_1 : self->Power_Channel_State & ~POWER_ON_1;
-      return self->Power_Channel_State;
-      break;
-    case POWER_OUT_2:
-      HAL_GPIO_WritePin(OUT_2_GPIO_Port, OUT_2_Pin, pin_state);
-      self->Power_Channel_State= (state==POWER_ON) ? self->Power_Channel_State | POWER_ON_2 : self->Power_Channel_State & ~POWER_ON_2;
-      return self->Power_Channel_State;
-      break;
-    case POWER_OUT_3:
-      HAL_GPIO_WritePin(OUT_3_GPIO_Port, OUT_3_Pin, pin_state);
-      self->Power_Channel_State= (state==POWER_ON) ? self->Power_Channel_State | POWER_ON_3 : self->Power_Channel_State & ~POWER_ON_3;
-      return self->Power_Channel_State;
-      break;
-    case POWER_OUT_1_AND_2:
-      HAL_GPIO_WritePin(OUT_1_GPIO_Port, OUT_1_Pin, pin_state);
-      HAL_GPIO_WritePin(OUT_2_GPIO_Port, OUT_2_Pin, pin_state);
-      self->Power_Channel_State= (state==POWER_ON) ? self->Power_Channel_State | POWER_ON_1_AND_2 : self->Power_Channel_State & ~POWER_ON_1_AND_2;
-      return self->Power_Channel_State;
-      break;
-    case POWER_OUT_1_AND_3:
-      HAL_GPIO_WritePin(OUT_1_GPIO_Port, OUT_1_Pin, pin_state);
-      HAL_GPIO_WritePin(OUT_3_GPIO_Port, OUT_3_Pin, pin_state);
-      self->Power_Channel_State= (state==POWER_ON) ? self->Power_Channel_State | POWER_ON_1_AND_3 : self->Power_Channel_State & ~POWER_ON_1_AND_3;
-      return self->Power_Channel_State;
-      break;
-    case POWER_OUT_2_AND_3:
-      HAL_GPIO_WritePin(OUT_2_GPIO_Port, OUT_2_Pin, pin_state);
-      HAL_GPIO_WritePin(OUT_3_GPIO_Port, OUT_3_Pin, pin_state);
-      self->Power_Channel_State= (state==POWER_ON) ? self->Power_Channel_State | POWER_ON_2_AND_3 : self->Power_Channel_State & ~POWER_ON_2_AND_3;
-      return self->Power_Channel_State;
-      break;
-    case POWER_OUT_ALL:
-      HAL_GPIO_WritePin(OUT_1_GPIO_Port, OUT_1_Pin, pin_state);
-      HAL_GPIO_WritePin(OUT_2_GPIO_Port, OUT_2_Pin, pin_state);
-      HAL_GPIO_WritePin(OUT_3_GPIO_Port, OUT_3_Pin, pin_state);
-      self->Power_Channel_State = (state==POWER_ON) ? self->Power_Channel_State | POWER_ON_ALL : self->Power_Channel_State & ~POWER_ON_ALL;
-      return self->Power_Channel_State;
-      break;
-    default:
-      return POWER_DO_NONE;
+    HAL_GPIO_WritePin(OUT_1_GPIO_Port, OUT_1_Pin, pin_state);
+    if(state == POWER_ON)
+    {
+      self->Power_Channel_State |= POWER_ON_1;
+      LED_Switch(LED_ERR_1, LED_OFF);
+      LED_Switch(LED_RUN_1, LED_ON);
+    } else
+    {
+      self->Power_Channel_State &= ~POWER_ON_1;
+      if(danger_channel & POWER_OUT_1)
+      {
+        /*如果是由于保护机制关闭的通道，则点亮对应的指示灯*/
+        LED_Switch(LED_ERR_1, LED_ON);
+        LED_Switch(LED_RUN_1, LED_OFF);
+      }
+    }
   }
+  if(channel & POWER_OUT_2)
+  {
+    HAL_GPIO_WritePin(OUT_2_GPIO_Port, OUT_2_Pin, pin_state);
+    if(state == POWER_ON)
+    {
+      self->Power_Channel_State |= POWER_ON_2;
+      LED_Switch(LED_ERR_2, LED_OFF);
+      LED_Switch(LED_RUN_2, LED_ON);
+    } else
+    {
+      self->Power_Channel_State &= ~POWER_ON_2;
+      if(danger_channel & POWER_OUT_2)
+      {
+        /*如果是由于保护机制关闭的通道，则点亮对应的指示灯*/
+        LED_Switch(LED_ERR_2, LED_ON);
+        LED_Switch(LED_RUN_2, LED_OFF);
+      }
+    }
+  }
+  if(channel & POWER_OUT_3)
+  {
+    HAL_GPIO_WritePin(OUT_3_GPIO_Port, OUT_3_Pin, pin_state);
+    if(state == POWER_ON)
+    {
+      self->Power_Channel_State |= POWER_ON_3;
+      LED_Switch(LED_ERR_3, LED_OFF);
+      LED_Switch(LED_RUN_3, LED_ON);
+    } else
+    {
+      self->Power_Channel_State &= ~POWER_ON_3;
+      if(danger_channel & POWER_OUT_3)
+      {
+        /*如果是由于保护机制关闭的通道，则点亮对应的指示灯*/
+        LED_Switch(LED_ERR_3, LED_ON);
+        LED_Switch(LED_RUN_3, LED_OFF);
+    }
+    }
+  }
+  return self->Power_Channel_State;
 }
-

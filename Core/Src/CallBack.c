@@ -35,11 +35,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       /*进入长按计时状态,并且LED切换为流水灯*/
       button_1_counter++;
-      if(button_1_counter>3000)
+      if(button_1_counter>3000)//达到长按时间3s,开启对应输出口
       {
         button_1_counter_state=COUNTER_LONG_STOP;
         button_1_counter=0;
-        button_1_state=BUTTON_STATE_IDLE;
+        // button_1_state=BUTTON_STATE_IDLE;
+        button_1_state=BUTTON_STATE_OPEN;
       }
     }
     /*BUTTON_2*/
@@ -60,11 +61,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       /*进入长按计时状态,并且LED切换为流水灯*/
       button_2_counter++;
-      if(button_2_counter>3000)
+      if(button_2_counter>3000)//达到长按时间3s,开启对应输出口
       {
         button_2_counter_state=COUNTER_LONG_STOP;
         button_2_counter=0;
-        button_2_state=BUTTON_STATE_IDLE;
+        button_2_state=BUTTON_STATE_OPEN;
       }
     }
     /*BUTTON_3*/
@@ -89,7 +90,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       {
         button_3_counter_state=COUNTER_LONG_STOP;
         button_3_counter=0;
-        button_3_state=BUTTON_STATE_IDLE;
+        button_3_state=BUTTON_STATE_OPEN;
       }
     }
   }

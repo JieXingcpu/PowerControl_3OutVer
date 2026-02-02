@@ -50,7 +50,6 @@ static void BUTTON_1_Callback()
   /*上升沿*/ 
   if(pin_state==GPIO_PIN_SET)
   {
-
     /*处于等待长按状态*/
     if(button_1_counter_state==COUNTER_START&&button_1_state==BUTTON_STATE_WAIT_LONG)
     {
@@ -104,7 +103,6 @@ static void BUTTON_2_Callback()
   /*上升沿*/  
   if(pin_state==GPIO_PIN_SET)
   {
-
     /*处于等待长按状态*/
     if(button_2_counter_state==COUNTER_START&&button_2_state==BUTTON_STATE_WAIT_LONG)
     {

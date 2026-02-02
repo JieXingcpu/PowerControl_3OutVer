@@ -36,7 +36,7 @@ typedef struct Power_Control
   Power_State Power_Channel_State;// 当前输出通道状态，按位表示
   
   Power_State (*Init)(struct Power_Control *self);
-  Power_State (*Switch)(struct Power_Control *self, Power_Output_Channel channel, Channel_State state);
+  Power_State (*Switch)(struct Power_Control *self, Power_Output_Channel channel, Channel_State state, Power_Output_Channel danger_channel);
   Power_State (*Read_Channel_State)(struct Power_Control *self);
 } Power_Control;
 

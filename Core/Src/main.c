@@ -21,6 +21,7 @@
 #include "main.h"
 #include "can.h"
 #include "i2c.h"
+#include "iwdg.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -113,6 +114,7 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM4_Init();
   MX_USART2_UART_Init();
+  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
   Button_Init();
   LED_Init();
@@ -124,37 +126,79 @@ int main(void)
   // HAL_TIM_Base_Start_IT(&htim3);
   power.Init(&power);
   Ina3221_State = power_read.Init(&power_read);
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    HAL_IWDG_Refresh(&hiwdg);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    /*LED部分*/
-    if(button_1_counter_state==COUNTER_LONG_START)
+    /* clang-format on */
+    /*按键LED部分*/
+    if(button_1_counter_state == COUNTER_LONG_START)
     {
       LED_Switch(LED_RUN_1, LED_FLOWING_1);
     }
-    if(button_2_counter_state==COUNTER_LONG_START)
+    if(button_2_counter_state == COUNTER_LONG_START)
     {
       LED_Switch(LED_RUN_2, LED_FLOWING_2);
     }
-    if(button_3_counter_state==COUNTER_LONG_START)
+    if(button_3_counter_state == COUNTER_LONG_START)
     {
       LED_Switch(LED_RUN_3, LED_FLOWING_3);
     }
-    /*POWER部分*/
+    /*按键POWER部分*/
+    if(button_1_state == BUTTON_STATE_OPEN)
+    {
+      if(power.Power_Channel_State & POWER_ON_1)
+      {
+        power.Switch(&power, POWER_OUT_1, POWER_OFF, 0x00);
+      } else
+      {
+        power.Switch(&power, POWER_OUT_1, POWER_ON, 0x00);
+      }
+      button_1_state = BUTTON_STATE_IDLE;
+    }
+    if(button_2_state == BUTTON_STATE_OPEN)
+    {
+      if(power.Power_Channel_State & POWER_ON_2)
+      {
+        power.Switch(&power, POWER_OUT_2, POWER_OFF, 0x00);
+      } else
+      {
+        power.Switch(&power, POWER_OUT_2, POWER_ON, 0x00);
+      }
+      button_2_state = BUTTON_STATE_IDLE;
+    }
+    if(button_3_state == BUTTON_STATE_OPEN)
+    {
+      if(power.Power_Channel_State & POWER_ON_3)
+      {
+        power.Switch(&power, POWER_OUT_3, POWER_OFF, 0x00);
+      } else
+      {
+        power.Switch(&power, POWER_OUT_3, POWER_ON, 0x00);
+      }
+      button_3_state = BUTTON_STATE_IDLE;
+    }
+    /*电源监测部分*/
     Ina3221_State = power_read.Read_Loop(&power_read, &power);
-    if(Ina3221_State==INA3221_STATE_READ_OK)
+    if(Ina3221_State == INA3221_STATE_READ_OK)
     {
       /*进行一次电源检测*/
       power_read.Control_Loop(&power_read, &power);
     }
+    else if(Ina3221_State==INA3221_STATE_ERROR)
+    {
+      while(1);
+    }
     HAL_Delay(10);
   }
+  /* clang-format off */
   /* USER CODE END 3 */
 }
 
@@ -170,10 +214,11 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;

@@ -5,11 +5,11 @@
 #include "i2c.h"
 
 static INA3221_STATE INA3221_Init(INA3221 *self);
-static void INA3221_Config(INA3221 *handle);
-static void INA3221_ReadReg(INA3221 *handle);
-static void INA3221_WriteReg(INA3221 *handle);
-static void INA3221_ReadVoltage(INA3221 *handle);
-static void INA3221_ReadCurrent(INA3221 *handle);
+static INA3221_STATE INA3221_Config(INA3221 *handle);
+static INA3221_STATE INA3221_ReadReg(INA3221 *handle);
+static INA3221_STATE INA3221_WriteReg(INA3221 *handle);
+static INA3221_STATE INA3221_ReadVoltage(INA3221 *handle);
+static INA3221_STATE INA3221_ReadCurrent(INA3221 *handle);
 static void Data_Reverse(uint16_t *data) { *data = (*data >> 8) | (*data << 8); }
 static INA3221_STATE Search_Channel_To_Read(INA3221 *ina3221, Power_Control *power);
 static INA3221_STATE ina3221_state;
@@ -35,7 +35,11 @@ void Init_Power_Read(INA3221 *power_read)
 
 static INA3221_STATE INA3221_Init(INA3221 *self)
 {
-  while(hi2c1.State != HAL_I2C_STATE_READY);
+  while(hi2c1.State != HAL_I2C_STATE_READY)
+  {
+    uint32_t timeout = HAL_GetTick();
+    if(HAL_GetTick() - timeout > 1000) return INA3221_STATE_ERROR;
+  }
   HAL_I2C_Mem_Read(&hi2c1, I2C_ADDRESS, 0xFF, 1, &self->read_data_buffer, 2, 5);
   Data_Reverse(&self->read_data_buffer);
   if(self->read_data_buffer != 0x3220)
@@ -55,10 +59,12 @@ static INA3221_STATE Search_Channel_To_Read(INA3221 *ina3221, Power_Control *pow
       ina3221->address = Channel_Map[ina3221->index];
       if(ina3221->index % 2 == 0)
       {
-        INA3221_ReadVoltage(ina3221);
+        if(INA3221_ReadVoltage(ina3221) == INA3221_STATE_ERROR) 
+          return INA3221_STATE_ERROR;
       } else
       {
-        INA3221_ReadCurrent(ina3221);
+        if(INA3221_ReadCurrent(ina3221) == INA3221_STATE_ERROR) 
+          return INA3221_STATE_ERROR;
         Power_Current_Control_Loop(ina3221, power);
       }
       ina3221->index++;
@@ -124,7 +130,7 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
   {
     danger_channel |= POWER_OUT_3;
   }
-  return power->Switch(power, danger_channel, POWER_OFF);
+  return power->Switch(power, danger_channel, POWER_OFF, danger_channel);
 }
 /**
   * @brief  电流保护控制
@@ -151,62 +157,79 @@ static Power_State Power_Current_Control_Loop(INA3221 *handle, Power_Control *po
     danger_channel |= POWER_OUT_3;
   }
   danger_channel == 0x00 ? Buzzer_Switch(BUZZER_OFF) : Buzzer_Switch(BUZZER_WARNING);
-  return power->Switch(power, danger_channel, POWER_OFF);
+  return power->Switch(power, danger_channel, POWER_OFF, danger_channel);
 }
 /**
   * @brief  配置INA3221的配置寄存器
   * @param  handle: INA3221结构体的指针
   * @retval None
  */
-static void INA3221_Config(INA3221 *handle)
+static INA3221_STATE INA3221_Config(INA3221 *handle)
 {
-  while(hi2c1.State != HAL_I2C_STATE_READY);
+  uint32_t timeout = HAL_GetTick();
+  while(hi2c1.State != HAL_I2C_STATE_READY)
+  {
+    if(HAL_GetTick() - timeout > 1000) return INA3221_STATE_ERROR;
+  }
   handle->address = CONFIG_REGISTER_ADDR;
   handle->send_data_buffer = 0x7527;
-  INA3221_WriteReg(handle);
+  if(INA3221_WriteReg(handle) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
   HAL_Delay(5);
+  return INA3221_STATE_IDLE;
 }
 /**
   * @brief  写入INA3221寄存器
   * @param  handle: INA3221结构体的指针
   * @retval None
  */
-static void INA3221_WriteReg(INA3221 *handle)
+static INA3221_STATE INA3221_WriteReg(INA3221 *handle)
 {
-  while(hi2c1.State != HAL_I2C_STATE_READY);
+  uint32_t timeout = HAL_GetTick();
+  while(hi2c1.State != HAL_I2C_STATE_READY)
+  {
+    if(HAL_GetTick() - timeout > 1000) return INA3221_STATE_ERROR;
+  }
   Data_Reverse(&handle->send_data_buffer);
   HAL_I2C_Mem_Write(&hi2c1, I2C_ADDRESS, handle->address, 1, (uint8_t *)&handle->send_data_buffer, 2, 5);
+  return INA3221_STATE_IDLE;
 }
 /**
   * @brief  读取INA3221寄存器
   * @param  handle: INA3221结构体的指针
   * @retval None
  */
-static void INA3221_ReadReg(INA3221 *handle)
+static INA3221_STATE INA3221_ReadReg(INA3221 *handle)
 {
-  while(hi2c1.State != HAL_I2C_STATE_READY);
-  HAL_I2C_Mem_Read(&hi2c1, I2C_ADDRESS, handle->address, 1, (uint8_t *)&handle->read_data_buffer, 2, 1);
+  uint32_t timeout = HAL_GetTick();
+  while(hi2c1.State != HAL_I2C_STATE_READY)
+  {
+    if(HAL_GetTick() - timeout > 1000) return INA3221_STATE_ERROR;
+  }
+  HAL_I2C_Mem_Read(&hi2c1, I2C_ADDRESS, handle->address, 1, (uint8_t *)&handle->read_data_buffer, 2, 5);
   Data_Reverse(&handle->read_data_buffer);
+  return INA3221_STATE_IDLE;
 }
 /**
   * @brief  读取INA3221的电压值
   * @param  handle: INA3221结构体的指针
   * @retval None
  */
-static void INA3221_ReadVoltage(INA3221 *handle)
+static INA3221_STATE INA3221_ReadVoltage(INA3221 *handle)
 {
   static float Voltage;
-  INA3221_ReadReg(handle);
+  if(INA3221_ReadReg(handle) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
   handle->Power_Data.voltage[handle->index / 2] = (float)handle->read_data_buffer / 1000;
+  return INA3221_STATE_IDLE;
 }
 /**
   * @brief  读取INA3221的电流值
   * @param  handle: INA3221结构体的指针
   * @retval None
  */
-static void INA3221_ReadCurrent(INA3221 *handle)
+static INA3221_STATE INA3221_ReadCurrent(INA3221 *handle)
 {
   static float Current;
-  INA3221_ReadReg(handle);
+  if(INA3221_ReadReg(handle) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
   handle->Power_Data.current[handle->index / 2] = (float)handle->read_data_buffer / 500;
+  return INA3221_STATE_IDLE;
 }
