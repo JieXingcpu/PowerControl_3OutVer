@@ -22,6 +22,7 @@ typedef enum
 } LED_State;
 
 extern LED_State led_state;
+void LED_Init(void);
 void LED_Switch(LED_ID led_id, LED_State state);
 
 #endif

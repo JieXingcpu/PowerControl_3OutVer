@@ -4,6 +4,16 @@
 
 LED_State led_state;
 
+void LED_Init(void)
+{
+  HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(RUN_LED_2_GPIO_Port, RUN_LED_2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(RUN_LED_3_GPIO_Port, RUN_LED_3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_RESET);
+}
+
 void LED_Switch(LED_ID led_id, LED_State state)
 {
   switch(state)
