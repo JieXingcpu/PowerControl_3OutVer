@@ -86,7 +86,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  power.Init(&power);
+  Ina3221_State = power_read.Init(&power_read);
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -116,17 +117,15 @@ int main(void)
   MX_USART2_UART_Init();
   MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
+  Init_Power_Control(&power);
+  Init_Power_Read(&power_read);
   Button_Init();
   LED_Init();
   Buzzer_Init();
   Buzzer_Switch(BUZZER_SYSTEM_INIT);
-  Init_Power_Control(&power);
-  Init_Power_Read(&power_read);
   // HAL_TIM_Base_Start_IT(&htim1);
   // HAL_TIM_Base_Start_IT(&htim3);
-  power.Init(&power);
-  Ina3221_State = power_read.Init(&power_read);
-  
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
