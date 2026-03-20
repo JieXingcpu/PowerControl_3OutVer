@@ -218,7 +218,7 @@ static INA3221_STATE INA3221_ReadVoltage(INA3221 *handle)
 {
   static float Voltage;
   if(INA3221_ReadReg(handle) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
-  handle->Power_Data.voltage[handle->index / 2] = (float)handle->read_data_buffer / 1000;
+  handle->Power_Data.voltage[handle->index / 2] = (float)handle->read_data_buffer / 100;
   return INA3221_STATE_IDLE;
 }
 /**

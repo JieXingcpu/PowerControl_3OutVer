@@ -48,7 +48,7 @@ static void BUTTON_1_Callback()
   //判断上升沿还是下降沿
   GPIO_PinState pin_state = HAL_GPIO_ReadPin(Control_1_GPIO_Port, Control_1_Pin);
   /*上升沿*/ 
-  if(pin_state==GPIO_PIN_SET)
+  if(pin_state==GPIO_PIN_RESET)
   {
     /*处于等待长按状态*/
     if(button_1_counter_state==COUNTER_START&&button_1_state==BUTTON_STATE_WAIT_LONG)
@@ -63,7 +63,7 @@ static void BUTTON_1_Callback()
     }
   }
   /*下降沿*/
-  else if(pin_state==GPIO_PIN_RESET)
+  else if(pin_state==GPIO_PIN_SET)
   {
 
     if(button_1_state==BUTTON_STATE_PRESSED&&button_1_counter_state==COUNTER_STOP)
@@ -101,7 +101,7 @@ static void BUTTON_2_Callback()
   //判断上升沿还是下降沿
   GPIO_PinState pin_state = HAL_GPIO_ReadPin(Control_2_GPIO_Port, Control_2_Pin);
   /*上升沿*/  
-  if(pin_state==GPIO_PIN_SET)
+  if(pin_state==GPIO_PIN_RESET)
   {
     /*处于等待长按状态*/
     if(button_2_counter_state==COUNTER_START&&button_2_state==BUTTON_STATE_WAIT_LONG)
@@ -116,7 +116,7 @@ static void BUTTON_2_Callback()
     }
   }
   /*下降沿*/  
-  else if(pin_state==GPIO_PIN_RESET)
+  else if(pin_state==GPIO_PIN_SET)
   {
 
     if(button_2_state==BUTTON_STATE_PRESSED&&button_2_counter_state==COUNTER_STOP)
@@ -153,7 +153,7 @@ static void BUTTON_3_Callback()
   //判断上升沿还是下降沿
   GPIO_PinState pin_state = HAL_GPIO_ReadPin(Control_3_GPIO_Port, Control_3_Pin);
   /*上升沿*/
-  if(pin_state==GPIO_PIN_SET)
+  if(pin_state==GPIO_PIN_RESET)
   {
     /*处于等待长按状态*/
     if(button_3_counter_state==COUNTER_START&&button_3_state==BUTTON_STATE_WAIT_LONG)
@@ -168,7 +168,7 @@ static void BUTTON_3_Callback()
     }
   }
   /*下降沿*/
-  else if(pin_state==GPIO_PIN_RESET)
+  else if(pin_state==GPIO_PIN_SET)
   {
 
     if(button_3_state==BUTTON_STATE_PRESSED&&button_3_counter_state==COUNTER_STOP)

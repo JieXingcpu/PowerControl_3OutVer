@@ -15,12 +15,12 @@ static uint8_t flow_step_3 = 0;
 
 void LED_Init(void)
 {
-  HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(RUN_LED_2_GPIO_Port, RUN_LED_2_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(RUN_LED_3_GPIO_Port, RUN_LED_3_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(RUN_LED_2_GPIO_Port, RUN_LED_2_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(RUN_LED_3_GPIO_Port, RUN_LED_3_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_SET);
 }
 
 void LED_Switch(LED_ID led_id, LED_State state)
@@ -28,29 +28,6 @@ void LED_Switch(LED_ID led_id, LED_State state)
   switch(state)
   {
     case LED_OFF:
-      switch(led_id)
-      {
-        case LED_RUN_1:
-          HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_RESET);
-          break;
-        case LED_RUN_2:
-          HAL_GPIO_WritePin(RUN_LED_2_GPIO_Port, RUN_LED_2_Pin, GPIO_PIN_RESET);
-          break;
-        case LED_RUN_3:
-          HAL_GPIO_WritePin(RUN_LED_3_GPIO_Port, RUN_LED_3_Pin, GPIO_PIN_RESET);
-          break;
-        case LED_ERR_1:
-          HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_RESET);
-          break;
-        case LED_ERR_2:
-          HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_RESET);
-          break;
-        case LED_ERR_3:
-          HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_RESET);
-          break;
-      }
-      break;
-    case LED_ON:
       switch(led_id)
       {
         case LED_RUN_1:
@@ -70,6 +47,29 @@ void LED_Switch(LED_ID led_id, LED_State state)
           break;
         case LED_ERR_3:
           HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_SET);
+          break;
+      }
+      break;
+    case LED_ON:
+      switch(led_id)
+      {
+        case LED_RUN_1:
+          HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_RESET);
+          break;
+        case LED_RUN_2:
+          HAL_GPIO_WritePin(RUN_LED_2_GPIO_Port, RUN_LED_2_Pin, GPIO_PIN_RESET);
+          break;
+        case LED_RUN_3:
+          HAL_GPIO_WritePin(RUN_LED_3_GPIO_Port, RUN_LED_3_Pin, GPIO_PIN_RESET);
+          break;
+        case LED_ERR_1:
+          HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_RESET);
+          break;
+        case LED_ERR_2:
+          HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_RESET);
+          break;
+        case LED_ERR_3:
+          HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_RESET);
           break;
       }
       break;
@@ -104,17 +104,17 @@ void LED_Switch(LED_ID led_id, LED_State state)
         switch(flow_step_1)
         {
           case 0:
-            HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_SET);
-            HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_RESET);
-            break;
-          case 1:
+            HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_RESET);
             HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_SET);
             break;
+          case 1:
+            HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_RESET);
+            break;
           case 2:
-            HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_SET);
             break;
           case 3:
-            HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_SET);
             break;
         }
         flow_step_1++;
@@ -129,17 +129,17 @@ void LED_Switch(LED_ID led_id, LED_State state)
         switch(flow_step_2)
         {
           case 0:
-            HAL_GPIO_WritePin(RUN_LED_2_GPIO_Port, RUN_LED_2_Pin, GPIO_PIN_SET);
-            HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_RESET);
-            break;
-          case 1:
+            HAL_GPIO_WritePin(RUN_LED_2_GPIO_Port, RUN_LED_2_Pin, GPIO_PIN_RESET);
             HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_SET);
             break;
+          case 1:
+            HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_RESET);
+            break;
           case 2:
-            HAL_GPIO_WritePin(RUN_LED_2_GPIO_Port, RUN_LED_2_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(RUN_LED_2_GPIO_Port, RUN_LED_2_Pin, GPIO_PIN_SET);
             break;
           case 3:
-            HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(ERR_LED_2_GPIO_Port, ERR_LED_2_Pin, GPIO_PIN_SET);
             break;
         }
         flow_step_2++;
@@ -154,17 +154,17 @@ void LED_Switch(LED_ID led_id, LED_State state)
         switch(flow_step_3)
         {
           case 0:
-            HAL_GPIO_WritePin(RUN_LED_3_GPIO_Port, RUN_LED_3_Pin, GPIO_PIN_SET);
-            HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_RESET);
-            break;
-          case 1:
+            HAL_GPIO_WritePin(RUN_LED_3_GPIO_Port, RUN_LED_3_Pin, GPIO_PIN_RESET);
             HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_SET);
             break;
+          case 1:
+            HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_RESET);
+            break;
           case 2:
-            HAL_GPIO_WritePin(RUN_LED_3_GPIO_Port, RUN_LED_3_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(RUN_LED_3_GPIO_Port, RUN_LED_3_Pin, GPIO_PIN_SET);
             break;
           case 3:
-            HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(ERR_LED_3_GPIO_Port, ERR_LED_3_Pin, GPIO_PIN_SET);
             break;
         }
         flow_step_3++;

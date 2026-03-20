@@ -2,6 +2,9 @@
 #include "tim.h"
 #include "Button.h"
 #include "LED.h"
+#define LONG_PRESS_TIME 2000
+#define MAX_WAITING_TIME 5000
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /*10Hz*/
@@ -23,7 +26,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       button_1_counter++;
       if(button_1_counter%500==0) LED_Switch(LED_RUN_1, LED_TOGGLING);
-      if(button_1_counter>=5000)
+      if(button_1_counter>=MAX_WAITING_TIME)
       {
         /*达到等待最长时间5s*/
         button_1_counter_state=COUNTER_STOP;
@@ -35,7 +38,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       /*进入长按计时状态,并且LED切换为流水灯*/
       button_1_counter++;
-      if(button_1_counter>3000)//达到长按时间3s,开启对应输出口
+      if(button_1_counter>LONG_PRESS_TIME)//达到长按时间3s,开启对应输出口
       {
         button_1_counter_state=COUNTER_LONG_STOP;
         button_1_counter=0;
@@ -49,7 +52,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       button_2_counter++;
       if(button_2_counter%500==0) LED_Switch(LED_RUN_2, LED_TOGGLING);
-      if(button_2_counter>=5000)
+      if(button_2_counter>=MAX_WAITING_TIME)
       {
         /*达到等待最长时间5s*/
         button_2_counter_state=COUNTER_STOP;
@@ -61,7 +64,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       /*进入长按计时状态,并且LED切换为流水灯*/
       button_2_counter++;
-      if(button_2_counter>3000)//达到长按时间3s,开启对应输出口
+      if(button_2_counter>LONG_PRESS_TIME)//达到长按时间3s,开启对应输出口
       {
         button_2_counter_state=COUNTER_LONG_STOP;
         button_2_counter=0;
@@ -74,7 +77,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       button_3_counter++;
       if(button_3_counter%500==0) LED_Switch(LED_RUN_3, LED_TOGGLING);
-      if(button_3_counter>=5000)
+      if(button_3_counter>=MAX_WAITING_TIME)
       {
         /*达到等待最长时间5s*/
         button_3_counter_state=COUNTER_STOP;
@@ -86,7 +89,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
       /*进入长按计时状态,并且LED切换为流水灯*/
       button_3_counter++;
-      if(button_3_counter>3000)
+      if(button_3_counter>LONG_PRESS_TIME)
       {
         button_3_counter_state=COUNTER_LONG_STOP;
         button_3_counter=0;

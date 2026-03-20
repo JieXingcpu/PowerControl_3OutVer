@@ -21,12 +21,12 @@ typedef struct
 
 typedef struct INA3221
 {
-  uint8_t address;
-  uint16_t send_data_buffer;
-  uint16_t read_data_buffer;
-  Power_DataTypeDef Power_Data;
-  Power_State channel_state;
-  uint8_t index;
+  uint8_t address;//寄存器地址
+  uint16_t send_data_buffer;//发送数据缓冲区
+  uint16_t read_data_buffer;//读取数据缓冲区
+  Power_DataTypeDef Power_Data;//电压电流数据
+  Power_State channel_state;//通道状态
+  uint8_t index;//当前正在读取的通道索引,0-2分别对应3个通道
   /*成员函数*/
   INA3221_STATE (*Init)(struct INA3221 *self);
   INA3221_STATE (*Read_Loop)(struct INA3221 *self,Power_Control *power);

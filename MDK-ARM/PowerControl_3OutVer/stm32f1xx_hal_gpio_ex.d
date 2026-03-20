@@ -8,9 +8,9 @@ powercontrol_3outver/stm32f1xx_hal_gpio_ex.o: \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h \
   ..\Drivers\CMSIS\Include\core_cm3.h \
   D:\Keil\ARM\ARMCLANG\include\stdint.h \
-  E:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_version.h \
-  E:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_compiler.h \
-  E:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_armclang.h \
+  e:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_version.h \
+  e:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_compiler.h \
+  e:\26HXC\PowerControl_3OutVer\Drivers\CMSIS\Include\cmsis_armclang.h \
   D:\Keil\ARM\ARMCLANG\include\arm_compat.h \
   D:\Keil\ARM\ARMCLANG\include\arm_acle.h \
   ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h \
