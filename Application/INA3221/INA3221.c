@@ -59,12 +59,10 @@ static INA3221_STATE Search_Channel_To_Read(INA3221 *ina3221, Power_Control *pow
       ina3221->address = Channel_Map[ina3221->index];
       if(ina3221->index % 2 == 0)
       {
-        if(INA3221_ReadVoltage(ina3221) == INA3221_STATE_ERROR) 
-          return INA3221_STATE_ERROR;
+        if(INA3221_ReadVoltage(ina3221) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
       } else
       {
-        if(INA3221_ReadCurrent(ina3221) == INA3221_STATE_ERROR) 
-          return INA3221_STATE_ERROR;
+        if(INA3221_ReadCurrent(ina3221) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
         Power_Current_Control_Loop(ina3221, power);
       }
       ina3221->index++;
@@ -72,7 +70,7 @@ static INA3221_STATE Search_Channel_To_Read(INA3221 *ina3221, Power_Control *pow
     }
     ina3221->index++;
   }
-  return INA3221_STATE_IDLE;
+  return INA3221_STATE_READ_OK;
 }
 /**
   * @brief  电源控制中的检测模块INA3221读取循环
@@ -117,18 +115,32 @@ INA3221_STATE Power_Read_Loop(INA3221 *ina3221, Power_Control *power)
 static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *power)
 {
   Power_Output_Channel danger_channel = 0x00;
+  Power_Output_Channel warning_channel = 0x00;
   /*电压保护*/
-  if(handle->Power_Data.voltage[0] < MIN_POWER_VOLTAGE)
+  if(handle->Power_Data.voltage[0] > MAX_POWER_VOLTAGE)
   {
     danger_channel |= POWER_OUT_1;
+  } else if(handle->Power_Data.voltage[0] < MIN_POWER_VOLTAGE)
+  {
+    warning_channel |= POWER_OUT_1;
   }
-  if(handle->Power_Data.voltage[1] < MIN_POWER_VOLTAGE)
+  if(handle->Power_Data.voltage[1] > MAX_POWER_VOLTAGE)
   {
     danger_channel |= POWER_OUT_2;
+  } else if(handle->Power_Data.voltage[1] < MIN_POWER_VOLTAGE)
+  {
+    warning_channel |= POWER_OUT_2;
   }
-  if(handle->Power_Data.voltage[2] < MIN_POWER_VOLTAGE)
+  if(handle->Power_Data.voltage[2] > MAX_POWER_VOLTAGE)
   {
     danger_channel |= POWER_OUT_3;
+  } else if(handle->Power_Data.voltage[2] < MIN_POWER_VOLTAGE)
+  {
+    warning_channel |= POWER_OUT_3;
+  }
+  if(power->Power_Channel_State & warning_channel)
+  {
+    Buzzer_Switch(BUZZER_WARNING);
   }
   return power->Switch(power, danger_channel, POWER_OFF, danger_channel);
 }
@@ -218,7 +230,7 @@ static INA3221_STATE INA3221_ReadVoltage(INA3221 *handle)
 {
   static float Voltage;
   if(INA3221_ReadReg(handle) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
-  handle->Power_Data.voltage[handle->index / 2] = (float)handle->read_data_buffer / 100;
+  handle->Power_Data.voltage[handle->index / 2] = (float)handle->read_data_buffer / 1000;
   return INA3221_STATE_IDLE;
 }
 /**

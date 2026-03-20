@@ -2,15 +2,22 @@
 #include "tim.h"
 #include "Button.h"
 #include "LED.h"
+#include "Power.h"
+#include "INA3221.h"
+#include <stdio.h>
+extern Power_Control power;
+extern INA3221 power_read;
+
 #define LONG_PRESS_TIME 2000
 #define MAX_WAITING_TIME 5000
+void print_callback(Power_Control *power,INA3221 *ina3221);
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   /*10Hz*/
   if(htim->Instance == TIM1)
   {
-
+    print_callback(&power, &power_read);
   }
   /*100Hz*/
   else if(htim->Instance == TIM3)
@@ -97,4 +104,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       }
     }
   }
+}
+void print_callback(Power_Control *power,INA3221 *ina3221)
+{
+  printf("Power State: %d, Voltage: %.2fV, Current: %.2fA\r\n", power->Power_Channel_State, ina3221->Power_Data.voltage[0], ina3221->Power_Data.current[0]);
 }

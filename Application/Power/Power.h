@@ -14,8 +14,9 @@ typedef enum
 
 typedef enum
 {
-  POWER_ON = 0,
-  POWER_OFF
+  POWER_ON = 0x00,
+  POWER_OFF = 0x01,
+  POWER_WARNING = 0x02,
 } Channel_State;
 
 typedef enum

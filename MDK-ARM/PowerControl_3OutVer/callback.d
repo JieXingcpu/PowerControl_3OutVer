@@ -32,4 +32,6 @@ powercontrol_3outver/callback.o: ..\Core\Src\CallBack.c \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h \
   ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_uart.h \
-  ..\Application\Button\Button.h ..\Application\LED\LED.h
+  ..\Application\Button\Button.h ..\Application\LED\LED.h \
+  ..\Application\Power\Power.h ..\Application\INA3221\INA3221.h \
+  D:\Keil\ARM\ARMCLANG\include\stdio.h

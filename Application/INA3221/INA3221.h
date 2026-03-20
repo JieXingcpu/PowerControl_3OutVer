@@ -4,6 +4,7 @@
 #include "stdint.h"
 #include "Power.h"
 #define MIN_POWER_VOLTAGE 23.0f //最小电池电压,低于此电压将会断电且报警
+#define MAX_POWER_VOLTAGE 26.0f //最大电池电压,高于此电压将会断电且报警
 #define MAX_POWER_CURRENT 30.0f  //最大电流,高于此电流将会断电且报警
 typedef enum
 {

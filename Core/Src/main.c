@@ -114,7 +114,7 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM4_Init();
   MX_USART2_UART_Init();
-  // MX_IWDG_Init();
+  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
   Init_Power_Control(&power);
   Init_Power_Read(&power_read);
@@ -124,8 +124,9 @@ int main(void)
   LED_Init();
   Buzzer_Init();
   Buzzer_Switch(BUZZER_SYSTEM_INIT);
-  // HAL_TIM_Base_Start_IT(&htim1);
+  HAL_TIM_Base_Start_IT(&htim1);
   // HAL_TIM_Base_Start_IT(&htim3);
+  __HAL_DBGMCU_FREEZE_IWDG();
 
   /* USER CODE END 2 */
 
@@ -133,7 +134,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    // HAL_IWDG_Refresh(&hiwdg);
+    HAL_IWDG_Refresh(&hiwdg);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -186,15 +187,15 @@ int main(void)
       button_3_state = BUTTON_STATE_IDLE;
     }
     /*电源监测部分*/
-    // Ina3221_State = power_read.Read_Loop(&power_read, &power);
-    // if(Ina3221_State == INA3221_STATE_READ_OK)
-    // {
-    //   /*进行一次电源检测*/
-    //   power_read.Control_Loop(&power_read, &power);
-    // } else if(Ina3221_State == INA3221_STATE_ERROR)
-    // {
-    //   while(1);
-    // }
+    Ina3221_State = power_read.Read_Loop(&power_read, &power);
+    if(Ina3221_State == INA3221_STATE_READ_OK)
+    {
+      /*进行一次电源检测*/
+      power_read.Control_Loop(&power_read, &power);
+    } else if(Ina3221_State == INA3221_STATE_ERROR)
+    {
+      while(1);
+    }
     HAL_Delay(10);
   }
   /* clang-format off */
