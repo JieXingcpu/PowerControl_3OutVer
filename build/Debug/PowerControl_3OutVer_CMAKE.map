@@ -1,0 +1,889 @@
+STMicroelectronics Memory Configuration
+
+Name     Origin   Length   Bytes-Used %age-Used Attributes
+RAM 0x20000000 0x005000 0x000870       10%  rwx     
+FLASH 0x8000000 0x010000 0x0042fc       26%  rx      
+
+     VMA      LMA     Size Align Out     In      Symbol
+       0        0        0     1 _estack = ORIGIN(RAM) + LENGTH(RAM)
+       0        0        0     1 _Min_Heap_Size = 0x200
+       0        0        0     1 _Min_Stack_Size = 0x400
+ 8000000  8000000      10c     1 .isr_vector
+ 8000000  8000000        0     1         . = ALIGN(4)
+ 8000000  8000000      10c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.isr_vector)
+ 8000000  8000000        0     1                 g_pfnVectors
+ 800010c  800010c        0     1         . = ALIGN(4)
+ 800010c  800010c     41a0     4 .text
+ 800010c  800010c        0     1         . = ALIGN(4)
+ 800010c  800010c      118     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(mulsf3.S.obj):(.text)
+ 800010c  800010c        0     1                 $t
+ 800010d  800010d      118     1                 __mulsf3
+ 800010d  800010d      118     1                 __aeabi_fmul
+ 8000224  8000224      1c4     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(divsf3.S.obj):(.text)
+ 8000224  8000224        0     1                 $t
+ 8000225  8000225      1c0     1                 __divsf3
+ 8000225  8000225      1c0     1                 __aeabi_fdiv
+ 80003a4  80003a4        0     1                 $d
+ 80003e8  80003e8       62     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(aeabi_fcmp.S.obj):(.text)
+ 80003e8  80003e8        0     1                 $t
+ 80003e9  80003e9       12     1                 __aeabi_fcmpeq
+ 80003fd  80003fd       12     1                 __aeabi_fcmplt
+ 8000411  8000411       12     1                 __aeabi_fcmple
+ 8000425  8000425       12     1                 __aeabi_fcmpge
+ 8000439  8000439       12     1                 __aeabi_fcmpgt
+ 800044c  800044c       84     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(comparesf2.S.obj):(.text)
+ 800044c  800044c        0     1                 $t
+ 800044d  800044d       36     1                 __eqsf2
+ 800044d  800044d       36     1                 __lesf2
+ 800044d  800044d       36     1                 __ltsf2
+ 800044d  800044d       36     1                 __nesf2
+ 800044d  800044d       36     1                 __cmpsf2
+ 8000485  8000485       38     1                 __gtsf2
+ 8000485  8000485       38     1                 __gesf2
+ 80004bd  80004bd       14     1                 __unordsf2
+ 80004bd  80004bd       14     1                 __aeabi_fcmpun
+ 80004d0  80004d0        2     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.text.SystemInit)
+ 80004d0  80004d0        0     1                 $t
+ 80004d1  80004d1        2     1                 SystemInit
+ 80004d4  80004d4       f6     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.text.HAL_CAN_Init)
+ 80004d4  80004d4        0     1                 $t
+ 80004d5  80004d5       f6     1                 HAL_CAN_Init
+ 80005cc  80005cc       f6     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.text.HAL_CAN_ConfigFilter)
+ 80005cc  80005cc        0     1                 $t
+ 80005cd  80005cd       f6     1                 HAL_CAN_ConfigFilter
+ 80006c4  80006c4       5a     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.text.HAL_CAN_Start)
+ 80006c4  80006c4        0     1                 $t
+ 80006c5  80006c5       5a     1                 HAL_CAN_Start
+ 8000720  8000720       a8     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.text.HAL_CAN_AddTxMessage)
+ 8000720  8000720        0     1                 $t
+ 8000721  8000721       a8     1                 HAL_CAN_AddTxMessage
+ 80007c8  80007c8       2e     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.text.HAL_CAN_ActivateNotification)
+ 80007c8  80007c8        0     1                 $t
+ 80007c9  80007c9       2e     1                 HAL_CAN_ActivateNotification
+ 80007f8  80007f8       26     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.text.HAL_Init)
+ 80007f8  80007f8        0     1                 $t
+ 80007f9  80007f9       26     1                 HAL_Init
+ 8000820  8000820       50     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.text.HAL_InitTick)
+ 8000820  8000820        0     1                 $t
+ 8000821  8000821       50     1                 HAL_InitTick
+ 8000870  8000870       1a     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.text.HAL_IncTick)
+ 8000870  8000870        0     1                 $t
+ 8000871  8000871       1a     1                 HAL_IncTick
+ 800088c  800088c        c     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.text.HAL_GetTick)
+ 800088c  800088c        0     1                 $t
+ 800088d  800088d        c     1                 HAL_GetTick
+ 8000898  8000898       28     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.text.HAL_Delay)
+ 8000898  8000898        0     1                 $t
+ 8000899  8000899       28     1                 HAL_Delay
+ 80008c0  80008c0      34e     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.text.HAL_RCC_OscConfig)
+ 80008c0  80008c0        0     1                 $t
+ 80008c1  80008c1      34e     1                 HAL_RCC_OscConfig
+ 8000c10  8000c10      19e     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.text.HAL_RCC_ClockConfig)
+ 8000c10  8000c10        0     1                 $t
+ 8000c11  8000c11      19e     1                 HAL_RCC_ClockConfig
+ 8000db0  8000db0       26     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.text.HAL_RCC_GetPCLK1Freq)
+ 8000db0  8000db0        0     1                 $t
+ 8000db1  8000db1       26     1                 HAL_RCC_GetPCLK1Freq
+ 8000dd8  8000dd8       26     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.text.HAL_RCC_GetPCLK2Freq)
+ 8000dd8  8000dd8        0     1                 $t
+ 8000dd9  8000dd9       26     1                 HAL_RCC_GetPCLK2Freq
+ 8000e00  8000e00      22e     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.text.HAL_GPIO_Init)
+ 8000e00  8000e00        0     1                 $t
+ 8000e01  8000e01      22e     1                 HAL_GPIO_Init
+ 8000e7a  8000e7a        0     1                 $d
+ 8000e8e  8000e8e        0     1                 $t
+ 8001030  8001030        c     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.text.HAL_GPIO_ReadPin)
+ 8001030  8001030        0     1                 $t
+ 8001031  8001031        c     1                 HAL_GPIO_ReadPin
+ 800103c  800103c        a     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.text.HAL_GPIO_WritePin)
+ 800103c  800103c        0     1                 $t
+ 800103d  800103d        a     1                 HAL_GPIO_WritePin
+ 8001048  8001048       12     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.text.HAL_GPIO_TogglePin)
+ 8001048  8001048        0     1                 $t
+ 8001049  8001049       12     1                 HAL_GPIO_TogglePin
+ 800105c  800105c       16     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.text.HAL_GPIO_EXTI_IRQHandler)
+ 800105c  800105c        0     1                 $t
+ 800105d  800105d       16     1                 HAL_GPIO_EXTI_IRQHandler
+ 8001074  8001074       20     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.text.HAL_NVIC_SetPriorityGrouping)
+ 8001074  8001074        0     1                 $t
+ 8001075  8001075       20     1                 HAL_NVIC_SetPriorityGrouping
+ 8001094  8001094       5c     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.text.HAL_NVIC_SetPriority)
+ 8001094  8001094        0     1                 $t
+ 8001095  8001095       5c     1                 HAL_NVIC_SetPriority
+ 80010f0  80010f0       20     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.text.HAL_NVIC_EnableIRQ)
+ 80010f0  80010f0        0     1                 $t
+ 80010f1  80010f1       20     1                 HAL_NVIC_EnableIRQ
+ 8001110  8001110       32     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.text.HAL_SYSTICK_Config)
+ 8001110  8001110        0     1                 $t
+ 8001111  8001111       32     1                 HAL_SYSTICK_Config
+ 8001144  8001144      170     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.text.HAL_I2C_Init)
+ 8001144  8001144        0     1                 $t
+ 8001145  8001145      170     1                 HAL_I2C_Init
+ 80012b4  80012b4       8e     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.text.I2C_WaitOnFlagUntilTimeout)
+ 80012b4  80012b4        0     1                 $t
+ 80012b5  80012b5       8e     1                 I2C_WaitOnFlagUntilTimeout
+ 8001344  8001344       74     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.text.I2C_WaitOnBTFFlagUntilTimeout)
+ 8001344  8001344        0     1                 $t
+ 8001345  8001345       74     1                 I2C_WaitOnBTFFlagUntilTimeout
+ 80013b8  80013b8      1aa     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.text.HAL_I2C_Mem_Write)
+ 80013b8  80013b8        0     1                 $t
+ 80013b9  80013b9      1aa     1                 HAL_I2C_Mem_Write
+ 8001564  8001564      1d6     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.text.I2C_RequestMemoryWrite)
+ 8001564  8001564        0     1                 $t
+ 8001565  8001565      1d6     1                 I2C_RequestMemoryWrite
+ 800173c  800173c      3a6     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.text.HAL_I2C_Mem_Read)
+ 800173c  800173c        0     1                 $t
+ 800173d  800173d      3a6     1                 HAL_I2C_Mem_Read
+ 8001ae4  8001ae4      258     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.text.I2C_RequestMemoryRead)
+ 8001ae4  8001ae4        0     1                 $t
+ 8001ae5  8001ae5      258     1                 I2C_RequestMemoryRead
+ 8001d3c  8001d3c       8a     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.text.I2C_WaitOnMasterAddressFlagUntilTimeout)
+ 8001d3c  8001d3c        0     1                 $t
+ 8001d3d  8001d3d       8a     1                 I2C_WaitOnMasterAddressFlagUntilTimeout
+ 8001dc8  8001dc8       5c     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.text.HAL_IWDG_Init)
+ 8001dc8  8001dc8        0     1                 $t
+ 8001dc9  8001dc9       5c     1                 HAL_IWDG_Init
+ 8001e24  8001e24        c     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.text.HAL_IWDG_Refresh)
+ 8001e24  8001e24        0     1                 $t
+ 8001e25  8001e25        c     1                 HAL_IWDG_Refresh
+ 8001e30  8001e30       ec     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_Base_Init)
+ 8001e30  8001e30        0     1                 $t
+ 8001e31  8001e31       ec     1                 HAL_TIM_Base_Init
+ 8001f1c  8001f1c       6a     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_Base_Start_IT)
+ 8001f1c  8001f1c        0     1                 $t
+ 8001f1d  8001f1d       6a     1                 HAL_TIM_Base_Start_IT
+ 8001f88  8001f88       ec     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_PWM_Init)
+ 8001f88  8001f88        0     1                 $t
+ 8001f89  8001f89       ec     1                 HAL_TIM_PWM_Init
+ 8002074  8002074       c8     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_PWM_Start)
+ 8002074  8002074        0     1                 $t
+ 8002075  8002075       c8     1                 HAL_TIM_PWM_Start
+ 800213c  800213c       98     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_PWM_Stop)
+ 800213c  800213c        0     1                 $t
+ 800213d  800213d       98     1                 HAL_TIM_PWM_Stop
+ 80021d4  80021d4      148     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_IRQHandler)
+ 80021d4  80021d4        0     1                 $t
+ 80021d5  80021d5      148     1                 HAL_TIM_IRQHandler
+ 800231c  800231c        2     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_IC_CaptureCallback)
+ 800231c  800231c        0     1                 $t
+ 800231d  800231d        2     1                 HAL_TIM_IC_CaptureCallback
+ 8002320  8002320        2     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_OC_DelayElapsedCallback)
+ 8002320  8002320        0     1                 $t
+ 8002321  8002321        2     1                 HAL_TIM_OC_DelayElapsedCallback
+ 8002324  8002324        2     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_PWM_PulseFinishedCallback)
+ 8002324  8002324        0     1                 $t
+ 8002325  8002325        2     1                 HAL_TIM_PWM_PulseFinishedCallback
+ 8002328  8002328        2     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_TriggerCallback)
+ 8002328  8002328        0     1                 $t
+ 8002329  8002329        2     1                 HAL_TIM_TriggerCallback
+ 800232c  800232c      20a     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_PWM_ConfigChannel)
+ 800232c  800232c        0     1                 $t
+ 800232d  800232d      20a     1                 HAL_TIM_PWM_ConfigChannel
+ 8002356  8002356        0     1                 $d
+ 800235a  800235a        0     1                 $t
+ 8002538  8002538      19c     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_ConfigClockSource)
+ 8002538  8002538        0     1                 $t
+ 8002539  8002539      19c     1                 HAL_TIM_ConfigClockSource
+ 80026d4  80026d4       1c     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.text.HAL_TIM_GetChannelState)
+ 80026d4  80026d4        0     1                 $t
+ 80026d5  80026d5       1c     1                 HAL_TIM_GetChannelState
+ 80026f0  80026f0       82     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.text.HAL_TIMEx_MasterConfigSynchronization)
+ 80026f0  80026f0        0     1                 $t
+ 80026f1  80026f1       82     1                 HAL_TIMEx_MasterConfigSynchronization
+ 8002774  8002774        2     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.text.HAL_TIMEx_CommutCallback)
+ 8002774  8002774        0     1                 $t
+ 8002775  8002775        2     1                 HAL_TIMEx_CommutCallback
+ 8002778  8002778        2     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.text.HAL_TIMEx_BreakCallback)
+ 8002778  8002778        0     1                 $t
+ 8002779  8002779        2     1                 HAL_TIMEx_BreakCallback
+ 800277c  800277c       5e     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.text.HAL_UART_Init)
+ 800277c  800277c        0     1                 $t
+ 800277d  800277d       5e     1                 HAL_UART_Init
+ 80027dc  80027dc       96     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.text.UART_SetConfig)
+ 80027dc  80027dc        0     1                 $t
+ 80027dd  80027dd       96     1                 UART_SetConfig
+ 8002874  8002874      1de     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.text.main)
+ 8002874  8002874        0     1                 $t
+ 8002875  8002875      1de     1                 main
+ 8002a54  8002a54        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.text.Error_Handler)
+ 8002a54  8002a54        0     1                 $t
+ 8002a55  8002a55        6     1                 Error_Handler
+ 8002a5c  8002a5c       f0     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.text.MX_GPIO_Init)
+ 8002a5c  8002a5c        0     1                 $t
+ 8002a5d  8002a5d       f0     1                 MX_GPIO_Init
+ 8002b4c  8002b4c       40     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.text.MX_CAN_Init)
+ 8002b4c  8002b4c        0     1                 $t
+ 8002b4d  8002b4d       40     1                 MX_CAN_Init
+ 8002b8c  8002b8c       a0     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.text.HAL_CAN_MspInit)
+ 8002b8c  8002b8c        0     1                 $t
+ 8002b8d  8002b8d       a0     1                 HAL_CAN_MspInit
+ 8002c2c  8002c2c       42     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.text.MX_I2C1_Init)
+ 8002c2c  8002c2c        0     1                 $t
+ 8002c2d  8002c2d       42     1                 MX_I2C1_Init
+ 8002c70  8002c70       6a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.text.HAL_I2C_MspInit)
+ 8002c70  8002c70        0     1                 $t
+ 8002c71  8002c71       6a     1                 HAL_I2C_MspInit
+ 8002cdc  8002cdc       2e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.text.MX_IWDG_Init)
+ 8002cdc  8002cdc        0     1                 $t
+ 8002cdd  8002cdd       2e     1                 MX_IWDG_Init
+ 8002d0c  8002d0c       88     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM1_Init)
+ 8002d0c  8002d0c        0     1                 $t
+ 8002d0d  8002d0d       88     1                 MX_TIM1_Init
+ 8002d94  8002d94       c4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM2_Init)
+ 8002d94  8002d94        0     1                 $t
+ 8002d95  8002d95       c4     1                 MX_TIM2_Init
+ 8002e58  8002e58       84     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM3_Init)
+ 8002e58  8002e58        0     1                 $t
+ 8002e59  8002e59       84     1                 MX_TIM3_Init
+ 8002edc  8002edc       84     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM4_Init)
+ 8002edc  8002edc        0     1                 $t
+ 8002edd  8002edd       84     1                 MX_TIM4_Init
+ 8002f60  8002f60       ae     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.HAL_TIM_Base_MspInit)
+ 8002f60  8002f60        0     1                 $t
+ 8002f61  8002f61       ae     1                 HAL_TIM_Base_MspInit
+ 8003010  8003010       2a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.HAL_TIM_PWM_MspInit)
+ 8003010  8003010        0     1                 $t
+ 8003011  8003011       2a     1                 HAL_TIM_PWM_MspInit
+ 800303c  800303c       3c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.text.MX_USART2_UART_Init)
+ 800303c  800303c        0     1                 $t
+ 800303d  800303d       3c     1                 MX_USART2_UART_Init
+ 8003078  8003078       7c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.text.HAL_UART_MspInit)
+ 8003078  8003078        0     1                 $t
+ 8003079  8003079       7c     1                 HAL_UART_MspInit
+ 80030f4  80030f4        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.NMI_Handler)
+ 80030f4  80030f4        0     1                 $t
+ 80030f5  80030f5        2     1                 NMI_Handler
+ 80030f8  80030f8        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.HardFault_Handler)
+ 80030f8  80030f8        0     1                 $t
+ 80030f9  80030f9        2     1                 HardFault_Handler
+ 80030fc  80030fc        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.MemManage_Handler)
+ 80030fc  80030fc        0     1                 $t
+ 80030fd  80030fd        2     1                 MemManage_Handler
+ 8003100  8003100        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.BusFault_Handler)
+ 8003100  8003100        0     1                 $t
+ 8003101  8003101        2     1                 BusFault_Handler
+ 8003104  8003104        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.UsageFault_Handler)
+ 8003104  8003104        0     1                 $t
+ 8003105  8003105        2     1                 UsageFault_Handler
+ 8003108  8003108        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.SVC_Handler)
+ 8003108  8003108        0     1                 $t
+ 8003109  8003109        2     1                 SVC_Handler
+ 800310c  800310c        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.DebugMon_Handler)
+ 800310c  800310c        0     1                 $t
+ 800310d  800310d        2     1                 DebugMon_Handler
+ 8003110  8003110        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.PendSV_Handler)
+ 8003110  8003110        0     1                 $t
+ 8003111  8003111        2     1                 PendSV_Handler
+ 8003114  8003114        4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.SysTick_Handler)
+ 8003114  8003114        0     1                 $t
+ 8003115  8003115        4     1                 SysTick_Handler
+ 8003118  8003118        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.EXTI3_IRQHandler)
+ 8003118  8003118        0     1                 $t
+ 8003119  8003119        6     1                 EXTI3_IRQHandler
+ 8003120  8003120        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.EXTI4_IRQHandler)
+ 8003120  8003120        0     1                 $t
+ 8003121  8003121        6     1                 EXTI4_IRQHandler
+ 8003128  8003128        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.EXTI9_5_IRQHandler)
+ 8003128  8003128        0     1                 $t
+ 8003129  8003129        6     1                 EXTI9_5_IRQHandler
+ 8003130  8003130        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.TIM1_UP_IRQHandler)
+ 8003130  8003130        0     1                 $t
+ 8003131  8003131        c     1                 TIM1_UP_IRQHandler
+ 800313c  800313c        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.TIM3_IRQHandler)
+ 800313c  800313c        0     1                 $t
+ 800313d  800313d        c     1                 TIM3_IRQHandler
+ 8003148  8003148        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.TIM4_IRQHandler)
+ 8003148  8003148        0     1                 $t
+ 8003149  8003149        c     1                 TIM4_IRQHandler
+ 8003154  8003154       4a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.text.HAL_MspInit)
+ 8003154  8003154        0     1                 $t
+ 8003155  8003155       4a     1                 HAL_MspInit
+ 80031a0  80031a0       48     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.text.Reset_Handler)
+ 80031a0  80031a0        0     1                 $t
+ 80031a1  80031a1       34     1                 Reset_Handler
+ 80031ae  80031ae        0     1                 CopyDataInit
+ 80031b4  80031b4        0     1                 LoopCopyDataInit
+ 80031c2  80031c2        0     1                 FillZerobss
+ 80031c6  80031c6        0     1                 LoopFillZerobss
+ 80031d4  80031d4        0     1                 $d
+ 80031e8  80031e8        2     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.text.Default_Handler)
+ 80031e8  80031e8        0     1                 Infinite_Loop
+ 80031e8  80031e8        0     1                 $t
+ 80031e8  80031e8        2     1                 Default_Handler
+ 80031e9  80031e9        2     1                 WWDG_IRQHandler
+ 80031e9  80031e9        2     1                 PVD_IRQHandler
+ 80031e9  80031e9        2     1                 TAMPER_IRQHandler
+ 80031e9  80031e9        2     1                 RTC_IRQHandler
+ 80031e9  80031e9        2     1                 FLASH_IRQHandler
+ 80031e9  80031e9        2     1                 RCC_IRQHandler
+ 80031e9  80031e9        2     1                 EXTI0_IRQHandler
+ 80031e9  80031e9        2     1                 EXTI1_IRQHandler
+ 80031e9  80031e9        2     1                 EXTI2_IRQHandler
+ 80031e9  80031e9        2     1                 DMA1_Channel1_IRQHandler
+ 80031e9  80031e9        2     1                 DMA1_Channel2_IRQHandler
+ 80031e9  80031e9        2     1                 DMA1_Channel3_IRQHandler
+ 80031e9  80031e9        2     1                 DMA1_Channel4_IRQHandler
+ 80031e9  80031e9        2     1                 DMA1_Channel5_IRQHandler
+ 80031e9  80031e9        2     1                 DMA1_Channel6_IRQHandler
+ 80031e9  80031e9        2     1                 DMA1_Channel7_IRQHandler
+ 80031e9  80031e9        2     1                 ADC1_2_IRQHandler
+ 80031e9  80031e9        2     1                 USB_HP_CAN1_TX_IRQHandler
+ 80031e9  80031e9        2     1                 USB_LP_CAN1_RX0_IRQHandler
+ 80031e9  80031e9        2     1                 CAN1_RX1_IRQHandler
+ 80031e9  80031e9        2     1                 CAN1_SCE_IRQHandler
+ 80031e9  80031e9        2     1                 TIM1_BRK_IRQHandler
+ 80031e9  80031e9        2     1                 TIM1_TRG_COM_IRQHandler
+ 80031e9  80031e9        2     1                 TIM1_CC_IRQHandler
+ 80031e9  80031e9        2     1                 TIM2_IRQHandler
+ 80031e9  80031e9        2     1                 I2C1_EV_IRQHandler
+ 80031e9  80031e9        2     1                 I2C1_ER_IRQHandler
+ 80031e9  80031e9        2     1                 I2C2_EV_IRQHandler
+ 80031e9  80031e9        2     1                 I2C2_ER_IRQHandler
+ 80031e9  80031e9        2     1                 SPI1_IRQHandler
+ 80031e9  80031e9        2     1                 SPI2_IRQHandler
+ 80031e9  80031e9        2     1                 USART1_IRQHandler
+ 80031e9  80031e9        2     1                 USART2_IRQHandler
+ 80031e9  80031e9        2     1                 USART3_IRQHandler
+ 80031e9  80031e9        2     1                 EXTI15_10_IRQHandler
+ 80031e9  80031e9        2     1                 RTC_Alarm_IRQHandler
+ 80031e9  80031e9        2     1                 USBWakeUp_IRQHandler
+ 80031ec  80031ec       6a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.text.Button_Init)
+ 80031ec  80031ec        0     1                 $t
+ 80031ed  80031ed       6a     1                 Button_Init
+ 8003258  8003258      23c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.text.HAL_GPIO_EXTI_Callback)
+ 8003258  8003258        0     1                 $t
+ 8003259  8003259      23c     1                 HAL_GPIO_EXTI_Callback
+ 8003494  8003494       4e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.text.LED_Init)
+ 8003494  8003494        0     1                 $t
+ 8003495  8003495       4e     1                 LED_Init
+ 80034e4  80034e4      2e0     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.text.LED_Switch)
+ 80034e4  80034e4        0     1                 $t
+ 80034e5  80034e5      2e0     1                 LED_Switch
+ 80034f6  80034f6        0     1                 $d
+ 80034fc  80034fc        0     1                 $t
+ 8003508  8003508        0     1                 $d
+ 8003514  8003514        0     1                 $t
+ 8003550  8003550        0     1                 $d
+ 8003558  8003558        0     1                 $t
+ 800357c  800357c        0     1                 $d
+ 8003582  8003582        0     1                 $t
+ 80035be  80035be        0     1                 $d
+ 80035c2  80035c2        0     1                 $t
+ 80035e6  80035e6        0     1                 $d
+ 80035ec  80035ec        0     1                 $t
+ 800362a  800362a        0     1                 $d
+ 800362e  800362e        0     1                 $t
+ 80037c4  80037c4       34     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Init_Power_Read)
+ 80037c4  80037c4        0     1                 $t
+ 80037c5  80037c5       34     1                 Init_Power_Read
+ 80037f8  80037f8       e4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.INA3221_Init)
+ 80037f8  80037f8        0     1                 $t
+ 80037f9  80037f9       e4     1                 INA3221_Init
+ 80038dc  80038dc      1d2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Power_Read_Loop)
+ 80038dc  80038dc        0     1                 $t
+ 80038dd  80038dd      1d2     1                 Power_Read_Loop
+ 8003904  8003904        0     1                 $d
+ 8003908  8003908        0     1                 $t
+ 8003ab0  8003ab0       ac     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Power_Voltage_Control_Loop)
+ 8003ab0  8003ab0        0     1                 $t
+ 8003ab1  8003ab1       ac     1                 Power_Voltage_Control_Loop
+ 8003b5c  8003b5c       26     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Init_Power_Control)
+ 8003b5c  8003b5c        0     1                 $t
+ 8003b5d  8003b5d       26     1                 Init_Power_Control
+ 8003b84  8003b84       38     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Power_Init)
+ 8003b84  8003b84        0     1                 $t
+ 8003b85  8003b85       38     1                 Power_Init
+ 8003bbc  8003bbc      116     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Power_Switch)
+ 8003bbc  8003bbc        0     1                 $t
+ 8003bbd  8003bbd      116     1                 Power_Switch
+ 8003cd4  8003cd4        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Power_Read_Channel_State)
+ 8003cd4  8003cd4        0     1                 $t
+ 8003cd5  8003cd5        6     1                 Power_Read_Channel_State
+ 8003cdc  8003cdc        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.text.Send_Period_Init)
+ 8003cdc  8003cdc        0     1                 $t
+ 8003cdd  8003cdd        c     1                 Send_Period_Init
+ 8003ce8  8003ce8       30     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.text.Send_CAN_Message)
+ 8003ce8  8003ce8        0     1                 $t
+ 8003ce9  8003ce9       30     1                 Send_CAN_Message
+ 8003d18  8003d18       56     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.text.CAN_Connect_Init)
+ 8003d18  8003d18        0     1                 $t
+ 8003d19  8003d19       56     1                 CAN_Connect_Init
+ 8003d70  8003d70       1c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.text.Buzzer_Init)
+ 8003d70  8003d70        0     1                 $t
+ 8003d71  8003d71       1c     1                 Buzzer_Init
+ 8003d8c  8003d8c       d4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.text.Buzzer_Switch)
+ 8003d8c  8003d8c        0     1                 $t
+ 8003d8d  8003d8d       d4     1                 Buzzer_Switch
+ 8003e60  8003e60      2a0     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.text.HAL_TIM_PeriodElapsedCallback)
+ 8003e60  8003e60        0     1                 $t
+ 8003e61  8003e61      2a0     1                 HAL_TIM_PeriodElapsedCallback
+ 8004100  8004100       3c     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fixsfsi.c.obj):(.text.__fixsfsi)
+ 8004100  8004100        0     1                 $t
+ 8004101  8004101       3c     1                 __fixsfsi
+ 8004101  8004101       3c     1                 __aeabi_f2iz
+ 800413c  800413c       4a     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(floatunsisf.c.obj):(.text.__floatunsisf)
+ 800413c  800413c        0     1                 $t
+ 800413d  800413d       4a     1                 __floatunsisf
+ 800413d  800413d       4a     1                 __aeabi_ui2f
+ 8004186  8004186       38     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fnan2.c.obj):(.text.__compiler_rt_fnan2)
+ 8004186  8004186        0     1                 $t
+ 8004187  8004187       38     1                 __compiler_rt_fnan2
+ 80041be  80041be       3c     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fnorm2.c.obj):(.text.__compiler_rt_fnorm2)
+ 80041be  80041be        0     1                 $t
+ 80041bf  80041bf       3c     1                 __compiler_rt_fnorm2
+ 80041fa  80041fa       5c     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(funder.c.obj):(.text.__compiler_rt_funder)
+ 80041fa  80041fa        0     1                 $t
+ 80041fb  80041fb       5c     1                 __compiler_rt_funder
+ 8004256  8004256        8     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(bzero.c.o):(.text.bzero)
+ 8004256  8004256        0     1                 $t
+ 8004257  8004257        8     1                 bzero
+ 8004257  8004257        8     1                 __aeabi_memclr4
+ 8004257  8004257        8     1                 __aeabi_memclr8
+ 8004257  8004257        8     1                 __aeabi_memclr
+ 800425e  800425e        e     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(memset.c.o):(.text.memset)
+ 800425e  800425e        0     1                 $t
+ 800425f  800425f        e     1                 memset
+ 800426c  800426c       1c     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_misc_init.c.o):(.text.__libc_init_array)
+ 800426c  800426c        0     1                 $t
+ 800426d  800426d       1c     1                 __libc_init_array
+ 8004280  8004280        0     1                 $d
+ 8004288  8004288       10     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_read_tp.S.o):(.text._initial_set_tls)
+ 8004288  8004288        0     1                 $t
+ 8004289  8004289        6     1                 _initial_set_tls
+ 8004290  8004290        0     1                 $d
+ 8004298  8004298       14     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_set_tls.c.o):(.text._set_tls)
+ 8004298  8004298        0     1                 $t
+ 8004299  8004299       14     1                 _set_tls
+ 80042a4  80042a4        0     1                 $d
+ 80042ac  80042ac        0     1         . = ALIGN(4)
+ 80042ac  80042ac        0     1         _etext = .
+ 80042ac  80042ac       30     1 .rodata
+ 80042ac  80042ac        0     1         . = ALIGN(4)
+ 80042ac  80042ac       10     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.rodata.AHBPrescTable)
+ 80042ac  80042ac       10     1                 AHBPrescTable
+ 80042bc  80042bc        8     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.rodata.APBPrescTable)
+ 80042bc  80042bc        8     1                 APBPrescTable
+ 80042c4  80042c4       10     1         <internal>:(.rodata.cst16)
+ 80042d4  80042d4        2     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.rodata.HAL_RCC_GetSysClockFreq.aPredivFactorTable)
+ 80042d4  80042d4        2     1                 HAL_RCC_GetSysClockFreq.aPredivFactorTable
+ 80042d6  80042d6        6     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.rodata..L__const.Search_Channel_To_Read.Channel_Map)
+ 80042d6  80042d6        6     1                 .L__const.Search_Channel_To_Read.Channel_Map
+ 80042dc  80042dc        0     1         . = ALIGN(4)
+ 80042dc  80042dc        0     1 .ARM.extab
+ 80042dc  80042dc        0     1         . = ALIGN(4)
+ 80042dc  80042dc        0     1         . = ALIGN(4)
+ 80042dc  80042dc       10     4 .ARM
+ 80042dc  80042dc        0     1         . = ALIGN(4)
+ 80042dc  80042dc        0     1         __exidx_start = .
+ 80042dc  80042dc       10     4         <internal>:(.ARM.exidx)
+ 80042ec  80042ec        0     1         __exidx_end = .
+ 80042ec  80042ec        0     1         . = ALIGN(4)
+ 80042ec  80042ec        4     4 .preinit_array
+ 80042ec  80042ec        0     1         . = ALIGN(4)
+ 80042ec  80042ec        4     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_read_tp.S.o):(.preinit_array)
+ 80042f0  80042f0        0     1         . = ALIGN(4)
+ 80042f0  80042f0        0     1 .init_array
+ 80042f0  80042f0        0     1         . = ALIGN(4)
+ 80042f0  80042f0        0     1         . = ALIGN(4)
+ 80042f0  80042f0        0     1 .fini_array
+ 80042f0  80042f0        0     1         . = ALIGN(4)
+ 80042f0  80042f0        0     1         . = ALIGN(4)
+ 80042f0  80042f0        0     1 _sidata = LOADADDR(.data)
+20000000  80042f0        c     4 .data
+20000000  80042f0        0     1         . = ALIGN(4)
+20000000  80042f0        0     1         _sdata = .
+20000000  80042f0        4     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.data.SystemCoreClock)
+20000000  80042f0        4     1                 SystemCoreClock
+20000004  80042f4        4     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.data.uwTickPrio)
+20000004  80042f4        4     1                 uwTickPrio
+20000008  80042f8        1     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.data.uwTickFreq)
+20000008  80042f8        1     1                 uwTickFreq
+20000009  80042f9        3     1         . = ALIGN(4)
+2000000c  80042fc        0     4 .tdata
+2000000c  80042fc        0     1         . = ALIGN(4)
+2000000c  80042fc        0     1         _edata = .
+2000000c  80042fc        0     1 PROVIDE( __tdata_start = ADDR(.tdata) )
+2000000c 2000000c        0     4 .tbss
+2000000c 2000000c        0     1         _sbss = .
+2000000c 2000000c        0     1         __bss_start__ = _sbss
+2000000c 2000000c        0     1         . = ALIGN(4)
+2000000c 2000000c        0     1 PROVIDE( __tls_base = __tdata_start )
+2000000c 2000000c        0     1 PROVIDE( __tls_align = MAX(ALIGNOF(.tdata), ALIGNOF(.tbss)) )
+2000000c 2000000c        0     1 PROVIDE( __arm32_tls_tcb_offset = MAX(8, __tls_align) )
+2000000c 2000000c      264     4 .bss
+2000000c 2000000c        4     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.bss.uwTick)
+2000000c 2000000c        4     1                 uwTick
+20000010 20000010       10     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.bss.power)
+20000010 20000010       10     1                 power
+20000020 20000020       30     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.bss.power_read)
+20000020 20000020       30     1                 power_read
+20000050 20000050        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.bss.Ina3221_State)
+20000050 20000050        1     1                 Ina3221_State
+20000054 20000054       28     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.bss.hcan)
+20000054 20000054       28     1                 hcan
+2000007c 2000007c       54     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.bss.hi2c1)
+2000007c 2000007c       54     1                 hi2c1
+200000d0 200000d0        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.bss.hiwdg)
+200000d0 200000d0        c     1                 hiwdg
+200000dc 200000dc       48     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.bss.htim1)
+200000dc 200000dc       48     1                 htim1
+20000124 20000124       48     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.bss.htim2)
+20000124 20000124       48     1                 htim2
+2000016c 2000016c       48     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.bss.htim3)
+2000016c 2000016c       48     1                 htim3
+200001b4 200001b4       48     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.bss.htim4)
+200001b4 200001b4       48     1                 htim4
+200001fc 200001fc       48     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.bss.huart2)
+200001fc 200001fc       48     1                 huart2
+20000244 20000244        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.bss.button_1_state)
+20000244 20000244        1     1                 button_1_state
+20000246 20000246        2     2         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.bss.button_1_counter)
+20000246 20000246        2     1                 button_1_counter
+20000248 20000248        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.bss.button_1_counter_state)
+20000248 20000248        1     1                 button_1_counter_state
+20000249 20000249        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.bss.button_2_state)
+20000249 20000249        1     1                 button_2_state
+2000024a 2000024a        2     2         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.bss.button_2_counter)
+2000024a 2000024a        2     1                 button_2_counter
+2000024c 2000024c        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.bss.button_2_counter_state)
+2000024c 2000024c        1     1                 button_2_counter_state
+2000024d 2000024d        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.bss.button_3_state)
+2000024d 2000024d        1     1                 button_3_state
+2000024e 2000024e        2     2         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.bss.button_3_counter)
+2000024e 2000024e        2     1                 button_3_counter
+20000250 20000250        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.bss.button_3_counter_state)
+20000250 20000250        1     1                 button_3_counter_state
+20000254 20000254        4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.bss.flow_tick_1)
+20000254 20000254        4     1                 flow_tick_1
+20000258 20000258        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.bss.flow_step_1)
+20000258 20000258        1     1                 flow_step_1
+2000025c 2000025c        4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.bss.flow_tick_2)
+2000025c 2000025c        4     1                 flow_tick_2
+20000260 20000260        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.bss.flow_step_2)
+20000260 20000260        1     1                 flow_step_2
+20000264 20000264        4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.bss.flow_tick_3)
+20000264 20000264        4     1                 flow_tick_3
+20000268 20000268        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.bss.flow_step_3)
+20000268 20000268        1     1                 flow_step_3
+20000269 20000269        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.bss.ina3221_state)
+20000269 20000269        1     1                 ina3221_state
+2000026c 2000026c        4     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_tls.c.o):(.bss.__tls)
+2000026c 2000026c        4     1                 __tls
+20000270 20000270        0     1         . = ALIGN(4)
+20000270 20000270        0     1         _ebss = .
+20000270 20000270        0     1         __bss_end__ = _ebss
+20000270 20000270      600     1 ._user_heap_stack
+20000270 20000270        0     1         . = ALIGN(8)
+20000270 20000270        0     1         PROVIDE ( _end = . )
+20000270 20000270      200     1         . = . + _Min_Heap_Size
+20000470 20000470      400     1         . = . + _Min_Stack_Size
+20000870 20000870        0     1         . = ALIGN(8)
+       0        0     7f6f     1 .debug_loclists
+       0        0       7b     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_loclists)
+      7b       7b      580     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_loclists)
+     5fb      5fb       85     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.debug_loclists)
+     680      680      25f     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.debug_loclists)
+     8df      8df      240     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj:(.debug_loclists)
+     b1f      b1f      23d     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.debug_loclists)
+     d5c      d5c      311     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj:(.debug_loclists)
+    106d     106d      16b     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.debug_loclists)
+    11d8     11d8       56     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj:(.debug_loclists)
+    122e     122e      1a2     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj:(.debug_loclists)
+    13d0     13d0      36d     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj:(.debug_loclists)
+    173d     173d      1cc     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:(.debug_loclists)
+    1909     1909     1d3a     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.debug_loclists)
+    3643     3643       42     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.debug_loclists)
+    3685     3685     2692     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_loclists)
+    5d17     5d17      aee     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_loclists)
+    6805     6805      e30     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_loclists)
+    7635     7635       5d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_loclists)
+    7692     7692       56     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_loclists)
+    76e8     76e8       31     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_loclists)
+    7719     7719       86     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_loclists)
+    779f     779f       31     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_loclists)
+    77d0     77d0       1b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_loclists)
+    77eb     77eb       25     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_loclists)
+    7810     7810      25b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_loclists)
+    7a6b     7a6b       6a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_loclists)
+    7ad5     7ad5       ca     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_loclists)
+    7b9f     7b9f      1ad     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_loclists)
+    7d4c     7d4c       79     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_loclists)
+    7dc5     7dc5       9a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_loclists)
+    7e5f     7e5f       2b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_loclists)
+    7e8a     7e8a       e5     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_loclists)
+       0        0     36d8     1 .debug_abbrev
+       0        0       f0     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_abbrev)
+      f0       f0       bf     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_abbrev)
+     1af      1af      1d3     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_abbrev)
+     382      382      177     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.debug_abbrev)
+     4f9      4f9      247     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.debug_abbrev)
+     740      740      164     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj:(.debug_abbrev)
+     8a4      8a4      16a     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.debug_abbrev)
+     a0e      a0e      1a9     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj:(.debug_abbrev)
+     bb7      bb7      2b9     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.debug_abbrev)
+     e70      e70      17a     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj:(.debug_abbrev)
+     fea      fea      1f9     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj:(.debug_abbrev)
+    11e3     11e3      203     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj:(.debug_abbrev)
+    13e6     13e6      172     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:(.debug_abbrev)
+    1558     1558      269     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.debug_abbrev)
+    17c1     17c1       d6     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.debug_abbrev)
+    1897     1897      2e0     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_abbrev)
+    1b77     1b77      204     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_abbrev)
+    1d7b     1d7b      232     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_abbrev)
+    1fad     1fad      18d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_abbrev)
+    213a     213a       d6     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_abbrev)
+    2210     2210      172     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_abbrev)
+    2382     2382      13f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_abbrev)
+    24c1     24c1       db     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_abbrev)
+    259c     259c      220     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_abbrev)
+    27bc     27bc      146     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_abbrev)
+    2902     2902      164     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_abbrev)
+    2a66     2a66       c1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_abbrev)
+    2b27     2b27       99     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_abbrev)
+    2bc0     2bc0      1c6     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_abbrev)
+    2d86     2d86       1f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_abbrev)
+    2da5     2da5      192     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_abbrev)
+    2f37     2f37       eb     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_abbrev)
+    3022     3022      1d2     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_abbrev)
+    31f4     31f4      105     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_abbrev)
+    32f9     32f9      15b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_abbrev)
+    3454     3454      128     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_abbrev)
+    357c     357c      15c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_abbrev)
+       0        0    10a41     1 .debug_info
+       0        0      154     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_info)
+     154      154       cd     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_info)
+     221      221      a3e     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_info)
+     c5f      c5f      444     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.debug_info)
+    10a3     10a3      5b8     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.debug_info)
+    165b     165b      26e     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj:(.debug_info)
+    18c9     18c9      3f6     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.debug_info)
+    1cbf     1cbf      4c1     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj:(.debug_info)
+    2180     2180      80d     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.debug_info)
+    298d     298d      42a     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj:(.debug_info)
+    2db7     2db7      3b3     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj:(.debug_info)
+    316a     316a      5ad     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj:(.debug_info)
+    3717     3717      35a     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:(.debug_info)
+    3a71     3a71     226c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.debug_info)
+    5cdd     5cdd      121     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.debug_info)
+    5dfe     5dfe     2a18     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_info)
+    8816     8816      f98     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_info)
+    97ae     97ae     2393     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_info)
+    bb41     bb41      53c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_info)
+    c07d     c07d      259     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_info)
+    c2d6     c2d6      503     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_info)
+    c7d9     c7d9      55d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_info)
+    cd36     cd36       f1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_info)
+    ce27     ce27      86d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_info)
+    d694     d694      531     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_info)
+    dbc5     dbc5      503     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_info)
+    e0c8     e0c8      14f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_info)
+    e217     e217       ae     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_info)
+    e2c5     e2c5      573     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_info)
+    e838     e838      197     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_info)
+    e9cf     e9cf      63a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_info)
+    f009     f009      1d0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_info)
+    f1d9     f1d9      51e     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_info)
+    f6f7     f6f7      25f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_info)
+    f956     f956      576     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_info)
+    fecc     fecc      48d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_info)
+   10359    10359      6e8     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_info)
+       0        0     1061     1 .debug_rnglists
+       0        0       18     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_rnglists)
+      18       18       1a     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_rnglists)
+      32       32       8f     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_rnglists)
+      c1       c1       5c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.debug_rnglists)
+     11d      11d       65     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.debug_rnglists)
+     182      182       2c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj:(.debug_rnglists)
+     1ae      1ae       41     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.debug_rnglists)
+     1ef      1ef       58     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj:(.debug_rnglists)
+     247      247       75     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.debug_rnglists)
+     2bc      2bc       48     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj:(.debug_rnglists)
+     304      304       5b     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj:(.debug_rnglists)
+     35f      35f       39     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj:(.debug_rnglists)
+     398      398       2f     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:(.debug_rnglists)
+     3c7      3c7      3d4     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.debug_rnglists)
+     79b      79b       17     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.debug_rnglists)
+     7b2      7b2      3a9     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_rnglists)
+     b5b      b5b       be     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_rnglists)
+     c19      c19      10e     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_rnglists)
+     d27      d27       1b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_rnglists)
+     d42      d42       25     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_rnglists)
+     d67      d67       1b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_rnglists)
+     d82      d82       27     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_rnglists)
+     da9      da9       67     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_rnglists)
+     e10      e10       27     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_rnglists)
+     e37      e37       3e     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_rnglists)
+     e75      e75       4d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_rnglists)
+     ec2      ec2       19     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_rnglists)
+     edb      edb       66     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_rnglists)
+     f41      f41       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_rnglists)
+     f59      f59       b8     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_rnglists)
+    1011     1011       1e     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_rnglists)
+    102f     102f       1a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_rnglists)
+    1049     1049       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_rnglists)
+       0        0     40f0     1 .debug_str_offsets
+       0        0       84     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_str_offsets)
+      84       84       50     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_str_offsets)
+      d4       d4      2a0     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_str_offsets)
+     374      374      218     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.debug_str_offsets)
+     58c      58c      1c4     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.debug_str_offsets)
+     750      750       dc     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj:(.debug_str_offsets)
+     82c      82c      144     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.debug_str_offsets)
+     970      970      164     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj:(.debug_str_offsets)
+     ad4      ad4      270     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.debug_str_offsets)
+     d44      d44      158     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj:(.debug_str_offsets)
+     e9c      e9c      130     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj:(.debug_str_offsets)
+     fcc      fcc      180     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj:(.debug_str_offsets)
+    114c     114c       e0     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:(.debug_str_offsets)
+    122c     122c      394     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.debug_str_offsets)
+    15c0     15c0       74     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.debug_str_offsets)
+    1634     1634      518     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_str_offsets)
+    1b4c     1b4c      334     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_str_offsets)
+    1e80     1e80      31c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_str_offsets)
+    219c     219c      240     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_str_offsets)
+    23dc     23dc      178     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_str_offsets)
+    2554     2554      1d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_str_offsets)
+    2728     2728      21c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_str_offsets)
+    2944     2944       6c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_str_offsets)
+    29b0     29b0      388     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_str_offsets)
+    2d38     2d38      1fc     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_str_offsets)
+    2f34     2f34      1f0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_str_offsets)
+    3124     3124       70     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_str_offsets)
+    3194     3194       4c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_str_offsets)
+    31e0     31e0      1d0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_str_offsets)
+    33b0     33b0      294     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_str_offsets)
+    3644     3644       d0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_str_offsets)
+    3714     3714      1c4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_str_offsets)
+    38d8     38d8      120     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_str_offsets)
+    39f8     39f8      240     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_str_offsets)
+    3c38     3c38      1d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_str_offsets)
+    3e0c     3e0c      2e4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_str_offsets)
+       0        0     6946     1 .debug_str
+       0        0     6946     1         <internal>:(.debug_str)
+       0        0     11fc     1 .debug_addr
+       0        0       1c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_addr)
+      1c       1c       14     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_addr)
+      30       30       a0     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_addr)
+      d0       d0       78     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.debug_addr)
+     148      148       54     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.debug_addr)
+     19c      19c       20     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj:(.debug_addr)
+     1bc      1bc       2c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.debug_addr)
+     1e8      1e8       3c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj:(.debug_addr)
+     224      224       6c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.debug_addr)
+     290      290       50     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj:(.debug_addr)
+     2e0      2e0       48     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj:(.debug_addr)
+     328      328       58     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj:(.debug_addr)
+     380      380       30     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:(.debug_addr)
+     3b0      3b0      2e4     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.debug_addr)
+     694      694       10     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.debug_addr)
+     6a4      6a4      2a4     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_addr)
+     948      948       ec     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_addr)
+     a34      a34      4b8     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_addr)
+     eec      eec       34     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_addr)
+     f20      f20       10     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_addr)
+     f30      f30       2c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_addr)
+     f5c      f5c       24     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_addr)
+     f80      f80       14     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_addr)
+     f94      f94       5c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_addr)
+     ff0      ff0       24     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_addr)
+    1014     1014       5c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_addr)
+    1070     1070       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_addr)
+    1088     1088       10     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_addr)
+    1098     1098       68     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_addr)
+    1100     1100       3c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_addr)
+    113c     113c       38     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_addr)
+    1174     1174       30     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_addr)
+    11a4     11a4       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_addr)
+    11bc     11bc       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_addr)
+    11d4     11d4       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_addr)
+    11ec     11ec       10     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_addr)
+       0        0       92     1 .comment
+       0        0       92     1         <internal>:(.comment)
+       0        0       45     1 .ARM.attributes
+       0        0       45     1         <internal>:(.ARM.attributes)
+       0        0     3080     4 .debug_frame
+       0        0       3c     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_frame)
+      3c       3c       44     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_frame)
+      80       80      2d0     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_frame)
+     350      350      1d8     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.debug_frame)
+     528      528      148     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.debug_frame)
+     670      670       64     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj:(.debug_frame)
+     6d4      6d4       c8     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.debug_frame)
+     79c      79c      134     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj:(.debug_frame)
+     8d0      8d0      12c     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.debug_frame)
+     9fc      9fc      148     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj:(.debug_frame)
+     b44      b44      118     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj:(.debug_frame)
+     c5c      c5c       bc     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj:(.debug_frame)
+     d18      d18       cc     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:(.debug_frame)
+     de4      de4      6fc     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.debug_frame)
+    14e0     14e0       40     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.debug_frame)
+    1520     1520      9e4     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_frame)
+    1f04     1f04      408     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_frame)
+    230c     230c      4ec     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_frame)
+    27f8     27f8       58     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_frame)
+    2850     2850       3c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_frame)
+    288c     288c       5c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_frame)
+    28e8     28e8       64     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_frame)
+    294c     294c       2c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_frame)
+    2978     2978       f4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_frame)
+    2a6c     2a6c       5c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_frame)
+    2ac8     2ac8      104     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_frame)
+    2bcc     2bcc       30     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_frame)
+    2bfc     2bfc       30     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_frame)
+    2c2c     2c2c      1b4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_frame)
+    2de0     2de0       3c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_frame)
+    2e1c     2e1c       50     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_frame)
+    2e6c     2e6c       90     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_frame)
+    2efc     2efc       74     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_frame)
+    2f70     2f70       60     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_frame)
+    2fd0     2fd0       40     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_frame)
+    3010     3010       3c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_frame)
+    304c     304c       34     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_read_tp.S.o):(.debug_frame)
+       0        0    10bb9     1 .debug_line
+       0        0      14e     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_line)
+     14e      14e       ee     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_line)
+     23c      23c      c15     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_line)
+     e51      e51      349     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.debug_line)
+    119a     119a      93c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.debug_line)
+    1ad6     1ad6      329     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj:(.debug_line)
+    1dff     1dff      3ab     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj:(.debug_line)
+    21aa     21aa      8a0     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.obj:(.debug_line)
+    2a4a     2a4a      3cb     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj:(.debug_line)
+    2e15     2e15      2c9     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.obj:(.debug_line)
+    30de     30de      513     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.obj:(.debug_line)
+    35f1     35f1      510     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj:(.debug_line)
+    3b01     3b01      3a9     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.obj:(.debug_line)
+    3eaa     3eaa     3a2a     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj:(.debug_line)
+    78d4     78d4      164     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj:(.debug_line)
+    7a38     7a38     356f     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_line)
+    afa7     afa7     1182     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_line)
+    c129     c129     21ac     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_line)
+    e2d5     e2d5      3a0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_line)
+    e675     e675      119     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_line)
+    e78e     e78e      1db     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_line)
+    e969     e969      1bb     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_line)
+    eb24     eb24      10f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_line)
+    ec33     ec33      453     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_line)
+    f086     f086      1d1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_line)
+    f257     f257      255     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_line)
+    f4ac     f4ac       d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_line)
+    f580     f580       f7     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_line)
+    f677     f677      357     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_line)
+    f9ce     f9ce       6a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_line)
+    fa38     fa38      2fb     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_line)
+    fd33     fd33      2d2     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_line)
+   10005    10005      43f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_line)
+   10444    10444      1e8     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_line)
+   1062c    1062c      186     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_line)
+   107b2    107b2      15f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_line)
+   10911    10911      2a8     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_line)
+       0        0     1912     1 .debug_line_str
+       0        0     1912     1         <internal>:(.debug_line_str)
+       0        0       28     1 .debug_aranges
+       0        0       28     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_aranges)
+       0        0     1d00     4 .symtab
+       0        0     1d00     4         <internal>:(.symtab)
+       0        0      14b     1 .shstrtab
+       0        0      14b     1         <internal>:(.shstrtab)
+       0        0     1516     1 .strtab
+       0        0     1516     1         <internal>:(.strtab)
