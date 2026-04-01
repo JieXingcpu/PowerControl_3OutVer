@@ -7,17 +7,17 @@ static void BUTTON_1_Callback();
 static void BUTTON_2_Callback();
 static void BUTTON_3_Callback();
 
-volatile ButtonState button_1_state = BUTTON_STATE_IDLE;
-volatile uint16_t button_1_counter = 0;
-volatile CounterState button_1_counter_state = COUNTER_STOP;
+volatile ButtonState button_1_state;
+volatile uint16_t button_1_counter;
+volatile CounterState button_1_counter_state;
 
-volatile ButtonState button_2_state = BUTTON_STATE_IDLE;
-volatile uint16_t button_2_counter = 0;
-volatile CounterState button_2_counter_state = COUNTER_STOP;
+volatile ButtonState button_2_state;
+volatile uint16_t button_2_counter;
+volatile CounterState button_2_counter_state;
 
-volatile ButtonState button_3_state = BUTTON_STATE_IDLE;
-volatile uint16_t button_3_counter = 0;
-volatile CounterState button_3_counter_state = COUNTER_STOP;
+volatile ButtonState button_3_state;
+volatile uint16_t button_3_counter;
+volatile CounterState button_3_counter_state;
 
 /**
   * @brief  初始化按钮状态机

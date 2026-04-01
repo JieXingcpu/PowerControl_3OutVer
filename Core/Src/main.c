@@ -28,14 +28,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "CallBack.h"
 #include "Power.h"
 #include "INA3221.h"
 #include "Buzzer.h"
 #include "LED.h"
 #include "Button.h"
 #include "Message.h"
-#include "stdio.h"
+// #include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,12 +69,20 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-int fputc(int ch, FILE *f)
-{
-  	while (!(USART2->SR & (1 << 7)));
-		USART2->DR = ch;
-		return ch;
-}
+// int __io_putchar(int ch)
+// {
+//   while(!(USART2->SR & (1 << 7)))
+//   {
+//   }
+//   USART2->DR = (uint8_t)ch;
+//   return ch;
+// }
+
+// int fputc(int ch, FILE *f)
+// {
+//   (void)f;
+//   return __io_putchar(ch);
+// }
 /* USER CODE END 0 */
 
 /**
@@ -119,13 +126,14 @@ int main(void)
   Init_Power_Control(&power);
   Init_Power_Read(&power_read);
   power.Init(&power);
+  CAN_Connect_Init();
   Ina3221_State = power_read.Init(&power_read);
   Button_Init();
   LED_Init();
   Buzzer_Init();
   Buzzer_Switch(BUZZER_SYSTEM_INIT);
-  HAL_TIM_Base_Start_IT(&htim1);
-  // HAL_TIM_Base_Start_IT(&htim3);
+  Send_Period_Init();
+  HAL_TIM_Base_Start_IT(&htim3);
   __HAL_DBGMCU_FREEZE_IWDG();
 
   /* USER CODE END 2 */
@@ -194,7 +202,7 @@ int main(void)
       power_read.Control_Loop(&power_read, &power);
     } else if(Ina3221_State == INA3221_STATE_ERROR)
     {
-      while(1);
+      while(1);//如果电源检测发生错误,则进入死循环,等待系统重启
     }
     HAL_Delay(10);
   }

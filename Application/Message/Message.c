@@ -1,8 +1,14 @@
 #include "Message.h"
 
 #include "main.h"
+#include "tim.h"
 
 extern CAN_HandleTypeDef hcan;
+
+void Send_Period_Init()
+{
+  HAL_TIM_Base_Start_IT(&htim1);
+}
 
 void Send_CAN_Message(uint8_t (*data)[8])
 {
@@ -17,7 +23,7 @@ void Send_CAN_Message(uint8_t (*data)[8])
 
   HAL_CAN_AddTxMessage(&hcan, &txHeader, *data, (uint32_t *)CAN_TX_MAILBOX0);
 }
-void CAN_Init()
+void CAN_Connect_Init()
 {
   CAN_FilterTypeDef canfilterconfig;
 

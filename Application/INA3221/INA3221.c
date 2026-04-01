@@ -40,7 +40,7 @@ static INA3221_STATE INA3221_Init(INA3221 *self)
     uint32_t timeout = HAL_GetTick();
     if(HAL_GetTick() - timeout > 1000) return INA3221_STATE_ERROR;
   }
-  HAL_I2C_Mem_Read(&hi2c1, I2C_ADDRESS, 0xFF, 1, &self->read_data_buffer, 2, 5);
+  HAL_I2C_Mem_Read(&hi2c1, I2C_ADDRESS, 0xFF, 1, (uint8_t *)&self->read_data_buffer, 2, 5);
   Data_Reverse(&self->read_data_buffer);
   if(self->read_data_buffer != 0x3220)
   {
@@ -92,7 +92,12 @@ INA3221_STATE Power_Read_Loop(INA3221 *ina3221, Power_Control *power)
       ina3221_state = INA3221_STATE_READING;
       break;
     case INA3221_STATE_READING:
-      ina3221_state = Search_Channel_To_Read(ina3221, power);
+      if(ina3221->read_data_mutex != true)
+      {
+        ina3221->read_data_mutex = true;
+        ina3221_state = Search_Channel_To_Read(ina3221, power);
+        ina3221->read_data_mutex = false;
+      }
       break;
     case INA3221_STATE_READ_OK:
       ina3221_state = INA3221_STATE_IDLE;
@@ -228,7 +233,6 @@ static INA3221_STATE INA3221_ReadReg(INA3221 *handle)
  */
 static INA3221_STATE INA3221_ReadVoltage(INA3221 *handle)
 {
-  static float Voltage;
   if(INA3221_ReadReg(handle) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
   handle->Power_Data.voltage[handle->index / 2] = (float)handle->read_data_buffer / 1000;
   return INA3221_STATE_IDLE;
@@ -240,7 +244,6 @@ static INA3221_STATE INA3221_ReadVoltage(INA3221 *handle)
  */
 static INA3221_STATE INA3221_ReadCurrent(INA3221 *handle)
 {
-  static float Current;
   if(INA3221_ReadReg(handle) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
   handle->Power_Data.current[handle->index / 2] = (float)handle->read_data_buffer / 500;
   return INA3221_STATE_IDLE;

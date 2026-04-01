@@ -1,2 +1,18 @@
+CompileFlags:
+  Add:
+    - '-ferror-limit=0'
+    - '-Wno-implicit-int'
+    - '--target=arm-none-eabi'
+    - '-isystem'
+    - >-
+      C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang-runtimes/newlib/arm-none-eabi/include
+    - '-isystem'
+    - >-
+      C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include
+  CompilationDatabase: build/Debug
 Diagnostics:
-  UnusedIncludes: None
+  Suppress:
+    - unused-includes
+    - unknown_typename
+    - unknown_typename_suggest
+    - typename_requires_specqual
