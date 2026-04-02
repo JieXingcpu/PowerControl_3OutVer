@@ -13,7 +13,7 @@ void Send_Period_Init()
 void Send_CAN_Message(uint8_t (*data)[8])
 {
   CAN_TxHeaderTypeDef txHeader;
-
+  uint32_t TxMailbox;
   txHeader.StdId = POWER_CONTROL_ID;
   txHeader.ExtId = 0;
   txHeader.RTR = CAN_RTR_DATA;
@@ -21,7 +21,7 @@ void Send_CAN_Message(uint8_t (*data)[8])
   txHeader.DLC = 8;
   txHeader.TransmitGlobalTime = DISABLE;
 
-  HAL_CAN_AddTxMessage(&hcan, &txHeader, *data, (uint32_t *)CAN_TX_MAILBOX0);
+  HAL_CAN_AddTxMessage(&hcan, &txHeader, *data, &TxMailbox);
 }
 void CAN_Connect_Init()
 {
