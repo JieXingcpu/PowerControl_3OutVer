@@ -43,6 +43,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         button_1_counter_state = COUNTER_STOP;
         button_1_counter = 0;
         button_1_state = BUTTON_STATE_IDLE;
+        LED_Switch(LED_RUN_1, LED_OFF);
+        LED_Switch(LED_ERR_1, LED_OFF);
       }
     } else if(button_1_counter_state == COUNTER_LONG_START)
     {
@@ -68,6 +70,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         button_2_counter_state = COUNTER_STOP;
         button_2_counter = 0;
         button_2_state = BUTTON_STATE_IDLE;
+        LED_Switch(LED_RUN_2, LED_OFF);
+        LED_Switch(LED_ERR_2, LED_OFF);
       }
     } else if(button_2_counter_state == COUNTER_LONG_START)
     {
@@ -92,6 +96,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         button_3_counter_state = COUNTER_STOP;
         button_3_counter = 0;
         button_3_state = BUTTON_STATE_IDLE;
+        LED_Switch(LED_RUN_3, LED_OFF);
+        LED_Switch(LED_ERR_3, LED_OFF);
       }
     } else if(button_3_counter_state == COUNTER_LONG_START)
     {

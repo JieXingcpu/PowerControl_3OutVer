@@ -50,13 +50,14 @@ static void BUTTON_1_Callback()
   /*上升沿*/ 
   if(pin_state==GPIO_PIN_RESET)
   {
-    /*处于等待长按状态*/
+    /*如果处于等待长按状态*/
     if(button_1_counter_state==COUNTER_START&&button_1_state==BUTTON_STATE_WAIT_LONG)
     {
       button_1_state=BUTTON_STATE_LONG_PRESS;
       button_1_counter=0;
       button_1_counter_state=COUNTER_LONG_START;
     }
+    /*按键按下*/
     else
     {
       button_1_state = BUTTON_STATE_PRESSED;
@@ -65,10 +66,10 @@ static void BUTTON_1_Callback()
   /*下降沿*/
   else if(pin_state==GPIO_PIN_SET)
   {
-
+    /*处于初始状态,按键松开*/
     if(button_1_state==BUTTON_STATE_PRESSED&&button_1_counter_state==COUNTER_STOP)
     {
-      /*开始计时(5s)*/
+      /*等待操作,开始计时(5s)*/
       button_1_counter=0;
       button_1_counter_state = COUNTER_START;
       button_1_state = BUTTON_STATE_WAIT_LONG;
@@ -80,7 +81,9 @@ static void BUTTON_1_Callback()
       button_1_counter=0;
       button_1_state=BUTTON_STATE_WAIT_LONG;
       button_1_counter_state=COUNTER_START;
-      LED_Switch(LED_RUN_1, LED_TOGGLING);
+      LED_Switch(LED_RUN_1, LED_OFF);
+      LED_Switch(LED_ERR_1, LED_OFF);
+
     }
     else if(button_1_state==BUTTON_STATE_IDLE)
     {
@@ -133,7 +136,8 @@ static void BUTTON_2_Callback()
       button_2_counter=0;
       button_2_state=BUTTON_STATE_WAIT_LONG;
       button_2_counter_state=COUNTER_START;
-      LED_Switch(LED_RUN_2, LED_TOGGLING);
+      LED_Switch(LED_RUN_2, LED_OFF);
+      LED_Switch(LED_ERR_2, LED_OFF);
     }
     else if(button_2_state==BUTTON_STATE_IDLE)
     {
@@ -185,7 +189,8 @@ static void BUTTON_3_Callback()
       button_3_counter=0;
       button_3_state=BUTTON_STATE_WAIT_LONG;
       button_3_counter_state=COUNTER_START;
-      LED_Switch(LED_RUN_3, LED_TOGGLING);
+      LED_Switch(LED_RUN_3, LED_OFF);
+      LED_Switch(LED_ERR_3, LED_OFF);
     }
     else if(button_3_state==BUTTON_STATE_IDLE)
     {

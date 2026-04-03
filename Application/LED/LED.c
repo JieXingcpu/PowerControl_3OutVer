@@ -108,12 +108,15 @@ void LED_Switch(LED_ID led_id, LED_State state)
             HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_SET);
             break;
           case 1:
+            HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_RESET);
             HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_RESET);
             break;
           case 2:
             HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_SET);
+            HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_RESET);
             break;
           case 3:
+            HAL_GPIO_WritePin(RUN_LED_1_GPIO_Port, RUN_LED_1_Pin, GPIO_PIN_SET);
             HAL_GPIO_WritePin(ERR_LED_1_GPIO_Port, ERR_LED_1_Pin, GPIO_PIN_SET);
             break;
         }
