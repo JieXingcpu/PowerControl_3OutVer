@@ -125,21 +125,21 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
   if(handle->Power_Data.voltage[0] > MAX_POWER_VOLTAGE)
   {
     danger_channel |= POWER_OUT_1;
-  } else if(handle->Power_Data.voltage[0] < MIN_POWER_VOLTAGE)
+  } else if(handle->Power_Data.voltage[0] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[0] > 0)
   {
     warning_channel |= POWER_OUT_1;
   }
   if(handle->Power_Data.voltage[1] > MAX_POWER_VOLTAGE)
   {
     danger_channel |= POWER_OUT_2;
-  } else if(handle->Power_Data.voltage[1] < MIN_POWER_VOLTAGE)
+  } else if(handle->Power_Data.voltage[1] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[1] > 0)
   {
     warning_channel |= POWER_OUT_2;
   }
   if(handle->Power_Data.voltage[2] > MAX_POWER_VOLTAGE)
   {
     danger_channel |= POWER_OUT_3;
-  } else if(handle->Power_Data.voltage[2] < MIN_POWER_VOLTAGE)
+  } else if(handle->Power_Data.voltage[2] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[2] > 0)
   {
     warning_channel |= POWER_OUT_3;
   }

@@ -34,7 +34,6 @@
 #include "LED.h"
 #include "Button.h"
 #include "Message.h"
-// #include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,7 +43,11 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+// #define USE_DEBUG_PRINT  //启用调试打印,会将电压电流数据通过串口打印出来
 
+#ifdef USE_DEBUG_PRINT
+#include <stdio.h>
+#endif
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -69,20 +72,35 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-// int __io_putchar(int ch)
-// {
-//   while(!(USART2->SR & (1 << 7)))
-//   {
-//   }
-//   USART2->DR = (uint8_t)ch;
-//   return ch;
-// }
-
-// int fputc(int ch, FILE *f)
-// {
-//   (void)f;
-//   return __io_putchar(ch);
-// }
+#ifdef USE_DEBUG_PRINT
+int __io_putchar(int ch)
+{
+  while(!(USART2->SR & (1 << 7)))
+  {
+  }
+  USART2->DR = (uint8_t)ch;
+  return ch;
+}
+int fputc(int ch, FILE *f)
+{
+  (void)f;
+  return __io_putchar(ch);
+}
+void print_callback(Power_Control *power, INA3221 *ina3221)
+{
+  int voltage_1 = (int)(ina3221->Power_Data.voltage[0] * 1000);
+  int voltage_2 = (int)(ina3221->Power_Data.voltage[1] * 1000);
+  int voltage_3 = (int)(ina3221->Power_Data.voltage[2] * 1000);
+  int point1=voltage_1%1000;
+  int point2=voltage_2%1000;
+  int point3=voltage_3%1000;
+  
+  printf("Power State: %d\r\n", power->Power_Channel_State);
+  printf("Voltage: %d.%03d V\r\n", voltage_1/1000, point1);
+  printf("Voltage: %d.%03d V\r\n", voltage_2/1000, point2);
+  printf("Voltage: %d.%03d V\r\n", voltage_3/1000, point3);
+}
+#endif
 /* USER CODE END 0 */
 
 /**
@@ -203,6 +221,27 @@ int main(void)
     } else if(Ina3221_State == INA3221_STATE_ERROR)
     {
       while(1);//如果电源检测发生错误,则进入死循环,等待系统重启
+    }
+    #ifdef USE_DEBUG_PRINT
+    print_callback(&power, &power_read);
+    #endif
+    /*清空对于关闭后的端口的电压和电流数据*/
+    if(power_read.read_data_mutex != true)
+    {
+      power_read.read_data_mutex = true;
+      for(uint8_t i = 0; i < 3; i++)
+      {
+        if((power_read.channel_state & (1U << i)) == 0U)
+        {
+          power_read.Power_Data.voltage[i] = 0.0f;
+          power_read.Power_Data.current[i] = 0.0f;
+        }
+      }
+      power_read.read_data_mutex = false;
+    }
+    if(power.Power_Channel_State == POWER_ALL_OFF)
+    {
+      Buzzer_Switch(BUZZER_OFF);
     }
     HAL_Delay(10);
   }

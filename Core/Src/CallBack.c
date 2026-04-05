@@ -6,13 +6,13 @@
 #include "Message.h"
 #include "Power.h"
 #include "tim.h"
+#include <stdio.h>
 
 extern Power_Control power;
 extern INA3221 power_read;
 
 #define LONG_PRESS_TIME 2000
 #define MAX_WAITING_TIME 5000
-static void print_callback(Power_Control *power, INA3221 *ina3221);
 static void Send_Message_Callback(Power_Control *power, INA3221 *ina3221);
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -20,7 +20,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /*10Hz*/
   if(htim->Instance == TIM1)
   {
-    // print_callback(&power, &power_read);
     Send_Message_Callback(&power, &power_read);
   }
   /*10kHz*/
@@ -148,7 +147,3 @@ static void Send_Message_Callback(Power_Control *power, INA3221 *ina3221)
   ina3221->read_data_mutex = false;  //发送消息完成后解锁数据
 }
 
-static void print_callback(Power_Control *power, INA3221 *ina3221)
-{
-  // printf("Power State: %d\r\n", power->Power_Channel_State);
-}
