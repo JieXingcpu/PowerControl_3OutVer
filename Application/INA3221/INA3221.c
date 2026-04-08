@@ -30,7 +30,8 @@ void Init_Power_Read(INA3221 *power_read)
   power_read->Power_Data = (Power_DataTypeDef){0};
   power_read->Init = INA3221_Init;
   power_read->Read_Loop = Power_Read_Loop;
-  power_read->Control_Loop = Power_Voltage_Control_Loop;
+  power_read->Voltage_Control_Loop = Power_Voltage_Control_Loop;
+  power_read->Current_Control_Loop = Power_Current_Control_Loop;
 }
 
 static INA3221_STATE INA3221_Init(INA3221 *self)
@@ -63,7 +64,6 @@ static INA3221_STATE Search_Channel_To_Read(INA3221 *ina3221, Power_Control *pow
       } else
       {
         if(INA3221_ReadCurrent(ina3221) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
-        Power_Current_Control_Loop(ina3221, power);
       }
       ina3221->index++;
       return INA3221_STATE_READING;
@@ -143,11 +143,13 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
   {
     warning_channel |= POWER_OUT_3;
   }
-  if(power->Power_Channel_State & warning_channel)
+  power->Power_Channel_State &warning_channel ? Buzzer_Switch(BUZZER_WARNING) : Buzzer_Switch(BUZZER_OFF);
+  //如果电压异常且持续时间超过设定值,则断电
+  if((power->Power_Channel_State & danger_channel) && handle->holding_time > MAX_HOLDING_TIME * 10)
   {
-    Buzzer_Switch(BUZZER_WARNING);
+    return power->Switch(power, danger_channel, POWER_OFF, danger_channel);
   }
-  return power->Switch(power, danger_channel, POWER_OFF, danger_channel);
+  return power->Power_Channel_State;
 }
 /**
   * @brief  电流保护控制
@@ -173,8 +175,13 @@ static Power_State Power_Current_Control_Loop(INA3221 *handle, Power_Control *po
   {
     danger_channel |= POWER_OUT_3;
   }
-  danger_channel == 0x00 ? Buzzer_Switch(BUZZER_OFF) : Buzzer_Switch(BUZZER_WARNING);
-  return power->Switch(power, danger_channel, POWER_OFF, danger_channel);
+  //如果电流异常且持续时间超过设定值,则断电
+  if(handle->holding_time > MAX_HOLDING_TIME * 10 && danger_channel != 0x00)
+  {
+    Buzzer_Switch(BUZZER_WARNING);
+    return power->Switch(power, danger_channel, POWER_OFF, danger_channel);
+  }
+  return power->Power_Channel_State;
 }
 /**
   * @brief  配置INA3221的配置寄存器

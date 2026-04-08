@@ -9,7 +9,7 @@ typedef enum
   BUTTON_STATE_PRESSED,      // 按键按下
   BUTTON_STATE_WAIT_LONG,    // 等待长按
   BUTTON_STATE_LONG_PRESS,   // 长按状态
-  BUTTON_STATE_OPEN          // 按键打开输出状态
+  BUTTON_STATE_CHANGE          // 按键打开输出状态
 } ButtonState;
 
 typedef enum 

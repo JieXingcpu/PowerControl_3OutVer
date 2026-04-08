@@ -57,12 +57,15 @@ static Power_State Power_Switch(Power_Control *self, Power_Output_Channel channe
       LED_Switch(LED_RUN_1, LED_ON);
     } else
     {
-      LED_Switch(LED_RUN_1, LED_OFF);
       if(danger_channel & POWER_OUT_1)
       {
         /*如果是由于保护机制关闭的通道，则点亮对应的指示灯*/
         LED_Switch(LED_ERR_1, LED_ON);
         LED_Switch(LED_RUN_1, LED_OFF);
+      } else
+      {
+        LED_Switch(LED_RUN_1, LED_OFF);
+        LED_Switch(LED_ERR_1, LED_OFF);
       }
       self->Power_Channel_State &= ~POWER_ON_1;
     }
@@ -77,12 +80,15 @@ static Power_State Power_Switch(Power_Control *self, Power_Output_Channel channe
       LED_Switch(LED_RUN_2, LED_ON);
     } else
     {
-      LED_Switch(LED_RUN_2, LED_OFF);
       if(danger_channel & POWER_OUT_2)
       {
         /*如果是由于保护机制关闭的通道，则点亮对应的指示灯*/
         LED_Switch(LED_ERR_2, LED_ON);
         LED_Switch(LED_RUN_2, LED_OFF);
+      } else
+      {
+        LED_Switch(LED_RUN_2, LED_OFF);
+        LED_Switch(LED_ERR_2, LED_OFF);
       }
       self->Power_Channel_State &= ~POWER_ON_2;
     }
@@ -97,12 +103,15 @@ static Power_State Power_Switch(Power_Control *self, Power_Output_Channel channe
       LED_Switch(LED_RUN_3, LED_ON);
     } else
     {
-      LED_Switch(LED_RUN_3, LED_OFF);
       if(danger_channel & POWER_OUT_3)
       {
         /*如果是由于保护机制关闭的通道，则点亮对应的指示灯*/
         LED_Switch(LED_ERR_3, LED_ON);
         LED_Switch(LED_RUN_3, LED_OFF);
+      } else
+      {
+        LED_Switch(LED_RUN_3, LED_OFF);
+        LED_Switch(LED_ERR_3, LED_OFF);
       }
       self->Power_Channel_State &= ~POWER_ON_3;
     }

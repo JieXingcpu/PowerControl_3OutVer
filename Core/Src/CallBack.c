@@ -11,8 +11,8 @@
 extern Power_Control power;
 extern INA3221 power_read;
 
-#define LONG_PRESS_TIME 2000
-#define MAX_WAITING_TIME 5000
+#define LONG_PRESS_TIME 1200//长按时间,单位为ms
+#define MAX_WAITING_TIME 5000//等待最长时间,单位为ms
 static void Send_Message_Callback(Power_Control *power, INA3221 *ina3221);
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -22,10 +22,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   {
     Send_Message_Callback(&power, &power_read);
   }
-  /*10kHz*/
+  /*10Hz*/
   if(htim->Instance == TIM3)
   {
-    /*按键优化*/
+    power_read.holding_time++;
   }
   /*1kHz*/
   if(htim->Instance == TIM4)
@@ -54,7 +54,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         button_1_counter_state = COUNTER_LONG_STOP;
         button_1_counter = 0;
         // button_1_state=BUTTON_STATE_IDLE;
-        button_1_state = BUTTON_STATE_OPEN;
+        button_1_state = BUTTON_STATE_CHANGE;
       }
     }
     /*BUTTON_2*/
@@ -80,7 +80,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       {
         button_2_counter_state = COUNTER_LONG_STOP;
         button_2_counter = 0;
-        button_2_state = BUTTON_STATE_OPEN;
+        button_2_state = BUTTON_STATE_CHANGE;
       }
     }
     /*BUTTON_3*/
@@ -106,7 +106,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       {
         button_3_counter_state = COUNTER_LONG_STOP;
         button_3_counter = 0;
-        button_3_state = BUTTON_STATE_OPEN;
+        button_3_state = BUTTON_STATE_CHANGE;
       }
     }
   }

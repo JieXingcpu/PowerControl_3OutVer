@@ -89,16 +89,19 @@ int fputc(int ch, FILE *f)
 void print_callback(Power_Control *power, INA3221 *ina3221)
 {
   int voltage_1 = (int)(ina3221->Power_Data.voltage[0] * 1000);
-  int voltage_2 = (int)(ina3221->Power_Data.voltage[1] * 1000);
-  int voltage_3 = (int)(ina3221->Power_Data.voltage[2] * 1000);
+  // int voltage_2 = (int)(ina3221->Power_Data.voltage[1] * 1000);
+  // int voltage_3 = (int)(ina3221->Power_Data.voltage[2] * 1000);
   int point1=voltage_1%1000;
-  int point2=voltage_2%1000;
-  int point3=voltage_3%1000;
+  // int point2=voltage_2%1000;
+  // int point3=voltage_3%1000;
   
-  printf("Power State: %d\r\n", power->Power_Channel_State);
+  // printf("Power State: %d\r\n", power->Power_Channel_State);
   printf("Voltage: %d.%03d V\r\n", voltage_1/1000, point1);
-  printf("Voltage: %d.%03d V\r\n", voltage_2/1000, point2);
-  printf("Voltage: %d.%03d V\r\n", voltage_3/1000, point3);
+  // printf("Voltage: %d.%03d V\r\n", voltage_2/1000, point2);
+  // printf("Voltage: %d.%03d V\r\n", voltage_3/1000, point3);
+  // int current_1 = (int)(ina3221->Power_Data.current[0] * 1000);
+  // int cur_ponit1 = current_1 % 1000;
+  // printf("%d.%03d\r\n",current_1/1000,cur_ponit1);
 }
 #endif
 /* USER CODE END 0 */
@@ -179,7 +182,7 @@ int main(void)
       LED_Switch(LED_RUN_3, LED_FLOWING_3);
     }
     /*按键POWER部分*/
-    if(button_1_state == BUTTON_STATE_OPEN)
+    if(button_1_state == BUTTON_STATE_CHANGE)
     {
       if(power.Power_Channel_State & POWER_ON_1)
       {
@@ -190,7 +193,7 @@ int main(void)
       }
       button_1_state = BUTTON_STATE_IDLE;
     }
-    if(button_2_state == BUTTON_STATE_OPEN)
+    if(button_2_state == BUTTON_STATE_CHANGE)
     {
       if(power.Power_Channel_State & POWER_ON_2)
       {
@@ -201,7 +204,7 @@ int main(void)
       }
       button_2_state = BUTTON_STATE_IDLE;
     }
-    if(button_3_state == BUTTON_STATE_OPEN)
+    if(button_3_state == BUTTON_STATE_CHANGE)
     {
       if(power.Power_Channel_State & POWER_ON_3)
       {
@@ -217,7 +220,12 @@ int main(void)
     if(Ina3221_State == INA3221_STATE_READ_OK)
     {
       /*进行一次电源检测*/
-      power_read.Control_Loop(&power_read, &power);
+      power_read.Voltage_Control_Loop(&power_read, &power);
+      power_read.Current_Control_Loop(&power_read, &power);
+      if(power_read.holding_time > MAX_HOLDING_TIME * 10+1)  //如果持续时间超过最大值,则重置
+      {
+        power_read.holding_time = 0;
+      }
     } else if(Ina3221_State == INA3221_STATE_ERROR)
     {
       while(1);//如果电源检测发生错误,则进入死循环,等待系统重启

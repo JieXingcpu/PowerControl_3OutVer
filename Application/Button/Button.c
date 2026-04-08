@@ -1,7 +1,9 @@
 #include "Button.h"
-#include "gpio.h"
+
 #include "LED.h"
+#include "gpio.h"
 #include "tim.h"
+
 
 static void BUTTON_1_Callback();
 static void BUTTON_2_Callback();
@@ -47,15 +49,15 @@ static void BUTTON_1_Callback()
 {
   //判断上升沿还是下降沿
   GPIO_PinState pin_state = HAL_GPIO_ReadPin(Control_1_GPIO_Port, Control_1_Pin);
-  /*上升沿*/ 
-  if(pin_state==GPIO_PIN_RESET)
+  /*上升沿*/
+  if(pin_state == GPIO_PIN_RESET)
   {
     /*如果处于等待长按状态*/
-    if(button_1_counter_state==COUNTER_START&&button_1_state==BUTTON_STATE_WAIT_LONG)
+    if(button_1_counter_state == COUNTER_START && button_1_state == BUTTON_STATE_WAIT_LONG)
     {
-      button_1_state=BUTTON_STATE_LONG_PRESS;
-      button_1_counter=0;
-      button_1_counter_state=COUNTER_LONG_START;
+      button_1_state = BUTTON_STATE_LONG_PRESS;
+      button_1_counter = 0;
+      button_1_counter_state = COUNTER_LONG_START;
     }
     /*按键按下*/
     else
@@ -64,33 +66,31 @@ static void BUTTON_1_Callback()
     }
   }
   /*下降沿*/
-  else if(pin_state==GPIO_PIN_SET)
+  else if(pin_state == GPIO_PIN_SET)
   {
     /*处于初始状态,按键松开*/
-    if(button_1_state==BUTTON_STATE_PRESSED&&button_1_counter_state==COUNTER_STOP)
+    if(button_1_state == BUTTON_STATE_PRESSED && button_1_counter_state == COUNTER_STOP)
     {
       /*等待操作,开始计时(5s)*/
-      button_1_counter=0;
+      button_1_counter = 0;
       button_1_counter_state = COUNTER_START;
       button_1_state = BUTTON_STATE_WAIT_LONG;
 
-    }
-    else if(button_1_state==BUTTON_STATE_LONG_PRESS&&button_1_counter_state==COUNTER_LONG_START)
+    } else if(button_1_state == BUTTON_STATE_LONG_PRESS && button_1_counter_state == COUNTER_LONG_START)
     {
       /*长按计时取消*/
-      button_1_counter=0;
-      button_1_state=BUTTON_STATE_WAIT_LONG;
-      button_1_counter_state=COUNTER_START;
+      button_1_counter = 0;
+      button_1_state = BUTTON_STATE_WAIT_LONG;
+      button_1_counter_state = COUNTER_START;
       LED_Switch(LED_RUN_1, LED_OFF);
       LED_Switch(LED_ERR_1, LED_OFF);
 
-    }
-    else if(button_1_state==BUTTON_STATE_IDLE)
+    } else if(button_1_state == BUTTON_STATE_IDLE)
     {
       /*恢复状态*/
-      button_1_state=BUTTON_STATE_IDLE;
-      button_1_counter_state=COUNTER_STOP;
-      button_1_counter=0;
+      button_1_state = BUTTON_STATE_IDLE;
+      button_1_counter_state = COUNTER_STOP;
+      button_1_counter = 0;
     }
   }
 }
@@ -103,48 +103,44 @@ static void BUTTON_2_Callback()
 {
   //判断上升沿还是下降沿
   GPIO_PinState pin_state = HAL_GPIO_ReadPin(Control_2_GPIO_Port, Control_2_Pin);
-  /*上升沿*/  
-  if(pin_state==GPIO_PIN_RESET)
+  /*上升沿*/
+  if(pin_state == GPIO_PIN_RESET)
   {
     /*处于等待长按状态*/
-    if(button_2_counter_state==COUNTER_START&&button_2_state==BUTTON_STATE_WAIT_LONG)
+    if(button_2_counter_state == COUNTER_START && button_2_state == BUTTON_STATE_WAIT_LONG)
     {
-      button_2_state=BUTTON_STATE_LONG_PRESS;
-      button_2_counter=0;
-      button_2_counter_state=COUNTER_LONG_START;
-    }
-    else
+      button_2_state = BUTTON_STATE_LONG_PRESS;
+      button_2_counter = 0;
+      button_2_counter_state = COUNTER_LONG_START;
+    } else
     {
       button_2_state = BUTTON_STATE_PRESSED;
     }
   }
-  /*下降沿*/  
-  else if(pin_state==GPIO_PIN_SET)
+  /*下降沿*/
+  else if(pin_state == GPIO_PIN_SET)
   {
-
-    if(button_2_state==BUTTON_STATE_PRESSED&&button_2_counter_state==COUNTER_STOP)
+    if(button_2_state == BUTTON_STATE_PRESSED && button_2_counter_state == COUNTER_STOP)
     {
       /*开始计时(5s)*/
-      button_2_counter=0;
+      button_2_counter = 0;
       button_2_counter_state = COUNTER_START;
       button_2_state = BUTTON_STATE_WAIT_LONG;
 
-    }
-    else if(button_2_state==BUTTON_STATE_LONG_PRESS&&button_2_counter_state==COUNTER_LONG_START)
+    } else if(button_2_state == BUTTON_STATE_LONG_PRESS && button_2_counter_state == COUNTER_LONG_START)
     {
       /*长按计时取消*/
-      button_2_counter=0;
-      button_2_state=BUTTON_STATE_WAIT_LONG;
-      button_2_counter_state=COUNTER_START;
+      button_2_counter = 0;
+      button_2_state = BUTTON_STATE_WAIT_LONG;
+      button_2_counter_state = COUNTER_START;
       LED_Switch(LED_RUN_2, LED_OFF);
       LED_Switch(LED_ERR_2, LED_OFF);
-    }
-    else if(button_2_state==BUTTON_STATE_IDLE)
+    } else if(button_2_state == BUTTON_STATE_IDLE)
     {
       /*恢复状态*/
-      button_2_state=BUTTON_STATE_IDLE;
-      button_2_counter_state=COUNTER_STOP;
-      button_2_counter=0;
+      button_2_state = BUTTON_STATE_IDLE;
+      button_2_counter_state = COUNTER_STOP;
+      button_2_counter = 0;
     }
   }
 }
@@ -157,47 +153,43 @@ static void BUTTON_3_Callback()
   //判断上升沿还是下降沿
   GPIO_PinState pin_state = HAL_GPIO_ReadPin(Control_3_GPIO_Port, Control_3_Pin);
   /*上升沿*/
-  if(pin_state==GPIO_PIN_RESET)
+  if(pin_state == GPIO_PIN_RESET)
   {
     /*处于等待长按状态*/
-    if(button_3_counter_state==COUNTER_START&&button_3_state==BUTTON_STATE_WAIT_LONG)
+    if(button_3_counter_state == COUNTER_START && button_3_state == BUTTON_STATE_WAIT_LONG)
     {
-      button_3_state=BUTTON_STATE_LONG_PRESS;
-      button_3_counter=0;
-      button_3_counter_state=COUNTER_LONG_START;
-    }
-    else
+      button_3_state = BUTTON_STATE_LONG_PRESS;
+      button_3_counter = 0;
+      button_3_counter_state = COUNTER_LONG_START;
+    } else
     {
       button_3_state = BUTTON_STATE_PRESSED;
     }
   }
   /*下降沿*/
-  else if(pin_state==GPIO_PIN_SET)
+  else if(pin_state == GPIO_PIN_SET)
   {
-
-    if(button_3_state==BUTTON_STATE_PRESSED&&button_3_counter_state==COUNTER_STOP)
+    if(button_3_state == BUTTON_STATE_PRESSED && button_3_counter_state == COUNTER_STOP)
     {
       /*开始计时(5s)*/
-      button_3_counter=0;
+      button_3_counter = 0;
       button_3_counter_state = COUNTER_START;
       button_3_state = BUTTON_STATE_WAIT_LONG;
 
-    }
-    else if(button_3_state==BUTTON_STATE_LONG_PRESS&&button_3_counter_state==COUNTER_LONG_START)
+    } else if(button_3_state == BUTTON_STATE_LONG_PRESS && button_3_counter_state == COUNTER_LONG_START)
     {
       /*长按计时取消*/
-      button_3_counter=0;
-      button_3_state=BUTTON_STATE_WAIT_LONG;
-      button_3_counter_state=COUNTER_START;
+      button_3_counter = 0;
+      button_3_state = BUTTON_STATE_WAIT_LONG;
+      button_3_counter_state = COUNTER_START;
       LED_Switch(LED_RUN_3, LED_OFF);
       LED_Switch(LED_ERR_3, LED_OFF);
-    }
-    else if(button_3_state==BUTTON_STATE_IDLE)
+    } else if(button_3_state == BUTTON_STATE_IDLE)
     {
       /*恢复状态*/
-      button_3_state=BUTTON_STATE_IDLE;
-      button_3_counter_state=COUNTER_STOP;
-      button_3_counter=0;
+      button_3_state = BUTTON_STATE_IDLE;
+      button_3_counter_state = COUNTER_STOP;
+      button_3_counter = 0;
     }
   }
 }
@@ -210,12 +202,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if(GPIO_Pin == Control_1_Pin)
   {
     BUTTON_1_Callback();
-  }
-  else if(GPIO_Pin == Control_2_Pin)
+  } else if(GPIO_Pin == Control_2_Pin)
   {
     BUTTON_2_Callback();
-  }
-  else if(GPIO_Pin == Control_3_Pin)
+  } else if(GPIO_Pin == Control_3_Pin)
   {
     BUTTON_3_Callback();
   }
