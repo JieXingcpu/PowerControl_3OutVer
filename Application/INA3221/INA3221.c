@@ -1,8 +1,11 @@
 #include "INA3221.h"
 
+#include <string.h>
+
 #include "Buzzer.h"
 #include "INA3221_Register.h"
 #include "i2c.h"
+
 
 static INA3221_STATE INA3221_Init(INA3221 *self);
 static INA3221_STATE INA3221_Config(INA3221 *handle);
@@ -10,12 +13,19 @@ static INA3221_STATE INA3221_ReadReg(INA3221 *handle);
 static INA3221_STATE INA3221_WriteReg(INA3221 *handle);
 static INA3221_STATE INA3221_ReadVoltage(INA3221 *handle);
 static INA3221_STATE INA3221_ReadCurrent(INA3221 *handle);
-static void Data_Reverse(uint16_t *data) { *data = (*data >> 8) | (*data << 8); }
-static INA3221_STATE Search_Channel_To_Read(INA3221 *ina3221, Power_Control *power);
-static INA3221_STATE ina3221_state;
 INA3221_STATE Power_Read_Loop(INA3221 *ina3221, Power_Control *power);
+static INA3221_STATE Search_Channel_To_Read(INA3221 *ina3221, Power_Control *power);
 static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *power);
 static Power_State Power_Current_Control_Loop(INA3221 *handle, Power_Control *power);
+static INA3221_STATE Median_Filter(INA3221 *self, Power_Control *power);
+static void Data_Reverse(uint16_t *data) { *data = (*data >> 8) | (*data << 8); }
+static INA3221_STATE ina3221_state;
+
+// float temp_v[FILTER_BUFFER_SIZE];
+// float temp_c[FILTER_BUFFER_SIZE];
+// static float voltage_buffer[3][FILTER_BUFFER_SIZE] = {0};
+// static float current_buffer[3][FILTER_BUFFER_SIZE] = {0};
+// static uint8_t buffer_index = 0;
 
 /**
   * @brief  初始化INA3221结构体
@@ -32,6 +42,7 @@ void Init_Power_Read(INA3221 *power_read)
   power_read->Read_Loop = Power_Read_Loop;
   power_read->Voltage_Control_Loop = Power_Voltage_Control_Loop;
   power_read->Current_Control_Loop = Power_Current_Control_Loop;
+  power_read->Median_Filter = Median_Filter;
 }
 
 static INA3221_STATE INA3221_Init(INA3221 *self)
@@ -110,6 +121,88 @@ INA3221_STATE Power_Read_Loop(INA3221 *ina3221, Power_Control *power)
   return ina3221_state;
 }
 /**
+  * @brief  中值滤波函数
+  * @param  self: INA3221结构体的指针
+  * @param  power: Power_Control结构体的指针
+  * @retval INA3221_STATE
+  * @note 会修改INA3221结构体中的电压和电流数据为滤波后的结果
+  * @note 需要初始化滤波器数据(FILTER_BUFFER_SIZE个数据)，初始阶段会直接存入数据，直到滤波器装满数据后才进行正常的滤波流程
+ */
+static INA3221_STATE Median_Filter(INA3221 *self, Power_Control *power)
+{
+  //去极值平均滤波函数
+  static float voltage_buffer[3][FILTER_BUFFER_SIZE] = {0};
+  static float current_buffer[3][FILTER_BUFFER_SIZE] = {0};
+  static uint8_t buffer_index = 0;
+
+  /*初始化滤波器中的数值*/
+  if(self->filter_init != true)
+  {
+    for(uint8_t i = 0; i < 3; i++)
+    {
+      voltage_buffer[i][buffer_index] = self->Power_Data.voltage[i];
+      current_buffer[i][buffer_index] = self->Power_Data.current[i];
+    }
+    buffer_index++;
+    if(buffer_index >= FILTER_BUFFER_SIZE)
+    {
+      buffer_index = 0;
+      self->filter_init = true;
+    }
+    return INA3221_STATE_READ_OK;
+  }
+  /*正常滤波流程*/
+  for(uint8_t i = 0; i < 3; i++)
+  {
+    voltage_buffer[i][buffer_index] = self->Power_Data.voltage[i];
+    current_buffer[i][buffer_index] = self->Power_Data.current[i];
+  }
+  buffer_index++;
+  if(buffer_index >= FILTER_BUFFER_SIZE)
+  {
+    buffer_index = 0;
+  }
+  for(uint8_t i = 0; i < 3; i++)
+  {
+    float temp_v[FILTER_BUFFER_SIZE];
+    float temp_c[FILTER_BUFFER_SIZE];
+    // 1.拷贝到临时数组，避免破坏原有的时序
+    memcpy(temp_v, voltage_buffer[i], sizeof(float) * FILTER_BUFFER_SIZE);
+    memcpy(temp_c, current_buffer[i], sizeof(float) * FILTER_BUFFER_SIZE);
+    // 2.对临时数组的数据进行冒泡排序
+    for(uint8_t j = 0; j < FILTER_BUFFER_SIZE - 1; j++)
+    {
+      for(uint8_t k = 0; k < FILTER_BUFFER_SIZE - j - 1; k++)
+      {
+        if(temp_v[k] > temp_v[k + 1])
+        {
+          float temp = temp_v[k];
+          temp_v[k] = temp_v[k + 1];
+          temp_v[k + 1] = temp;
+        }
+        if(temp_c[k] > temp_c[k + 1])
+        {
+          float temp = temp_c[k];
+          temp_c[k] = temp_c[k + 1];
+          temp_c[k + 1] = temp;
+        }
+      }
+    }
+    // 3.取中位数及去除极值求平均
+    float sum_v = 0;
+    float sum_c = 0;
+    for(uint8_t count = 1; count < FILTER_BUFFER_SIZE - 1; count++)
+    {
+      sum_v += temp_v[count];
+      sum_c += temp_c[count];
+    }
+    self->Power_Data.voltage[i] = sum_v / (FILTER_BUFFER_SIZE - 2);
+    self->Power_Data.current[i] = sum_c / (FILTER_BUFFER_SIZE - 2);
+  }
+  return INA3221_STATE_READ_OK;
+}
+
+/**
   * @brief  电压保护控制
   * @param  handle: INA3221结构体的指针
   * @param  power: Power_Control结构体的指针
@@ -125,21 +218,21 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
   if(handle->Power_Data.voltage[0] > MAX_POWER_VOLTAGE)
   {
     danger_channel |= POWER_OUT_1;
-  } else if(handle->Power_Data.voltage[0] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[0] > 0)
+  } else if(handle->Power_Data.voltage[0] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[0] > 5.0f)
   {
     warning_channel |= POWER_OUT_1;
   }
   if(handle->Power_Data.voltage[1] > MAX_POWER_VOLTAGE)
   {
     danger_channel |= POWER_OUT_2;
-  } else if(handle->Power_Data.voltage[1] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[1] > 0)
+  } else if(handle->Power_Data.voltage[1] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[1] > 5.0f)
   {
     warning_channel |= POWER_OUT_2;
   }
   if(handle->Power_Data.voltage[2] > MAX_POWER_VOLTAGE)
   {
     danger_channel |= POWER_OUT_3;
-  } else if(handle->Power_Data.voltage[2] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[2] > 0)
+  } else if(handle->Power_Data.voltage[2] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[2] > 5.0f)
   {
     warning_channel |= POWER_OUT_3;
   }

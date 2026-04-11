@@ -5,7 +5,7 @@ events:
     kind: "message-v1"
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineSystem.cmake:200 (message)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       The target system is: Generic -  - arm
       The host system is: Windows - 10.0.26200 - AMD64
@@ -15,11 +15,11 @@ events:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
       Compiler: C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang.exe 
-      Build flags: -mcpu=cortex-m3;-Wall;-fdata-sections;-ffunction-sections;-mcpu=cortex-m3;-Wall;-fdata-sections;-ffunction-sections
+      Build flags: -O1;-mcpu=cortex-m3;-Wall;-fdata-sections;-ffunction-sections;-mcpu=cortex-m3;-Wall;-fdata-sections;-ffunction-sections
       Id flags:  
       
       The output was:
@@ -38,11 +38,11 @@ events:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
       Compiler: C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang++.exe 
-      Build flags: -mcpu=cortex-m3;-Wall;-fdata-sections;-ffunction-sections;-mcpu=cortex-m3;-Wall;-fdata-sections;-ffunction-sections;-fno-rtti;-fno-exceptions;-fno-threadsafe-statics
+      Build flags: -O1;-mcpu=cortex-m3;-Wall;-fdata-sections;-ffunction-sections;-mcpu=cortex-m3;-Wall;-fdata-sections;-ffunction-sections;-fno-rtti;-fno-exceptions;-fno-threadsafe-statics
       Id flags:  
       
       The output was:
@@ -60,31 +60,31 @@ events:
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz"
-      binary: "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz"
+      source: "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz"
+      binary: "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
-      CMAKE_C_FLAGS: " -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections"
+      CMAKE_C_FLAGS: " -O1 -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections"
       CMAKE_C_FLAGS_DEBUG: "-Og -g3"
       CMAKE_EXE_LINKER_FLAGS: "-mcpu=cortex-m3  -lcrt0-hosted -z norelro -T \"E:/26HXC/PowerControl_3OutVer_CMAKE/STM32F103XX_FLASH.ld\" -Wl,-Map=PowerControl_3OutVer_CMAKE.map -Wl,--gc-sections -z noexecstack -Wl,--print-memory-usage "
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz'
+        Change Dir: 'E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz'
         
-        Run Build Command(s): C:/Users/Cindy/AppData/Local/stm32cube/bundles/ninja/1.12.1+st.9/bin/ninja.exe -v cmTC_b51a7
-        [1/2] C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\st-arm-clang\\21.1.1+st.6\\bin\\starm-clang.exe   -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections  -std=gnu11   -v -MD -MT CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_b51a7.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj -c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): C:/Users/Cindy/AppData/Local/stm32cube/bundles/ninja/1.12.1+st.9/bin/ninja.exe -v cmTC_ed66c
+        [1/2] C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\st-arm-clang\\21.1.1+st.6\\bin\\starm-clang.exe   -O1 -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections  -std=gnu11   -v -MD -MT CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_ed66c.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj -c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCCompilerABI.c
         STMicroelectronics Arm Clang Toolchain -- clang version 21.1.1 [rel1.20260121-1116]
         Target: arm-st-none-eabi
         Thread model: posix
         InstalledDir: C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin
          (in-process)
-         "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang.exe" -cc1 -triple thumbv7m-st-none-eabi -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu cortex-m3 -target-feature +soft-float-abi -target-feature -crc -target-feature -dsp -target-feature -mve -target-feature -ras -target-feature -sb -target-feature -i8mm -target-feature -lob -target-feature -cdecp0 -target-feature -cdecp1 -target-feature -cdecp2 -target-feature -cdecp3 -target-feature -cdecp4 -target-feature -cdecp5 -target-feature -cdecp6 -target-feature -cdecp7 -target-feature -pacbti -target-feature -hwdiv-arm -target-feature +hwdiv -target-feature -vfp2 -target-feature -vfp2sp -target-feature -vfp3 -target-feature -vfp3d16 -target-feature -vfp3d16sp -target-feature -vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature -fp64 -target-feature -d32 -target-feature -neon -target-feature -dotprod -target-feature -fp16fml -target-feature -bf16 -target-feature -mve.fp -target-feature -fpregs -target-feature -crypto -target-feature -sha2 -target-feature -aes -target-abi aapcs -mfloat-abi soft -debugger-tuning=gdb -fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz -resource-dir C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21 -dependency-file "CMakeFiles\\\\cmTC_b51a7.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include -Wall -Wall -std=gnu11 -ferror-limit 19 -fshort-enums -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -o CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj -x c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCCompilerABI.c
+         "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang.exe" -cc1 -triple thumbv7m-st-none-eabi -O1 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu cortex-m3 -target-feature +soft-float-abi -target-feature -crc -target-feature -dsp -target-feature -mve -target-feature -ras -target-feature -sb -target-feature -i8mm -target-feature -lob -target-feature -cdecp0 -target-feature -cdecp1 -target-feature -cdecp2 -target-feature -cdecp3 -target-feature -cdecp4 -target-feature -cdecp5 -target-feature -cdecp6 -target-feature -cdecp7 -target-feature -pacbti -target-feature -hwdiv-arm -target-feature +hwdiv -target-feature -vfp2 -target-feature -vfp2sp -target-feature -vfp3 -target-feature -vfp3d16 -target-feature -vfp3d16sp -target-feature -vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature -fp64 -target-feature -d32 -target-feature -neon -target-feature -dotprod -target-feature -fp16fml -target-feature -bf16 -target-feature -mve.fp -target-feature -fpregs -target-feature -crypto -target-feature -sha2 -target-feature -aes -target-abi aapcs -mfloat-abi soft -debugger-tuning=gdb -fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz -resource-dir C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21 -dependency-file "CMakeFiles\\\\cmTC_ed66c.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include -Wall -Wall -std=gnu11 -ferror-limit 19 -fshort-enums -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -o CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj -x c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCCompilerABI.c
         clang -cc1 version 21.1.1 based upon LLVM 21.1.1 default target arm-st-none-eabi
         ignoring nonexistent directory "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/include"
         ignoring duplicate directory "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include"
@@ -93,7 +93,7 @@ events:
          C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include\x0d
          C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include\x0d
         End of search list.\x0d
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\cmake\\4.0.1+st.3\\bin\\cmake.exe -E rm -f libcmTC_b51a7.a && D:\\LLVM\\bin\\llvm-ar.exe qc libcmTC_b51a7.a  CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj && D:\\LLVM\\bin\\llvm-ranlib.exe libcmTC_b51a7.a && cd ."
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\cmake\\4.0.1+st.3\\bin\\cmake.exe -E rm -f libcmTC_ed66c.a && D:\\LLVM\\bin\\llvm-ar.exe qc libcmTC_ed66c.a  CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj && D:\\LLVM\\bin\\llvm-ranlib.exe libcmTC_ed66c.a && cd ."
         
       exitCode: 0
   -
@@ -101,7 +101,7 @@ events:
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:191 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       Parsed C implicit include dir info: rv=done
         found start of include info
@@ -119,25 +119,26 @@ events:
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(starm-clang\\.exe|;ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(starm-clang\\.exe|;ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz']
+        ignore line: [Change Dir: 'E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz']
         ignore line: []
-        ignore line: [Run Build Command(s): C:/Users/Cindy/AppData/Local/stm32cube/bundles/ninja/1.12.1+st.9/bin/ninja.exe -v cmTC_b51a7]
-        ignore line: [[1/2] C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\st-arm-clang\\21.1.1+st.6\\bin\\starm-clang.exe   -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections  -std=gnu11   -v -MD -MT CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_b51a7.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj -c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): C:/Users/Cindy/AppData/Local/stm32cube/bundles/ninja/1.12.1+st.9/bin/ninja.exe -v cmTC_ed66c]
+        ignore line: [[1/2] C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\st-arm-clang\\21.1.1+st.6\\bin\\starm-clang.exe   -O1 -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections  -std=gnu11   -v -MD -MT CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles\\cmTC_ed66c.dir\\CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj -c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCCompilerABI.c]
         ignore line: [STMicroelectronics Arm Clang Toolchain -- clang version 21.1.1 [rel1.20260121-1116]]
         ignore line: [Target: arm-st-none-eabi]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin]
         ignore line: [ (in-process)]
-        link line: [ "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang.exe" -cc1 -triple thumbv7m-st-none-eabi -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu cortex-m3 -target-feature +soft-float-abi -target-feature -crc -target-feature -dsp -target-feature -mve -target-feature -ras -target-feature -sb -target-feature -i8mm -target-feature -lob -target-feature -cdecp0 -target-feature -cdecp1 -target-feature -cdecp2 -target-feature -cdecp3 -target-feature -cdecp4 -target-feature -cdecp5 -target-feature -cdecp6 -target-feature -cdecp7 -target-feature -pacbti -target-feature -hwdiv-arm -target-feature +hwdiv -target-feature -vfp2 -target-feature -vfp2sp -target-feature -vfp3 -target-feature -vfp3d16 -target-feature -vfp3d16sp -target-feature -vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature -fp64 -target-feature -d32 -target-feature -neon -target-feature -dotprod -target-feature -fp16fml -target-feature -bf16 -target-feature -mve.fp -target-feature -fpregs -target-feature -crypto -target-feature -sha2 -target-feature -aes -target-abi aapcs -mfloat-abi soft -debugger-tuning=gdb -fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz -resource-dir C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21 -dependency-file "CMakeFiles\\\\cmTC_b51a7.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include -Wall -Wall -std=gnu11 -ferror-limit 19 -fshort-enums -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -o CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj -x c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCCompilerABI.c]
+        link line: [ "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang.exe" -cc1 -triple thumbv7m-st-none-eabi -O1 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu cortex-m3 -target-feature +soft-float-abi -target-feature -crc -target-feature -dsp -target-feature -mve -target-feature -ras -target-feature -sb -target-feature -i8mm -target-feature -lob -target-feature -cdecp0 -target-feature -cdecp1 -target-feature -cdecp2 -target-feature -cdecp3 -target-feature -cdecp4 -target-feature -cdecp5 -target-feature -cdecp6 -target-feature -cdecp7 -target-feature -pacbti -target-feature -hwdiv-arm -target-feature +hwdiv -target-feature -vfp2 -target-feature -vfp2sp -target-feature -vfp3 -target-feature -vfp3d16 -target-feature -vfp3d16sp -target-feature -vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature -fp64 -target-feature -d32 -target-feature -neon -target-feature -dotprod -target-feature -fp16fml -target-feature -bf16 -target-feature -mve.fp -target-feature -fpregs -target-feature -crypto -target-feature -sha2 -target-feature -aes -target-abi aapcs -mfloat-abi soft -debugger-tuning=gdb -fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz -resource-dir C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21 -dependency-file "CMakeFiles\\\\cmTC_ed66c.dir\\\\CMakeCCompilerABI.c.obj.d" -MT CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj -sys-header-deps -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include -Wall -Wall -std=gnu11 -ferror-limit 19 -fshort-enums -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -faddrsig -o CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj -x c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCCompilerABI.c]
           arg [C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang.exe] ==> ignore
           arg [-cc1] ==> ignore
           arg [-triple] ==> ignore
           arg [thumbv7m-st-none-eabi] ==> ignore
+          arg [-O1] ==> ignore
           arg [-emit-obj] ==> ignore
           arg [-disable-free] ==> ignore
           arg [-clear-ast-before-backend] ==> ignore
@@ -252,17 +253,17 @@ events:
           arg [-mfloat-abi] ==> ignore
           arg [soft] ==> ignore
           arg [-debugger-tuning=gdb] ==> ignore
-          arg [-fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz] ==> ignore
+          arg [-fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz] ==> ignore
           arg [-v] ==> ignore
           arg [-ffunction-sections] ==> ignore
           arg [-fdata-sections] ==> ignore
-          arg [-fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-wyjjhz] ==> ignore
+          arg [-fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-bv94gz] ==> ignore
           arg [-resource-dir] ==> ignore
           arg [C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21] ==> ignore
           arg [-dependency-file] ==> ignore
-          arg [CMakeFiles\\\\cmTC_b51a7.dir\\\\CMakeCCompilerABI.c.obj.d] ==> ignore
+          arg [CMakeFiles\\\\cmTC_ed66c.dir\\\\CMakeCCompilerABI.c.obj.d] ==> ignore
           arg [-MT] ==> ignore
-          arg [CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj] ==> ignore
           arg [-sys-header-deps] ==> ignore
           arg [-internal-isystem] ==> ignore
           arg [C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include] ==> ignore
@@ -281,7 +282,7 @@ events:
           arg [-fskip-odr-check-in-gmf] ==> ignore
           arg [-faddrsig] ==> ignore
           arg [-o] ==> ignore
-          arg [CMakeFiles/cmTC_b51a7.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [CMakeFiles/cmTC_ed66c.dir/CMakeCCompilerABI.c.obj] ==> ignore
           arg [-x] ==> ignore
           arg [c] ==> ignore
           arg [C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCCompilerABI.c] ==> ignore
@@ -298,7 +299,7 @@ events:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:264 (cmake_determine_linker_id)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       Running the C compiler's linker: "[1/2] C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang.exe" "-v"
       
@@ -308,7 +309,7 @@ events:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:264 (cmake_determine_linker_id)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       Running the C compiler's linker: "[1/2] C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang.exe" "-V"
       
@@ -318,7 +319,7 @@ events:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:264 (cmake_determine_linker_id)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       Running the C compiler's linker: "[1/2] C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang.exe" "--version"
       
@@ -327,15 +328,15 @@ events:
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-isbya9"
-      binary: "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-isbya9"
+      source: "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-f3it48"
+      binary: "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-f3it48"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
-      CMAKE_CXX_FLAGS: " -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics"
+      CMAKE_CXX_FLAGS: " -O1 -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics"
       CMAKE_CXX_FLAGS_DEBUG: "-Og -g3"
       CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
       CMAKE_EXE_LINKER_FLAGS: "-mcpu=cortex-m3  -lcrt0-hosted -z norelro -T \"E:/26HXC/PowerControl_3OutVer_CMAKE/STM32F103XX_FLASH.ld\" -Wl,-Map=PowerControl_3OutVer_CMAKE.map -Wl,--gc-sections -z noexecstack -Wl,--print-memory-usage "
@@ -343,16 +344,16 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-isbya9'
+        Change Dir: 'E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-f3it48'
         
-        Run Build Command(s): C:/Users/Cindy/AppData/Local/stm32cube/bundles/ninja/1.12.1+st.9/bin/ninja.exe -v cmTC_ddae4
-        [1/2] C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\st-arm-clang\\21.1.1+st.6\\bin\\starm-clang++.exe   -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics    -v -MD -MT CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_ddae4.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj -c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): C:/Users/Cindy/AppData/Local/stm32cube/bundles/ninja/1.12.1+st.9/bin/ninja.exe -v cmTC_ba0dd
+        [1/2] C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\st-arm-clang\\21.1.1+st.6\\bin\\starm-clang++.exe   -O1 -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics    -v -MD -MT CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_ba0dd.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj -c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp
         STMicroelectronics Arm Clang Toolchain -- clang version 21.1.1 [rel1.20260121-1116]
         Target: arm-st-none-eabi
         Thread model: posix
         InstalledDir: C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin
          (in-process)
-         "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang++.exe" -cc1 -triple thumbv7m-st-none-eabi -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu cortex-m3 -target-feature +soft-float-abi -target-feature -crc -target-feature -dsp -target-feature -mve -target-feature -ras -target-feature -sb -target-feature -i8mm -target-feature -lob -target-feature -cdecp0 -target-feature -cdecp1 -target-feature -cdecp2 -target-feature -cdecp3 -target-feature -cdecp4 -target-feature -cdecp5 -target-feature -cdecp6 -target-feature -cdecp7 -target-feature -pacbti -target-feature -hwdiv-arm -target-feature +hwdiv -target-feature -vfp2 -target-feature -vfp2sp -target-feature -vfp3 -target-feature -vfp3d16 -target-feature -vfp3d16sp -target-feature -vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature -fp64 -target-feature -d32 -target-feature -neon -target-feature -dotprod -target-feature -fp16fml -target-feature -bf16 -target-feature -mve.fp -target-feature -fpregs -target-feature -crypto -target-feature -sha2 -target-feature -aes -target-abi aapcs -mfloat-abi soft -debugger-tuning=gdb -fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-isbya9 -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-isbya9 -resource-dir C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21 -dependency-file "CMakeFiles\\\\cmTC_ddae4.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include/c++/v1 -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include/c++/v1 -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include -Wall -Wall -fdeprecated-macro -ferror-limit 19 -fno-rtti -fshort-enums -fno-signed-char -fgnuc-version=4.2.1 -fno-threadsafe-statics -fskip-odr-check-in-gmf -faddrsig -o CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj -x c++ C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp
+         "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang++.exe" -cc1 -triple thumbv7m-st-none-eabi -O1 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu cortex-m3 -target-feature +soft-float-abi -target-feature -crc -target-feature -dsp -target-feature -mve -target-feature -ras -target-feature -sb -target-feature -i8mm -target-feature -lob -target-feature -cdecp0 -target-feature -cdecp1 -target-feature -cdecp2 -target-feature -cdecp3 -target-feature -cdecp4 -target-feature -cdecp5 -target-feature -cdecp6 -target-feature -cdecp7 -target-feature -pacbti -target-feature -hwdiv-arm -target-feature +hwdiv -target-feature -vfp2 -target-feature -vfp2sp -target-feature -vfp3 -target-feature -vfp3d16 -target-feature -vfp3d16sp -target-feature -vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature -fp64 -target-feature -d32 -target-feature -neon -target-feature -dotprod -target-feature -fp16fml -target-feature -bf16 -target-feature -mve.fp -target-feature -fpregs -target-feature -crypto -target-feature -sha2 -target-feature -aes -target-abi aapcs -mfloat-abi soft -debugger-tuning=gdb -fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-f3it48 -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-f3it48 -resource-dir C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21 -dependency-file "CMakeFiles\\\\cmTC_ba0dd.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include/c++/v1 -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include/c++/v1 -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include -Wall -Wall -fdeprecated-macro -ferror-limit 19 -fno-rtti -fshort-enums -fno-signed-char -fgnuc-version=4.2.1 -fno-threadsafe-statics -fskip-odr-check-in-gmf -faddrsig -o CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj -x c++ C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp
         clang -cc1 version 21.1.1 based upon LLVM 21.1.1 default target arm-st-none-eabi
         ignoring nonexistent directory "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include/c++/v1"
         ignoring nonexistent directory "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include"
@@ -363,7 +364,7 @@ events:
          C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include\x0d
          C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include\x0d
         End of search list.\x0d
-        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\cmake\\4.0.1+st.3\\bin\\cmake.exe -E rm -f libcmTC_ddae4.a && D:\\LLVM\\bin\\llvm-ar.exe qc libcmTC_ddae4.a  CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj && D:\\LLVM\\bin\\llvm-ranlib.exe libcmTC_ddae4.a && cd ."
+        [2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\cmake\\4.0.1+st.3\\bin\\cmake.exe -E rm -f libcmTC_ba0dd.a && D:\\LLVM\\bin\\llvm-ar.exe qc libcmTC_ba0dd.a  CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj && D:\\LLVM\\bin\\llvm-ranlib.exe libcmTC_ba0dd.a && cd ."
         
       exitCode: 0
   -
@@ -371,7 +372,7 @@ events:
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:191 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       Parsed CXX implicit include dir info: rv=done
         found start of include info
@@ -391,21 +392,21 @@ events:
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:28 (project)"
+      - "CMakeLists.txt:30 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(starm-clang\\.exe|;ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(starm-clang\\.exe|;ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-isbya9']
+        ignore line: [Change Dir: 'E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-f3it48']
         ignore line: []
-        ignore line: [Run Build Command(s): C:/Users/Cindy/AppData/Local/stm32cube/bundles/ninja/1.12.1+st.9/bin/ninja.exe -v cmTC_ddae4]
-        ignore line: [[1/2] C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\st-arm-clang\\21.1.1+st.6\\bin\\starm-clang++.exe   -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics    -v -MD -MT CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_ddae4.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj -c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): C:/Users/Cindy/AppData/Local/stm32cube/bundles/ninja/1.12.1+st.9/bin/ninja.exe -v cmTC_ba0dd]
+        ignore line: [[1/2] C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\st-arm-clang\\21.1.1+st.6\\bin\\starm-clang++.exe   -O1 -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -mcpu=cortex-m3  -Wall -fdata-sections -ffunction-sections -fno-rtti -fno-exceptions -fno-threadsafe-statics    -v -MD -MT CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_ba0dd.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj -c C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [STMicroelectronics Arm Clang Toolchain -- clang version 21.1.1 [rel1.20260121-1116]]
         ignore line: [Target: arm-st-none-eabi]
         ignore line: [Thread model: posix]
         ignore line: [InstalledDir: C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin]
         ignore line: [ (in-process)]
-        ignore line: [ "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang++.exe" -cc1 -triple thumbv7m-st-none-eabi -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu cortex-m3 -target-feature +soft-float-abi -target-feature -crc -target-feature -dsp -target-feature -mve -target-feature -ras -target-feature -sb -target-feature -i8mm -target-feature -lob -target-feature -cdecp0 -target-feature -cdecp1 -target-feature -cdecp2 -target-feature -cdecp3 -target-feature -cdecp4 -target-feature -cdecp5 -target-feature -cdecp6 -target-feature -cdecp7 -target-feature -pacbti -target-feature -hwdiv-arm -target-feature +hwdiv -target-feature -vfp2 -target-feature -vfp2sp -target-feature -vfp3 -target-feature -vfp3d16 -target-feature -vfp3d16sp -target-feature -vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature -fp64 -target-feature -d32 -target-feature -neon -target-feature -dotprod -target-feature -fp16fml -target-feature -bf16 -target-feature -mve.fp -target-feature -fpregs -target-feature -crypto -target-feature -sha2 -target-feature -aes -target-abi aapcs -mfloat-abi soft -debugger-tuning=gdb -fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-isbya9 -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-isbya9 -resource-dir C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21 -dependency-file "CMakeFiles\\\\cmTC_ddae4.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include/c++/v1 -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include/c++/v1 -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include -Wall -Wall -fdeprecated-macro -ferror-limit 19 -fno-rtti -fshort-enums -fno-signed-char -fgnuc-version=4.2.1 -fno-threadsafe-statics -fskip-odr-check-in-gmf -faddrsig -o CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj -x c++ C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [ "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/starm-clang++.exe" -cc1 -triple thumbv7m-st-none-eabi -O1 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model static -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -nostdsysteminc -target-cpu cortex-m3 -target-feature +soft-float-abi -target-feature -crc -target-feature -dsp -target-feature -mve -target-feature -ras -target-feature -sb -target-feature -i8mm -target-feature -lob -target-feature -cdecp0 -target-feature -cdecp1 -target-feature -cdecp2 -target-feature -cdecp3 -target-feature -cdecp4 -target-feature -cdecp5 -target-feature -cdecp6 -target-feature -cdecp7 -target-feature -pacbti -target-feature -hwdiv-arm -target-feature +hwdiv -target-feature -vfp2 -target-feature -vfp2sp -target-feature -vfp3 -target-feature -vfp3d16 -target-feature -vfp3d16sp -target-feature -vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature -fp64 -target-feature -d32 -target-feature -neon -target-feature -dotprod -target-feature -fp16fml -target-feature -bf16 -target-feature -mve.fp -target-feature -fpregs -target-feature -crypto -target-feature -sha2 -target-feature -aes -target-abi aapcs -mfloat-abi soft -debugger-tuning=gdb -fdebug-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-f3it48 -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/CMakeFiles/CMakeScratch/TryCompile-f3it48 -resource-dir C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21 -dependency-file "CMakeFiles\\\\cmTC_ba0dd.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include/c++/v1 -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include/c++/v1 -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include -internal-isystem C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include -Wall -Wall -fdeprecated-macro -ferror-limit 19 -fno-rtti -fshort-enums -fno-signed-char -fgnuc-version=4.2.1 -fno-threadsafe-statics -fskip-odr-check-in-gmf -faddrsig -o CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj -x c++ C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [clang -cc1 version 21.1.1 based upon LLVM 21.1.1 default target arm-st-none-eabi]
         ignore line: [ignoring nonexistent directory "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include/c++/v1"]
         ignore line: [ignoring nonexistent directory "C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_unaligned_size/include"]
@@ -416,7 +417,7 @@ events:
         ignore line: [ C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/lib/clang/21/include\x0d]
         ignore line: [ C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/include\x0d]
         ignore line: [End of search list.\x0d]
-        ignore line: [[2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\cmake\\4.0.1+st.3\\bin\\cmake.exe -E rm -f libcmTC_ddae4.a && D:\\LLVM\\bin\\llvm-ar.exe qc libcmTC_ddae4.a  CMakeFiles/cmTC_ddae4.dir/CMakeCXXCompilerABI.cpp.obj && D:\\LLVM\\bin\\llvm-ranlib.exe libcmTC_ddae4.a && cd ."]
+        ignore line: [[2/2] C:\\Windows\\system32\\cmd.exe /C "cd . && C:\\Users\\Cindy\\AppData\\Local\\stm32cube\\bundles\\cmake\\4.0.1+st.3\\bin\\cmake.exe -E rm -f libcmTC_ba0dd.a && D:\\LLVM\\bin\\llvm-ar.exe qc libcmTC_ba0dd.a  CMakeFiles/cmTC_ba0dd.dir/CMakeCXXCompilerABI.cpp.obj && D:\\LLVM\\bin\\llvm-ranlib.exe libcmTC_ba0dd.a && cd ."]
         ignore line: []
         ignore line: []
         implicit libs: []
@@ -430,7 +431,7 @@ events:
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:1243 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineASMCompiler.cmake:139 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:32 (enable_language)"
+      - "CMakeLists.txt:34 (enable_language)"
     message: |
       Checking whether the ASM compiler is GNU using "--version" did not match "(GNU assembler)|(GCC)|(Free Software Foundation)":
       STMicroelectronics Arm Clang Toolchain -- clang version 21.1.1 [rel1.20260121-1116]
@@ -442,7 +443,7 @@ events:
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:1243 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineASMCompiler.cmake:139 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:32 (enable_language)"
+      - "CMakeLists.txt:34 (enable_language)"
     message: |
       Checking whether the ASM compiler is AppleClang using "--version" did not match "(Apple (clang|LLVM) version)":
       STMicroelectronics Arm Clang Toolchain -- clang version 21.1.1 [rel1.20260121-1116]
@@ -454,7 +455,7 @@ events:
     backtrace:
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:1230 (message)"
       - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.0.1+st.3/share/cmake-4.0/Modules/CMakeDetermineASMCompiler.cmake:139 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
-      - "CMakeLists.txt:32 (enable_language)"
+      - "CMakeLists.txt:34 (enable_language)"
     message: |
       Checking whether the ASM compiler is Clang using "--version" matched "(clang version)":
       STMicroelectronics Arm Clang Toolchain -- clang version 21.1.1 [rel1.20260121-1116]

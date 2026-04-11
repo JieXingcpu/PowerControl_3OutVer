@@ -34,6 +34,8 @@
 #include "LED.h"
 #include "Button.h"
 #include "Message.h"
+#include "Log.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,11 +45,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-// #define USE_DEBUG_PRINT  //启用调试打印,会将电压电流数据通过串口打印出来
 
-#ifdef USE_DEBUG_PRINT
-#include <stdio.h>
-#endif
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -72,38 +70,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#ifdef USE_DEBUG_PRINT
-int __io_putchar(int ch)
-{
-  while(!(USART2->SR & (1 << 7)))
-  {
-  }
-  USART2->DR = (uint8_t)ch;
-  return ch;
-}
-int fputc(int ch, FILE *f)
-{
-  (void)f;
-  return __io_putchar(ch);
-}
-void print_callback(Power_Control *power, INA3221 *ina3221)
-{
-  int voltage_1 = (int)(ina3221->Power_Data.voltage[0] * 1000);
-  // int voltage_2 = (int)(ina3221->Power_Data.voltage[1] * 1000);
-  // int voltage_3 = (int)(ina3221->Power_Data.voltage[2] * 1000);
-  int point1=voltage_1%1000;
-  // int point2=voltage_2%1000;
-  // int point3=voltage_3%1000;
-  
-  // printf("Power State: %d\r\n", power->Power_Channel_State);
-  printf("Voltage: %d.%03d V\r\n", voltage_1/1000, point1);
-  // printf("Voltage: %d.%03d V\r\n", voltage_2/1000, point2);
-  // printf("Voltage: %d.%03d V\r\n", voltage_3/1000, point3);
-  // int current_1 = (int)(ina3221->Power_Data.current[0] * 1000);
-  // int cur_ponit1 = current_1 % 1000;
-  // printf("%d.%03d\r\n",current_1/1000,cur_ponit1);
-}
-#endif
+
 /* USER CODE END 0 */
 
 /**
@@ -144,8 +111,8 @@ int main(void)
   MX_USART2_UART_Init();
   MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
-  Init_Power_Control(&power);
-  Init_Power_Read(&power_read);
+  Init_Power_Control(&power);//初始化电源控制结构体
+  Init_Power_Read(&power_read);//初始化电源读取结构体
   power.Init(&power);
   CAN_Connect_Init();
   Ina3221_State = power_read.Init(&power_read);
@@ -155,8 +122,9 @@ int main(void)
   Buzzer_Switch(BUZZER_SYSTEM_INIT);
   Send_Period_Init();
   HAL_TIM_Base_Start_IT(&htim3);
+  Log_Init();
   __HAL_DBGMCU_FREEZE_IWDG();
-
+  power.Switch(&power, POWER_OUT_1|POWER_OUT_2, POWER_ON, 0x00);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -168,6 +136,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     /* clang-format on */
+    Log_Check();
     /*按键LED部分*/
     if(button_1_counter_state == COUNTER_LONG_START)
     {
@@ -217,22 +186,36 @@ int main(void)
     }
     /*电源监测部分*/
     Ina3221_State = power_read.Read_Loop(&power_read, &power);
+    /*进行滤波处理*/
     if(Ina3221_State == INA3221_STATE_READ_OK)
     {
-      /*进行一次电源检测*/
+      /*只有一轮完整读取完毕，才存入滤波器*/
+      if(power_read.read_data_mutex!=true)
+      {
+        power_read.read_data_mutex = true;
+        power_read.Median_Filter(&power_read, &power);
+        power_read.read_data_mutex = false;
+      }
+      if(power_read.filter_init != true)
+      {
+        continue; /*等待滤波器数据装满初始化*/
+      }
+      /*进行一次电源控制和保护检测*/
       power_read.Voltage_Control_Loop(&power_read, &power);
       power_read.Current_Control_Loop(&power_read, &power);
-      if(power_read.holding_time > MAX_HOLDING_TIME * 10+1)  //如果持续时间超过最大值,则重置
+      if(power_read.holding_time > MAX_HOLDING_TIME * 10 + 1)  //如果持续时间超过最大值,则重置
       {
         power_read.holding_time = 0;
       }
     } else if(Ina3221_State == INA3221_STATE_ERROR)
     {
-      while(1);//如果电源检测发生错误,则进入死循环,等待系统重启
+      while(1);  //如果电源检测发生错误,则进入死循环,等待系统重启
     }
-    #ifdef USE_DEBUG_PRINT
-    print_callback(&power, &power_read);
-    #endif
+    /*打印Log数据*/
+    if(Log_State == LOG_ON)
+    {
+      Log_printf(&power, &power_read);
+    }
     /*清空对于关闭后的端口的电压和电流数据*/
     if(power_read.read_data_mutex != true)
     {
@@ -251,7 +234,7 @@ int main(void)
     {
       Buzzer_Switch(BUZZER_OFF);
     }
-    HAL_Delay(10);
+    HAL_Delay(1);
   }
   /* clang-format off */
   /* USER CODE END 3 */

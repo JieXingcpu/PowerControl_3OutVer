@@ -53,6 +53,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Application/Power/Power.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Application/Message/Message.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Application/BUZZER/Buzzer.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Application/Debug/Log.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/CallBack.c
 )
 
@@ -65,7 +66,9 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/Application/Power
     ${CMAKE_CURRENT_SOURCE_DIR}/Application/Message
     ${CMAKE_CURRENT_SOURCE_DIR}/Application/BUZZER
+    ${CMAKE_CURRENT_SOURCE_DIR}/Application/Debug
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc
+
 )
 
 # Add project symbols (macros)
