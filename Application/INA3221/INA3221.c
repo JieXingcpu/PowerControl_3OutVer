@@ -6,7 +6,6 @@
 #include "INA3221_Register.h"
 #include "i2c.h"
 
-
 static INA3221_STATE INA3221_Init(INA3221 *self);
 static INA3221_STATE INA3221_Config(INA3221 *handle);
 static INA3221_STATE INA3221_ReadReg(INA3221 *handle);
@@ -38,13 +37,30 @@ void Init_Power_Read(INA3221 *power_read)
   power_read->send_data_buffer = 0;
   power_read->read_data_buffer = 0;
   power_read->Power_Data = (Power_DataTypeDef){0};
+  power_read->read_data_mutex = false;
+  power_read->channel_state = 0;
+  power_read->index = 0;
+  for(uint8_t i = 0; i < 3; i++)
+  {
+    power_read->voltage_counter[i] = 0;
+    power_read->current_counter[i] = 0;
+    power_read->sudden_current_counter[i] = 0;
+    power_read->voltage_count_flag[i] = false;
+    power_read->current_count_flag[i] = false;
+    power_read->sudden_current_count_flag[i] = false;
+  }
   power_read->Init = INA3221_Init;
   power_read->Read_Loop = Power_Read_Loop;
   power_read->Voltage_Control_Loop = Power_Voltage_Control_Loop;
   power_read->Current_Control_Loop = Power_Current_Control_Loop;
   power_read->Median_Filter = Median_Filter;
 }
-
+/**
+  * @brief  初始化INA3221
+  * @param  self: INA3221结构体的指针
+  * @note 该函数会检查INA3221的芯片ID以确认设备是否正常连接，并配置INA3221的配置寄存器
+  * @retval INA3221_STATE
+ */
 static INA3221_STATE INA3221_Init(INA3221 *self)
 {
   while(hi2c1.State != HAL_I2C_STATE_READY)
@@ -61,6 +77,14 @@ static INA3221_STATE INA3221_Init(INA3221 *self)
   INA3221_Config(self);  //配置INA3221，只需要配置一次
   return INA3221_STATE_IDLE;
 }
+/**
+  * @brief  搜索需要读取的通道并进行读取
+  * @param  ina3221: INA3221结构体的指针
+  * @param  power: Power_Control结构体的指针
+  * @note 该函数会根据传入的Power_Control结构体中的通道状态来判断需要读取哪些通道的数据，并进行读取
+  * @retval INA3221_STATE
+  * @warning 该函数会修改INA3221结构体中的电压和电流数据
+ */
 static INA3221_STATE Search_Channel_To_Read(INA3221 *ina3221, Power_Control *power)
 {
   const uint8_t Channel_Map[6] = {BUS_VOLTAGE_CHANNEL_1, SHUNT_VOLTAGE_CHANNEL_1, BUS_VOLTAGE_CHANNEL_2, SHUNT_VOLTAGE_CHANNEL_2, BUS_VOLTAGE_CHANNEL_3, SHUNT_VOLTAGE_CHANNEL_3};
@@ -105,7 +129,7 @@ INA3221_STATE Power_Read_Loop(INA3221 *ina3221, Power_Control *power)
     case INA3221_STATE_READING:
       if(ina3221->read_data_mutex != true)
       {
-        ina3221->read_data_mutex = true;
+        ina3221->read_data_mutex = true;  //上锁，防止在读取过程中被其他函数修改数据
         ina3221_state = Search_Channel_To_Read(ina3221, power);
         ina3221->read_data_mutex = false;
       }
@@ -166,10 +190,10 @@ static INA3221_STATE Median_Filter(INA3221 *self, Power_Control *power)
   {
     float temp_v[FILTER_BUFFER_SIZE];
     float temp_c[FILTER_BUFFER_SIZE];
-    // 1.拷贝到临时数组，避免破坏原有的时序
+    //复制到临时数组，避免破坏原有的时序
     memcpy(temp_v, voltage_buffer[i], sizeof(float) * FILTER_BUFFER_SIZE);
     memcpy(temp_c, current_buffer[i], sizeof(float) * FILTER_BUFFER_SIZE);
-    // 2.对临时数组的数据进行冒泡排序
+    //对临时数组的数据进行冒泡排序
     for(uint8_t j = 0; j < FILTER_BUFFER_SIZE - 1; j++)
     {
       for(uint8_t k = 0; k < FILTER_BUFFER_SIZE - j - 1; k++)
@@ -188,7 +212,7 @@ static INA3221_STATE Median_Filter(INA3221 *self, Power_Control *power)
         }
       }
     }
-    // 3.取中位数及去除极值求平均
+    //取中位数及去除极值求平均
     float sum_v = 0;
     float sum_c = 0;
     for(uint8_t count = 1; count < FILTER_BUFFER_SIZE - 1; count++)
@@ -214,34 +238,55 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
 {
   Power_Output_Channel danger_channel = 0x00;
   Power_Output_Channel warning_channel = 0x00;
+  static float last_voltage_max[3] = {0.0f};
   /*电压保护*/
-  if(handle->Power_Data.voltage[0] > MAX_POWER_VOLTAGE)
+  for(uint8_t i = 0; i < 3; i++)
   {
-    danger_channel |= POWER_OUT_1;
-  } else if(handle->Power_Data.voltage[0] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[0] > 5.0f)
-  {
-    warning_channel |= POWER_OUT_1;
+    /*排除未开启的通道*/
+    if((power->Power_Channel_State & (1U << i)) == 0)
+    {
+      handle->Power_Data.voltage[i] = 0.0f;
+      handle->voltage_count_flag[i] = false;
+      handle->voltage_counter[i] = 0;
+      continue;
+    }
+    /*大于最大电压*/
+    if(handle->Power_Data.voltage[i] > MAX_POWER_VOLTAGE)
+    {
+      handle->voltage_count_flag[i] = true;
+      /*持续大于最大电压*/
+      if(handle->voltage_counter[i] > MAX_HOLDING_TIME * 10)
+      {
+        danger_channel |= (1U << i);  //标记需要断电的通道
+        handle->voltage_count_flag[i] = false;
+        handle->voltage_counter[i] = 0;
+      }
+    } else
+    {
+      if(handle->Power_Data.voltage[i] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[i] > 5.0f)
+      {
+        /*低压报警*/
+        warning_channel |= (1U << i);
+      }
+      /*电压恢复正常，清除该通道的异常标志和计数*/
+      if(handle->Power_Data.voltage[i] >= MIN_POWER_VOLTAGE)
+      {
+        if(handle->voltage_count_flag[i] == true)
+        {
+          handle->voltage_count_flag[i] = false;
+          handle->voltage_counter[i] = 0;
+        }
+      }
+    }
+    /*急停通道*/
+    if(last_voltage_max[i] - handle->Power_Data.voltage[i] >= 15.0f)
+    {
+      danger_channel |= (1U << i);
+    }
+    if(handle->Power_Data.voltage[i] > last_voltage_max[i]) last_voltage_max[i] = handle->Power_Data.voltage[i];
   }
-  if(handle->Power_Data.voltage[1] > MAX_POWER_VOLTAGE)
-  {
-    danger_channel |= POWER_OUT_2;
-  } else if(handle->Power_Data.voltage[1] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[1] > 5.0f)
-  {
-    warning_channel |= POWER_OUT_2;
-  }
-  if(handle->Power_Data.voltage[2] > MAX_POWER_VOLTAGE)
-  {
-    danger_channel |= POWER_OUT_3;
-  } else if(handle->Power_Data.voltage[2] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[2] > 5.0f)
-  {
-    warning_channel |= POWER_OUT_3;
-  }
-  power->Power_Channel_State &warning_channel ? Buzzer_Switch(BUZZER_WARNING) : Buzzer_Switch(BUZZER_OFF);
-  //如果电压异常且持续时间超过设定值,则断电
-  if((power->Power_Channel_State & danger_channel) && handle->holding_time > MAX_HOLDING_TIME * 10)
-  {
-    return power->Switch(power, danger_channel, POWER_OFF, danger_channel);
-  }
+  power->Power_Channel_State &(warning_channel | danger_channel) ? Buzzer_Switch(BUZZER_WARNING) : Buzzer_Switch(BUZZER_OFF);
+  if(danger_channel != 0x00) power->Switch(power, danger_channel, POWER_OFF, danger_channel);
   return power->Power_Channel_State;
 }
 /**
@@ -255,25 +300,52 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
 static Power_State Power_Current_Control_Loop(INA3221 *handle, Power_Control *power)
 {
   Power_Output_Channel danger_channel = 0x00;
-  /*电流保护*/
-  if(handle->Power_Data.current[0] > MAX_POWER_CURRENT)
+  /*电流保护：只检查已开启的通道，并将检测和断电逻辑合并在一次循环中完成*/
+  for(uint8_t i = 0; i < 3; i++)
   {
-    danger_channel |= POWER_OUT_1;
+    // 如果该通道未开启, 则跳过检测并清空所有标志与计数器
+    if((power->Power_Channel_State & (1U << i)) == 0)
+    {
+      handle->Power_Data.current[i] = 0.0f;
+      handle->current_count_flag[i] = false;
+      handle->current_counter[i] = 0;
+      handle->sudden_current_count_flag[i] = false;
+      handle->sudden_current_counter[i] = 0;
+      continue;
+    }
+    /*电流突变保护,如果电流突然超过MAX_CURRENT_SUDDEN*/
+    if(handle->Power_Data.current[i] >= MAX_CURRENT_SUDDEN)
+    {
+      handle->sudden_current_count_flag[i] = true;
+      danger_channel |= (1U << i);
+      if(handle->sudden_current_counter[i] > SUDDEN_CURRENT_HOLDING_TIME)
+      {
+        /*最大电流保护*/
+        power->Switch(power, (1U << i), POWER_OFF, (1U << i));
+        handle->sudden_current_count_flag[i] = false;  //关闭突变计数
+        handle->sudden_current_counter[i] = 0;         //重置突变计数
+      }
+    }
+    //电流异常(MAX_POWER_CURRENT~MAX_CURRENT_SUDDEN)且持续时间超过设定值
+    else if(handle->Power_Data.current[i] > MAX_POWER_CURRENT && handle->Power_Data.current[i] < MAX_CURRENT_SUDDEN)
+    {
+      danger_channel |= (1U << i);
+      handle->current_count_flag[i] = true;
+      if(handle->current_counter[i] > MAX_HOLDING_TIME * 10)
+      {
+        power->Switch(power, (1U << i), POWER_OFF, (1U << i));
+        handle->current_count_flag[i] = false;
+        handle->current_counter[i] = 0;
+      }
+    } else  // 电流正常，清除该通道的所有异常标志和计数
+    {
+      handle->current_count_flag[i] = false;
+      handle->current_counter[i] = 0;
+      handle->sudden_current_count_flag[i] = false;
+      handle->sudden_current_counter[i] = 0;
+    }
   }
-  if(handle->Power_Data.current[1] > MAX_POWER_CURRENT)
-  {
-    danger_channel |= POWER_OUT_2;
-  }
-  if(handle->Power_Data.current[2] > MAX_POWER_CURRENT)
-  {
-    danger_channel |= POWER_OUT_3;
-  }
-  //如果电流异常且持续时间超过设定值,则断电
-  if(handle->holding_time > MAX_HOLDING_TIME * 10 && danger_channel != 0x00)
-  {
-    Buzzer_Switch(BUZZER_WARNING);
-    return power->Switch(power, danger_channel, POWER_OFF, danger_channel);
-  }
+  if(danger_channel != 0x00) Buzzer_Switch(BUZZER_WARNING);
   return power->Power_Channel_State;
 }
 /**

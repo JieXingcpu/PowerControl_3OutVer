@@ -1,4 +1,4 @@
-# Install script for directory: E:/26HXC/PowerControl_3OutVer_CMAKE
+# Install script for directory: E:/HXC26/PowerControl_3OutVer_CMAKE
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,13 +39,13 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/cmake/stm32cubemx/cmake_install.cmake")
+  include("E:/HXC26/PowerControl_3OutVer_CMAKE/build/Debug/cmake/stm32cubemx/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/install_local_manifest.txt"
+  file(WRITE "E:/HXC26/PowerControl_3OutVer_CMAKE/build/Debug/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -61,6 +61,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "E:/26HXC/PowerControl_3OutVer_CMAKE/build/Debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "E:/HXC26/PowerControl_3OutVer_CMAKE/build/Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

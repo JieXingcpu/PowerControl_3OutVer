@@ -203,12 +203,9 @@ int main(void)
       /*进行一次电源控制和保护检测*/
       power_read.Voltage_Control_Loop(&power_read, &power);
       power_read.Current_Control_Loop(&power_read, &power);
-      if(power_read.holding_time > MAX_HOLDING_TIME * 10 + 1)  //如果持续时间超过最大值,则重置
-      {
-        power_read.holding_time = 0;
-      }
     } else if(Ina3221_State == INA3221_STATE_ERROR)
     {
+      // power.Switch(&power,POWER_OUT_ALL, POWER_OFF, POWER_OUT_ALL);
       while(1);  //如果电源检测发生错误,则进入死循环,等待系统重启
     }
     /*打印Log数据*/
