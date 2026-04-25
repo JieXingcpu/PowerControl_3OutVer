@@ -248,6 +248,7 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
       handle->Power_Data.voltage[i] = 0.0f;
       handle->voltage_count_flag[i] = false;
       handle->voltage_counter[i] = 0;
+      last_voltage_max[i] = 0.0f;  //重置电压突变检测的参考值
       continue;
     }
     /*大于最大电压*/
