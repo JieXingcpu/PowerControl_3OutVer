@@ -16,7 +16,7 @@ typedef enum
 {
   POWER_ON = 0x00,
   POWER_OFF = 0x01,
-  POWER_WARNING = 0x02,
+  POWER_WARNING = 0x02
 } Channel_State;
 
 typedef enum
@@ -29,7 +29,7 @@ typedef enum
   POWER_ON_1_AND_3 = 0x05,
   POWER_ON_2_AND_3 = 0x06,
   POWER_ON_ALL = 0x07,
-  POWER_DO_NONE
+  POWER_BREAKDOWN = 0x08
 } Power_State;
 
 typedef struct Power_Control

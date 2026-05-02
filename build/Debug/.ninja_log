@@ -1,5 +1,5 @@
 # ninja log v6
-7	352	7988243180752535	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj	2e7f380941391e00
+14	345	7993446742236424	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj	2e7f380941391e00
 1424	2068	7977619412649628	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj	c4da852476e6e947
 1252	1876	7977619410929247	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj	e260e1e3866ff2e3
 1104	1685	7977619409448812	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj	a32ea662b1c994e6
@@ -12,20 +12,20 @@
 2569	2760	7977619424091486	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_iwdg.c.obj	8620e5300cc3e3d4
 1215	1831	7977619410553345	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj	3b546843cca15b5d
 1587	2233	7977619414274366	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj	5aa6abc97ff64f8c
-1366	1597	7988216469360342	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj	9e585eed38229bb0
+1414	1612	7993444339533445	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj	9e585eed38229bb0
 1382	2025	7977619412225653	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj	943266161915f930
 1471	2114	7977619413122513	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj	1f2ce0407b06ea97
 2281	2754	7977619421219048	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj	33e3c934bba3d0c8
 1512	2158	7977619413531279	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj	bd2a621c6dfeabd4
 1551	2193	7977619413911133	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj	bd6e8fce61acbeb
-102	405	7988243181712481	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj	a3e066a7949f50f0
-1685	2329	7977619415262765	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj	9d67f9aa3d544233
+1287	1565	7993444338266456	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj	a3e066a7949f50f0
+1329	1528	7993444338683188	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj	9d67f9aa3d544233
 1748	2377	7977619415892961	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj	13a323a67335f28c
 1978	2611	7977619418192212	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj	3551aab5844a9a13
 2068	2700	7977619419089815	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj	429aadc14046b22d
 1789	2422	7977619416306656	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj	10776d9461b59582
 2114	2749	7977619419549577	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj	e96acc7e00a9ebcf
-1315	1552	7988216468851593	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj	758b74f469132eb5
+1371	1593	7993444339104032	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj	758b74f469132eb5
 2423	2757	7977619422632751	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.obj	a994528ea9b2c8a7
 1924	2568	7977619417644526	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj	6d37ea01242f690b
 2025	2653	7977619418662330	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj	c7bf1dfa439d45f2
@@ -37,4 +37,6 @@
 2653	3010	7977619424936759	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj	8c73f47da346a9b5
 2612	3218	7977619424521169	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj	bfa4feeaf0bde3ed
 2519	3279	7977619423607085	cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj	cc4b43e498023630
-406	716	7988243184738954	PowerControl_3OutVer_CMAKE.elf	40ef06df1d382adc
+347	763	7993446745559687	PowerControl_3OutVer_CMAKE.elf	40ef06df1d382adc
+9	1387	7994036167117225	CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj	a3e066a7949f50f0
+1388	2590	7994036180908301	PowerControl_3OutVer_CMAKE.elf	40ef06df1d382adc

@@ -279,12 +279,17 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
         }
       }
     }
+    /*更新最大电压*/
+    if(handle->Power_Data.voltage[i] > last_voltage_max[i]) last_voltage_max[i] = handle->Power_Data.voltage[i];
     /*急停通道*/
     if(last_voltage_max[i] - handle->Power_Data.voltage[i] >= 15.0f)
     {
       danger_channel |= (1U << i);
+    } else if(handle->Power_Data.voltage[i] <= 2.0f&&handle->Power_Data.voltage[i]<last_voltage_max[i])  //电压过低且非升压过程
+    {
+      power->Power_Channel_State=POWER_BREAKDOWN;
+      return power->Power_Channel_State;  //如果电压不正常,则视为急停
     }
-    if(handle->Power_Data.voltage[i] > last_voltage_max[i]) last_voltage_max[i] = handle->Power_Data.voltage[i];
   }
   power->Power_Channel_State &(warning_channel | danger_channel) ? Buzzer_Switch(BUZZER_WARNING) : Buzzer_Switch(BUZZER_OFF);
   if(danger_channel != 0x00) power->Switch(power, danger_channel, POWER_OFF, danger_channel);

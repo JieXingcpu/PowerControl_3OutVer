@@ -17,6 +17,41 @@
           "imageFileName": "${command:st-stm32-ide-debug-launch.get-projects-binary-from-context1}"
         }
       ]
+    },
+    {
+      "type": "stlinkgdbtarget",
+      "request": "launch",
+      "name": "STM32Cube: Launch ST-Link GDB Server",
+      "origin": "snippet",
+      "cwd": "${workspaceFolder}",
+      "preBuild": "${command:st-stm32-ide-debug-launch.build}",
+      "runEntry": "main",
+      "liveWatch": {
+        "enabled": true,
+        "samplesPerSecond": "4"
+      },
+      "imagesAndSymbols": [
+        {
+          "imageFileName": "${command:st-stm32-ide-debug-launch.get-projects-binary-from-context1}"
+        }
+      ]
+    },
+    {
+      "type": "cortex-debug",
+      "request": "launch",
+      "name": "STM32Cube: Launch OpenOCD Server",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "${command:st-stm32-ide-debug-launch.build}",
+      "runToEntryPoint": "main",
+      "servertype": "openocd",
+      "gdbPath": "C:/Users/Cindy/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-gdb.exe",
+      "svdFile": "E:/mystm32/lib/SVD/STM32F103.svd",
+      "liveWatch": {
+        "enabled": true,
+        "samplesPerSecond": 4
+      },
+
+      
     }
   ]
 }

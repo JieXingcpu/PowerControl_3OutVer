@@ -213,6 +213,12 @@ int main(void)
     {
       Log_printf(&power, &power_read);
     }
+    /*检查是否为急停*/
+    if(power.Power_Channel_State== POWER_BREAKDOWN)
+    {
+      // 处理急停逻辑
+      power.Switch(&power, POWER_OUT_ALL, POWER_OFF, POWER_OUT_ALL);
+    }
     /*清空对于关闭后的端口的电压和电流数据*/
     if(power_read.read_data_mutex != true)
     {
