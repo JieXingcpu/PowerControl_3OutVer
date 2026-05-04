@@ -5,6 +5,7 @@
 #include "Buzzer.h"
 #include "INA3221_Register.h"
 #include "i2c.h"
+#include "math.h"
 
 static INA3221_STATE INA3221_Init(INA3221 *self);
 static INA3221_STATE INA3221_Config(INA3221 *handle);
@@ -69,7 +70,7 @@ static INA3221_STATE INA3221_Init(INA3221 *self)
     if(HAL_GetTick() - timeout > 1000) return INA3221_STATE_ERROR;
   }
   HAL_I2C_Mem_Read(&hi2c1, I2C_ADDRESS, 0xFF, 1, (uint8_t *)&self->read_data_buffer, 2, 5);
-  Data_Reverse(&self->read_data_buffer);
+  Data_Reverse((uint16_t *)&self->read_data_buffer);
   if(self->read_data_buffer != 0x3220)
   {
     return INA3221_STATE_ERROR;
@@ -239,6 +240,9 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
   Power_Output_Channel danger_channel = 0x00;
   Power_Output_Channel warning_channel = 0x00;
   static float last_voltage_max[3] = {0.0f};
+  static uint32_t last_tick[3] = {0};   // 各通道骤降计时
+  static uint32_t low_tick[3] = {0};    // 各通道低压急停计时
+  static uint32_t last_tick_decay = 0;  // last_voltage_max 衰减计时
   /*电压保护*/
   for(uint8_t i = 0; i < 3; i++)
   {
@@ -249,6 +253,8 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
       handle->voltage_count_flag[i] = false;
       handle->voltage_counter[i] = 0;
       last_voltage_max[i] = 0.0f;  //重置电压突变检测的参考值
+      last_tick[i] = 0;
+      low_tick[i] = 0;
       continue;
     }
     /*大于最大电压*/
@@ -279,16 +285,50 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
         }
       }
     }
-    /*更新最大电压*/
-    if(handle->Power_Data.voltage[i] > last_voltage_max[i]) last_voltage_max[i] = handle->Power_Data.voltage[i];
-    /*急停通道*/
-    if(last_voltage_max[i] - handle->Power_Data.voltage[i] >= 15.0f)
+    /*更新最大电压（仅在正常范围内更新，噪声尖峰不纳入基准）*/
+    if(handle->Power_Data.voltage[i] > last_voltage_max[i] && handle->Power_Data.voltage[i] <= MAX_POWER_VOLTAGE)
     {
-      danger_channel |= (1U << i);
-    } else if(handle->Power_Data.voltage[i] <= 2.0f&&handle->Power_Data.voltage[i]<last_voltage_max[i])  //电压过低且非升压过程
+      last_voltage_max[i] = handle->Power_Data.voltage[i];
+    }
+    /*定期衰减 last_voltage_max，避免噪声尖峰永久抬高基准*/
+    if(HAL_GetTick() - last_tick_decay > 1000)  // 每1秒衰减一次
     {
-      power->Power_Channel_State=POWER_BREAKDOWN;
-      return power->Power_Channel_State;  //如果电压不正常,则视为急停
+      last_tick_decay = HAL_GetTick();
+      for(uint8_t j = 0; j < 3; j++)
+      {
+        if(last_voltage_max[j] > MIN_POWER_VOLTAGE + 1.0f)
+        {
+          last_voltage_max[j] -= 0.5f;  // 缓慢衰减
+        }
+      }
+    }
+    /*急停通道：电压骤降≥15V，持续>0.5s才触发*/
+    if(last_voltage_max[i] - handle->Power_Data.voltage[i] >= 15.0f && last_voltage_max[i] > MIN_POWER_VOLTAGE)  // 基准有效
+    {
+      if(last_tick[i] == 0)
+      {
+        last_tick[i] = HAL_GetTick();                // 记录骤降开始时间
+      } else if(HAL_GetTick() - last_tick[i] > 1000)  // 持续超过0.5秒
+      {
+        danger_channel |= (1U << i);
+        last_tick[i] = 0;
+        last_voltage_max[i] = handle->Power_Data.voltage[i];  // 重置基准
+      }
+    } else if(handle->Power_Data.voltage[i] <= 2.0f && handle->Power_Data.voltage[i] < last_voltage_max[i] && last_voltage_max[i] > 5.0f)  // 低压急停，基准有效
+    {
+      if(low_tick[i] == 0)
+      {
+        low_tick[i] = HAL_GetTick();
+      } else if(HAL_GetTick() - low_tick[i] > 500)
+      {
+        power->Power_Channel_State = POWER_BREAKDOWN;
+        return power->Power_Channel_State;
+      }
+    } else
+    {
+      /*电压正常，清除急停计时器（但不影响其他逻辑设置的danger_channel位）*/
+      last_tick[i] = 0;
+      low_tick[i] = 0;
     }
   }
   power->Power_Channel_State &(warning_channel | danger_channel) ? Buzzer_Switch(BUZZER_WARNING) : Buzzer_Switch(BUZZER_OFF);
@@ -401,7 +441,7 @@ static INA3221_STATE INA3221_ReadReg(INA3221 *handle)
     if(HAL_GetTick() - timeout > 1000) return INA3221_STATE_ERROR;
   }
   HAL_I2C_Mem_Read(&hi2c1, I2C_ADDRESS, handle->address, 1, (uint8_t *)&handle->read_data_buffer, 2, 5);
-  Data_Reverse(&handle->read_data_buffer);
+  Data_Reverse((uint16_t *)&handle->read_data_buffer);
   return INA3221_STATE_IDLE;
 }
 /**
@@ -412,7 +452,7 @@ static INA3221_STATE INA3221_ReadReg(INA3221 *handle)
 static INA3221_STATE INA3221_ReadVoltage(INA3221 *handle)
 {
   if(INA3221_ReadReg(handle) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
-  handle->Power_Data.voltage[handle->index / 2] = (float)handle->read_data_buffer / 1000;
+  handle->Power_Data.voltage[handle->index / 2] = fabs((float)handle->read_data_buffer / 1000);
   return INA3221_STATE_IDLE;
 }
 /**
@@ -423,6 +463,6 @@ static INA3221_STATE INA3221_ReadVoltage(INA3221 *handle)
 static INA3221_STATE INA3221_ReadCurrent(INA3221 *handle)
 {
   if(INA3221_ReadReg(handle) == INA3221_STATE_ERROR) return INA3221_STATE_ERROR;
-  handle->Power_Data.current[handle->index / 2] = (float)handle->read_data_buffer / 500;
+  handle->Power_Data.current[handle->index / 2] = fabs((float)handle->read_data_buffer / 500);
   return INA3221_STATE_IDLE;
 }

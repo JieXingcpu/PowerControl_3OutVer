@@ -125,6 +125,7 @@ int main(void)
   Log_Init();
   __HAL_DBGMCU_FREEZE_IWDG();
   power.Switch(&power, POWER_OUT_1|POWER_OUT_2, POWER_ON, 0x00);
+  HAL_Delay(1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */

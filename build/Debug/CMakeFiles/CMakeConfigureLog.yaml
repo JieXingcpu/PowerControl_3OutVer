@@ -463,3 +463,15 @@ events:
       Thread model: posix
       InstalledDir: C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Cindy/AppData/Local/stm32cube/bundles/cmake/4.3.1+st.1/share/cmake-4.3/Modules/CMakeDetermineSystem.cmake:207 (message)"
+      - "CMakeLists.txt:30 (project)"
+    message: |
+      The target system is: Generic -  - arm
+      The host system is: Windows - 10.0.26200 - AMD64
+...

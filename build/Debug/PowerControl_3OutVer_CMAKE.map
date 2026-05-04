@@ -1,8 +1,8 @@
 STMicroelectronics Memory Configuration
 
 Name     Origin   Length   Bytes-Used %age-Used Attributes
-RAM 0x20000000 0x005000 0x0009d0       12%  rwx     
-FLASH 0x8000000 0x010000 0x005880       34%  rx      
+RAM 0x20000000 0x005000 0x0009e8       12%  rwx     
+FLASH 0x8000000 0x010000 0x0059f8       35%  rx      
 
      VMA      LMA     Size Align Out     In      Symbol
        0        0        0     1 _estack = ORIGIN(RAM) + LENGTH(RAM)
@@ -13,7 +13,7 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
  8000000  8000000      10c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.isr_vector)
  8000000  8000000        0     1                 g_pfnVectors
  800010c  800010c        0     1         . = ALIGN(4)
- 800010c  800010c     56c4     4 .text
+ 800010c  800010c     583c     4 .text
  800010c  800010c        0     1         . = ALIGN(4)
  800010c  800010c      118     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(mulsf3.S.obj):(.text)
  800010c  800010c        0     1                 $t
@@ -229,383 +229,383 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
  8002e38  8002e38        2     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.text.HAL_UART_RxCpltCallback)
  8002e38  8002e38        0     1                 $t
  8002e39  8002e39        2     1                 HAL_UART_RxCpltCallback
- 8002e3c  8002e3c      28e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.text.main)
+ 8002e3c  8002e3c      296     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.text.main)
  8002e3c  8002e3c        0     1                 $t
- 8002e3d  8002e3d      28e     1                 main
- 80030cc  80030cc        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.text.Error_Handler)
- 80030cc  80030cc        0     1                 $t
- 80030cd  80030cd        6     1                 Error_Handler
- 80030d4  80030d4       f0     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.text.MX_GPIO_Init)
+ 8002e3d  8002e3d      296     1                 main
+ 80030d4  80030d4        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.text.Error_Handler)
  80030d4  80030d4        0     1                 $t
- 80030d5  80030d5       f0     1                 MX_GPIO_Init
- 80031c4  80031c4       40     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.text.MX_CAN_Init)
- 80031c4  80031c4        0     1                 $t
- 80031c5  80031c5       40     1                 MX_CAN_Init
- 8003204  8003204       a0     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.text.HAL_CAN_MspInit)
- 8003204  8003204        0     1                 $t
- 8003205  8003205       a0     1                 HAL_CAN_MspInit
- 80032a4  80032a4       42     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.text.MX_I2C1_Init)
- 80032a4  80032a4        0     1                 $t
- 80032a5  80032a5       42     1                 MX_I2C1_Init
- 80032e8  80032e8       6a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.text.HAL_I2C_MspInit)
- 80032e8  80032e8        0     1                 $t
- 80032e9  80032e9       6a     1                 HAL_I2C_MspInit
- 8003354  8003354       2e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.text.MX_IWDG_Init)
- 8003354  8003354        0     1                 $t
- 8003355  8003355       2e     1                 MX_IWDG_Init
- 8003384  8003384       88     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM1_Init)
- 8003384  8003384        0     1                 $t
- 8003385  8003385       88     1                 MX_TIM1_Init
- 800340c  800340c       c4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM2_Init)
- 800340c  800340c        0     1                 $t
- 800340d  800340d       c4     1                 MX_TIM2_Init
- 80034d0  80034d0       86     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM3_Init)
- 80034d0  80034d0        0     1                 $t
- 80034d1  80034d1       86     1                 MX_TIM3_Init
- 8003558  8003558       84     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM4_Init)
- 8003558  8003558        0     1                 $t
- 8003559  8003559       84     1                 MX_TIM4_Init
- 80035dc  80035dc       ae     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.HAL_TIM_Base_MspInit)
- 80035dc  80035dc        0     1                 $t
- 80035dd  80035dd       ae     1                 HAL_TIM_Base_MspInit
- 800368c  800368c       2a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.HAL_TIM_PWM_MspInit)
- 800368c  800368c        0     1                 $t
- 800368d  800368d       2a     1                 HAL_TIM_PWM_MspInit
- 80036b8  80036b8       3c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.text.MX_USART2_UART_Init)
- 80036b8  80036b8        0     1                 $t
- 80036b9  80036b9       3c     1                 MX_USART2_UART_Init
- 80036f4  80036f4       8c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.text.HAL_UART_MspInit)
- 80036f4  80036f4        0     1                 $t
- 80036f5  80036f5       8c     1                 HAL_UART_MspInit
- 8003780  8003780        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.NMI_Handler)
- 8003780  8003780        0     1                 $t
- 8003781  8003781        2     1                 NMI_Handler
- 8003784  8003784        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.HardFault_Handler)
- 8003784  8003784        0     1                 $t
- 8003785  8003785        2     1                 HardFault_Handler
- 8003788  8003788        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.MemManage_Handler)
+ 80030d5  80030d5        6     1                 Error_Handler
+ 80030dc  80030dc       f0     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.text.MX_GPIO_Init)
+ 80030dc  80030dc        0     1                 $t
+ 80030dd  80030dd       f0     1                 MX_GPIO_Init
+ 80031cc  80031cc       40     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.text.MX_CAN_Init)
+ 80031cc  80031cc        0     1                 $t
+ 80031cd  80031cd       40     1                 MX_CAN_Init
+ 800320c  800320c       a0     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.text.HAL_CAN_MspInit)
+ 800320c  800320c        0     1                 $t
+ 800320d  800320d       a0     1                 HAL_CAN_MspInit
+ 80032ac  80032ac       42     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.text.MX_I2C1_Init)
+ 80032ac  80032ac        0     1                 $t
+ 80032ad  80032ad       42     1                 MX_I2C1_Init
+ 80032f0  80032f0       6a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.text.HAL_I2C_MspInit)
+ 80032f0  80032f0        0     1                 $t
+ 80032f1  80032f1       6a     1                 HAL_I2C_MspInit
+ 800335c  800335c       2e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.text.MX_IWDG_Init)
+ 800335c  800335c        0     1                 $t
+ 800335d  800335d       2e     1                 MX_IWDG_Init
+ 800338c  800338c       88     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM1_Init)
+ 800338c  800338c        0     1                 $t
+ 800338d  800338d       88     1                 MX_TIM1_Init
+ 8003414  8003414       c4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM2_Init)
+ 8003414  8003414        0     1                 $t
+ 8003415  8003415       c4     1                 MX_TIM2_Init
+ 80034d8  80034d8       86     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM3_Init)
+ 80034d8  80034d8        0     1                 $t
+ 80034d9  80034d9       86     1                 MX_TIM3_Init
+ 8003560  8003560       84     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.MX_TIM4_Init)
+ 8003560  8003560        0     1                 $t
+ 8003561  8003561       84     1                 MX_TIM4_Init
+ 80035e4  80035e4       ae     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.HAL_TIM_Base_MspInit)
+ 80035e4  80035e4        0     1                 $t
+ 80035e5  80035e5       ae     1                 HAL_TIM_Base_MspInit
+ 8003694  8003694       2a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.text.HAL_TIM_PWM_MspInit)
+ 8003694  8003694        0     1                 $t
+ 8003695  8003695       2a     1                 HAL_TIM_PWM_MspInit
+ 80036c0  80036c0       3c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.text.MX_USART2_UART_Init)
+ 80036c0  80036c0        0     1                 $t
+ 80036c1  80036c1       3c     1                 MX_USART2_UART_Init
+ 80036fc  80036fc       8c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.text.HAL_UART_MspInit)
+ 80036fc  80036fc        0     1                 $t
+ 80036fd  80036fd       8c     1                 HAL_UART_MspInit
+ 8003788  8003788        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.NMI_Handler)
  8003788  8003788        0     1                 $t
- 8003789  8003789        2     1                 MemManage_Handler
- 800378c  800378c        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.BusFault_Handler)
+ 8003789  8003789        2     1                 NMI_Handler
+ 800378c  800378c        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.HardFault_Handler)
  800378c  800378c        0     1                 $t
- 800378d  800378d        2     1                 BusFault_Handler
- 8003790  8003790        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.UsageFault_Handler)
+ 800378d  800378d        2     1                 HardFault_Handler
+ 8003790  8003790        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.MemManage_Handler)
  8003790  8003790        0     1                 $t
- 8003791  8003791        2     1                 UsageFault_Handler
- 8003794  8003794        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.SVC_Handler)
+ 8003791  8003791        2     1                 MemManage_Handler
+ 8003794  8003794        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.BusFault_Handler)
  8003794  8003794        0     1                 $t
- 8003795  8003795        2     1                 SVC_Handler
- 8003798  8003798        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.DebugMon_Handler)
+ 8003795  8003795        2     1                 BusFault_Handler
+ 8003798  8003798        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.UsageFault_Handler)
  8003798  8003798        0     1                 $t
- 8003799  8003799        2     1                 DebugMon_Handler
- 800379c  800379c        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.PendSV_Handler)
+ 8003799  8003799        2     1                 UsageFault_Handler
+ 800379c  800379c        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.SVC_Handler)
  800379c  800379c        0     1                 $t
- 800379d  800379d        2     1                 PendSV_Handler
- 80037a0  80037a0        4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.SysTick_Handler)
+ 800379d  800379d        2     1                 SVC_Handler
+ 80037a0  80037a0        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.DebugMon_Handler)
  80037a0  80037a0        0     1                 $t
- 80037a1  80037a1        4     1                 SysTick_Handler
- 80037a4  80037a4        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.EXTI3_IRQHandler)
+ 80037a1  80037a1        2     1                 DebugMon_Handler
+ 80037a4  80037a4        2     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.PendSV_Handler)
  80037a4  80037a4        0     1                 $t
- 80037a5  80037a5        6     1                 EXTI3_IRQHandler
- 80037ac  80037ac        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.EXTI4_IRQHandler)
+ 80037a5  80037a5        2     1                 PendSV_Handler
+ 80037a8  80037a8        4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.SysTick_Handler)
+ 80037a8  80037a8        0     1                 $t
+ 80037a9  80037a9        4     1                 SysTick_Handler
+ 80037ac  80037ac        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.EXTI3_IRQHandler)
  80037ac  80037ac        0     1                 $t
- 80037ad  80037ad        6     1                 EXTI4_IRQHandler
- 80037b4  80037b4        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.EXTI9_5_IRQHandler)
+ 80037ad  80037ad        6     1                 EXTI3_IRQHandler
+ 80037b4  80037b4        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.EXTI4_IRQHandler)
  80037b4  80037b4        0     1                 $t
- 80037b5  80037b5        6     1                 EXTI9_5_IRQHandler
- 80037bc  80037bc        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.TIM1_UP_IRQHandler)
+ 80037b5  80037b5        6     1                 EXTI4_IRQHandler
+ 80037bc  80037bc        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.EXTI9_5_IRQHandler)
  80037bc  80037bc        0     1                 $t
- 80037bd  80037bd        c     1                 TIM1_UP_IRQHandler
- 80037c8  80037c8        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.TIM3_IRQHandler)
- 80037c8  80037c8        0     1                 $t
- 80037c9  80037c9        c     1                 TIM3_IRQHandler
- 80037d4  80037d4        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.TIM4_IRQHandler)
- 80037d4  80037d4        0     1                 $t
- 80037d5  80037d5        c     1                 TIM4_IRQHandler
- 80037e0  80037e0        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.USART2_IRQHandler)
- 80037e0  80037e0        0     1                 $t
- 80037e1  80037e1        c     1                 USART2_IRQHandler
- 80037ec  80037ec       4a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.text.HAL_MspInit)
- 80037ec  80037ec        0     1                 $t
- 80037ed  80037ed       4a     1                 HAL_MspInit
- 8003838  8003838        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.text.starm_putc)
- 8003838  8003838        0     1                 $t
- 8003839  8003839        c     1                 starm_putc
- 8003844  8003844        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.text.starm_getc)
- 8003844  8003844        0     1                 $t
- 8003845  8003845        c     1                 starm_getc
- 8003850  8003850       48     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.text.Reset_Handler)
- 8003850  8003850        0     1                 $t
- 8003851  8003851       34     1                 Reset_Handler
- 800385e  800385e        0     1                 CopyDataInit
- 8003864  8003864        0     1                 LoopCopyDataInit
- 8003872  8003872        0     1                 FillZerobss
- 8003876  8003876        0     1                 LoopFillZerobss
- 8003884  8003884        0     1                 $d
- 8003898  8003898        2     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.text.Default_Handler)
- 8003898  8003898        0     1                 Infinite_Loop
- 8003898  8003898        0     1                 $t
- 8003898  8003898        2     1                 Default_Handler
- 8003899  8003899        2     1                 WWDG_IRQHandler
- 8003899  8003899        2     1                 PVD_IRQHandler
- 8003899  8003899        2     1                 TAMPER_IRQHandler
- 8003899  8003899        2     1                 RTC_IRQHandler
- 8003899  8003899        2     1                 FLASH_IRQHandler
- 8003899  8003899        2     1                 RCC_IRQHandler
- 8003899  8003899        2     1                 EXTI0_IRQHandler
- 8003899  8003899        2     1                 EXTI1_IRQHandler
- 8003899  8003899        2     1                 EXTI2_IRQHandler
- 8003899  8003899        2     1                 DMA1_Channel1_IRQHandler
- 8003899  8003899        2     1                 DMA1_Channel2_IRQHandler
- 8003899  8003899        2     1                 DMA1_Channel3_IRQHandler
- 8003899  8003899        2     1                 DMA1_Channel4_IRQHandler
- 8003899  8003899        2     1                 DMA1_Channel5_IRQHandler
- 8003899  8003899        2     1                 DMA1_Channel6_IRQHandler
- 8003899  8003899        2     1                 DMA1_Channel7_IRQHandler
- 8003899  8003899        2     1                 ADC1_2_IRQHandler
- 8003899  8003899        2     1                 USB_HP_CAN1_TX_IRQHandler
- 8003899  8003899        2     1                 USB_LP_CAN1_RX0_IRQHandler
- 8003899  8003899        2     1                 CAN1_RX1_IRQHandler
- 8003899  8003899        2     1                 CAN1_SCE_IRQHandler
- 8003899  8003899        2     1                 TIM1_BRK_IRQHandler
- 8003899  8003899        2     1                 TIM1_TRG_COM_IRQHandler
- 8003899  8003899        2     1                 TIM1_CC_IRQHandler
- 8003899  8003899        2     1                 TIM2_IRQHandler
- 8003899  8003899        2     1                 I2C1_EV_IRQHandler
- 8003899  8003899        2     1                 I2C1_ER_IRQHandler
- 8003899  8003899        2     1                 I2C2_EV_IRQHandler
- 8003899  8003899        2     1                 I2C2_ER_IRQHandler
- 8003899  8003899        2     1                 SPI1_IRQHandler
- 8003899  8003899        2     1                 SPI2_IRQHandler
- 8003899  8003899        2     1                 USART1_IRQHandler
- 8003899  8003899        2     1                 USART3_IRQHandler
- 8003899  8003899        2     1                 EXTI15_10_IRQHandler
- 8003899  8003899        2     1                 RTC_Alarm_IRQHandler
- 8003899  8003899        2     1                 USBWakeUp_IRQHandler
- 800389c  800389c       6a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.text.Button_Init)
- 800389c  800389c        0     1                 $t
- 800389d  800389d       6a     1                 Button_Init
- 8003908  8003908      25a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.text.HAL_GPIO_EXTI_Callback)
- 8003908  8003908        0     1                 $t
- 8003909  8003909      25a     1                 HAL_GPIO_EXTI_Callback
- 8003b64  8003b64       4e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.text.LED_Init)
- 8003b64  8003b64        0     1                 $t
- 8003b65  8003b65       4e     1                 LED_Init
- 8003bb4  8003bb4      2de     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.text.LED_Switch)
- 8003bb4  8003bb4        0     1                 $t
- 8003bb5  8003bb5      2de     1                 LED_Switch
- 8003bc6  8003bc6        0     1                 $d
- 8003bcc  8003bcc        0     1                 $t
- 8003bd8  8003bd8        0     1                 $d
- 8003be4  8003be4        0     1                 $t
- 8003c20  8003c20        0     1                 $d
- 8003c28  8003c28        0     1                 $t
- 8003c4c  8003c4c        0     1                 $d
- 8003c52  8003c52        0     1                 $t
- 8003cca  8003cca        0     1                 $d
- 8003cd0  8003cd0        0     1                 $t
- 8003d0c  8003d0c        0     1                 $d
- 8003d10  8003d10        0     1                 $t
- 8003e94  8003e94       76     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Init_Power_Read)
- 8003e94  8003e94        0     1                 $t
- 8003e95  8003e95       76     1                 Init_Power_Read
- 8003f0c  8003f0c       e4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.INA3221_Init)
- 8003f0c  8003f0c        0     1                 $t
- 8003f0d  8003f0d       e4     1                 INA3221_Init
- 8003ff0  8003ff0      168     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Power_Read_Loop)
- 8003ff0  8003ff0        0     1                 $t
- 8003ff1  8003ff1      168     1                 Power_Read_Loop
- 8004018  8004018        0     1                 $d
- 800401c  800401c        0     1                 $t
- 8004158  8004158      18a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Power_Voltage_Control_Loop)
- 8004158  8004158        0     1                 $t
- 8004159  8004159      18a     1                 Power_Voltage_Control_Loop
- 80042e4  80042e4       fc     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Power_Current_Control_Loop)
- 80042e4  80042e4        0     1                 $t
- 80042e5  80042e5       fc     1                 Power_Current_Control_Loop
- 80043e0  80043e0      1e8     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Median_Filter)
- 80043e0  80043e0        0     1                 $t
- 80043e1  80043e1      1e8     1                 Median_Filter
- 80045c8  80045c8       26     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Init_Power_Control)
- 80045c8  80045c8        0     1                 $t
- 80045c9  80045c9       26     1                 Init_Power_Control
- 80045f0  80045f0       38     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Power_Init)
- 80045f0  80045f0        0     1                 $t
- 80045f1  80045f1       38     1                 Power_Init
- 8004628  8004628      140     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Power_Switch)
- 8004628  8004628        0     1                 $t
- 8004629  8004629      140     1                 Power_Switch
- 8004768  8004768        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Power_Read_Channel_State)
- 8004768  8004768        0     1                 $t
- 8004769  8004769        6     1                 Power_Read_Channel_State
- 8004770  8004770        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.text.Send_Period_Init)
- 8004770  8004770        0     1                 $t
- 8004771  8004771        c     1                 Send_Period_Init
- 800477c  800477c       32     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.text.Send_CAN_Message)
- 800477c  800477c        0     1                 $t
- 800477d  800477d       32     1                 Send_CAN_Message
- 80047b0  80047b0       56     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.text.CAN_Connect_Init)
- 80047b0  80047b0        0     1                 $t
- 80047b1  80047b1       56     1                 CAN_Connect_Init
- 8004808  8004808       1c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.text.Buzzer_Init)
- 8004808  8004808        0     1                 $t
- 8004809  8004809       1c     1                 Buzzer_Init
- 8004824  8004824       d4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.text.Buzzer_Switch)
- 8004824  8004824        0     1                 $t
- 8004825  8004825       d4     1                 Buzzer_Switch
- 80048f8  80048f8       16     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.Log_Init)
- 80048f8  80048f8        0     1                 $t
- 80048f9  80048f9       16     1                 Log_Init
- 8004910  8004910       8e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.Log_Check)
- 8004910  8004910        0     1                 $t
- 8004911  8004911       8e     1                 Log_Check
- 800496a  800496a        0     1                 $d
- 8004970  8004970        0     1                 $t
- 80049a0  80049a0      136     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.Log_printf)
- 80049a0  80049a0        0     1                 $t
- 80049a1  80049a1      136     1                 Log_printf
- 8004ad8  8004ad8       14     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.__io_putchar)
- 8004ad8  8004ad8        0     1                 $t
- 8004ad9  8004ad9       14     1                 __io_putchar
- 8004aec  8004aec       3e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.HAL_UARTEx_RxEventCallback)
- 8004aec  8004aec        0     1                 $t
- 8004aed  8004aed       3e     1                 HAL_UARTEx_RxEventCallback
- 8004b2c  8004b2c      392     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.text.HAL_TIM_PeriodElapsedCallback)
- 8004b2c  8004b2c        0     1                 $t
- 8004b2d  8004b2d      392     1                 HAL_TIM_PeriodElapsedCallback
- 8004ebe  8004ebe      1d8     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(addsf3.c.obj):(.text.__addsf3)
- 8004ebe  8004ebe        0     1                 $t
- 8004ebf  8004ebf      1d8     1                 __addsf3
- 8004ebf  8004ebf      1d8     1                 __aeabi_fadd
- 8005098  8005098        c     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fp_mode.c.obj):(.text.__fe_getround)
- 8005098  8005098        0     1                 $t
- 8005099  8005099        c     1                 __fe_getround
- 80050a0  80050a0        0     1                 $d
- 80050a4  80050a4        4     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fp_mode.c.obj):(.text.__fe_raise_inexact)
- 80050a4  80050a4        0     1                 $t
- 80050a5  80050a5        4     1                 __fe_raise_inexact
- 80050a8  80050a8       3c     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fixsfsi.c.obj):(.text.__fixsfsi)
- 80050a8  80050a8        0     1                 $t
- 80050a9  80050a9       3c     1                 __fixsfsi
- 80050a9  80050a9       3c     1                 __aeabi_f2iz
- 80050e4  80050e4       4a     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(floatunsisf.c.obj):(.text.__floatunsisf)
- 80050e4  80050e4        0     1                 $t
- 80050e5  80050e5       4a     1                 __floatunsisf
- 80050e5  80050e5       4a     1                 __aeabi_ui2f
- 800512e  800512e        8     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(subsf3.c.obj):(.text.__subsf3)
- 800512e  800512e        0     1                 $t
- 800512f  800512f        8     1                 __subsf3
- 800512f  800512f        8     1                 __aeabi_fsub
- 8005136  8005136       38     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fnan2.c.obj):(.text.__compiler_rt_fnan2)
- 8005136  8005136        0     1                 $t
- 8005137  8005137       38     1                 __compiler_rt_fnan2
- 800516e  800516e       3c     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fnorm2.c.obj):(.text.__compiler_rt_fnorm2)
- 800516e  800516e        0     1                 $t
- 800516f  800516f       3c     1                 __compiler_rt_fnorm2
- 80051aa  80051aa       5c     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(funder.c.obj):(.text.__compiler_rt_funder)
- 80051aa  80051aa        0     1                 $t
- 80051ab  80051ab       5c     1                 __compiler_rt_funder
- 8005206  8005206        8     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(bzero.c.o):(.text.bzero)
- 8005206  8005206        0     1                 $t
- 8005207  8005207        8     1                 bzero
- 8005207  8005207        8     1                 __aeabi_memclr4
- 8005207  8005207        8     1                 __aeabi_memclr8
- 8005207  8005207        8     1                 __aeabi_memclr
- 800520e  800520e        e     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(memset.c.o):(.text.memset)
- 800520e  800520e        0     1                 $t
- 800520f  800520f        e     1                 memset
- 800521c  800521c       1c     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_misc_init.c.o):(.text.__libc_init_array)
- 800521c  800521c        0     1                 $t
- 800521d  800521d       1c     1                 __libc_init_array
- 8005230  8005230        0     1                 $d
- 8005238  8005238       10     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_read_tp.S.o):(.text._initial_set_tls)
- 8005238  8005238        0     1                 $t
- 8005239  8005239        6     1                 _initial_set_tls
- 8005240  8005240        0     1                 $d
- 8005248  8005248       14     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_set_tls.c.o):(.text._set_tls)
+ 80037bd  80037bd        6     1                 EXTI9_5_IRQHandler
+ 80037c4  80037c4        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.TIM1_UP_IRQHandler)
+ 80037c4  80037c4        0     1                 $t
+ 80037c5  80037c5        c     1                 TIM1_UP_IRQHandler
+ 80037d0  80037d0        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.TIM3_IRQHandler)
+ 80037d0  80037d0        0     1                 $t
+ 80037d1  80037d1        c     1                 TIM3_IRQHandler
+ 80037dc  80037dc        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.TIM4_IRQHandler)
+ 80037dc  80037dc        0     1                 $t
+ 80037dd  80037dd        c     1                 TIM4_IRQHandler
+ 80037e8  80037e8        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.text.USART2_IRQHandler)
+ 80037e8  80037e8        0     1                 $t
+ 80037e9  80037e9        c     1                 USART2_IRQHandler
+ 80037f4  80037f4       4a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.text.HAL_MspInit)
+ 80037f4  80037f4        0     1                 $t
+ 80037f5  80037f5       4a     1                 HAL_MspInit
+ 8003840  8003840        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.text.starm_putc)
+ 8003840  8003840        0     1                 $t
+ 8003841  8003841        c     1                 starm_putc
+ 800384c  800384c        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.text.starm_getc)
+ 800384c  800384c        0     1                 $t
+ 800384d  800384d        c     1                 starm_getc
+ 8003858  8003858       48     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.text.Reset_Handler)
+ 8003858  8003858        0     1                 $t
+ 8003859  8003859       34     1                 Reset_Handler
+ 8003866  8003866        0     1                 CopyDataInit
+ 800386c  800386c        0     1                 LoopCopyDataInit
+ 800387a  800387a        0     1                 FillZerobss
+ 800387e  800387e        0     1                 LoopFillZerobss
+ 800388c  800388c        0     1                 $d
+ 80038a0  80038a0        2     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.text.Default_Handler)
+ 80038a0  80038a0        0     1                 Infinite_Loop
+ 80038a0  80038a0        0     1                 $t
+ 80038a0  80038a0        2     1                 Default_Handler
+ 80038a1  80038a1        2     1                 WWDG_IRQHandler
+ 80038a1  80038a1        2     1                 PVD_IRQHandler
+ 80038a1  80038a1        2     1                 TAMPER_IRQHandler
+ 80038a1  80038a1        2     1                 RTC_IRQHandler
+ 80038a1  80038a1        2     1                 FLASH_IRQHandler
+ 80038a1  80038a1        2     1                 RCC_IRQHandler
+ 80038a1  80038a1        2     1                 EXTI0_IRQHandler
+ 80038a1  80038a1        2     1                 EXTI1_IRQHandler
+ 80038a1  80038a1        2     1                 EXTI2_IRQHandler
+ 80038a1  80038a1        2     1                 DMA1_Channel1_IRQHandler
+ 80038a1  80038a1        2     1                 DMA1_Channel2_IRQHandler
+ 80038a1  80038a1        2     1                 DMA1_Channel3_IRQHandler
+ 80038a1  80038a1        2     1                 DMA1_Channel4_IRQHandler
+ 80038a1  80038a1        2     1                 DMA1_Channel5_IRQHandler
+ 80038a1  80038a1        2     1                 DMA1_Channel6_IRQHandler
+ 80038a1  80038a1        2     1                 DMA1_Channel7_IRQHandler
+ 80038a1  80038a1        2     1                 ADC1_2_IRQHandler
+ 80038a1  80038a1        2     1                 USB_HP_CAN1_TX_IRQHandler
+ 80038a1  80038a1        2     1                 USB_LP_CAN1_RX0_IRQHandler
+ 80038a1  80038a1        2     1                 CAN1_RX1_IRQHandler
+ 80038a1  80038a1        2     1                 CAN1_SCE_IRQHandler
+ 80038a1  80038a1        2     1                 TIM1_BRK_IRQHandler
+ 80038a1  80038a1        2     1                 TIM1_TRG_COM_IRQHandler
+ 80038a1  80038a1        2     1                 TIM1_CC_IRQHandler
+ 80038a1  80038a1        2     1                 TIM2_IRQHandler
+ 80038a1  80038a1        2     1                 I2C1_EV_IRQHandler
+ 80038a1  80038a1        2     1                 I2C1_ER_IRQHandler
+ 80038a1  80038a1        2     1                 I2C2_EV_IRQHandler
+ 80038a1  80038a1        2     1                 I2C2_ER_IRQHandler
+ 80038a1  80038a1        2     1                 SPI1_IRQHandler
+ 80038a1  80038a1        2     1                 SPI2_IRQHandler
+ 80038a1  80038a1        2     1                 USART1_IRQHandler
+ 80038a1  80038a1        2     1                 USART3_IRQHandler
+ 80038a1  80038a1        2     1                 EXTI15_10_IRQHandler
+ 80038a1  80038a1        2     1                 RTC_Alarm_IRQHandler
+ 80038a1  80038a1        2     1                 USBWakeUp_IRQHandler
+ 80038a4  80038a4       6a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.text.Button_Init)
+ 80038a4  80038a4        0     1                 $t
+ 80038a5  80038a5       6a     1                 Button_Init
+ 8003910  8003910      25a     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.text.HAL_GPIO_EXTI_Callback)
+ 8003910  8003910        0     1                 $t
+ 8003911  8003911      25a     1                 HAL_GPIO_EXTI_Callback
+ 8003b6c  8003b6c       4e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.text.LED_Init)
+ 8003b6c  8003b6c        0     1                 $t
+ 8003b6d  8003b6d       4e     1                 LED_Init
+ 8003bbc  8003bbc      2de     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.text.LED_Switch)
+ 8003bbc  8003bbc        0     1                 $t
+ 8003bbd  8003bbd      2de     1                 LED_Switch
+ 8003bce  8003bce        0     1                 $d
+ 8003bd4  8003bd4        0     1                 $t
+ 8003be0  8003be0        0     1                 $d
+ 8003bec  8003bec        0     1                 $t
+ 8003c28  8003c28        0     1                 $d
+ 8003c30  8003c30        0     1                 $t
+ 8003c54  8003c54        0     1                 $d
+ 8003c5a  8003c5a        0     1                 $t
+ 8003cd2  8003cd2        0     1                 $d
+ 8003cd8  8003cd8        0     1                 $t
+ 8003d14  8003d14        0     1                 $d
+ 8003d18  8003d18        0     1                 $t
+ 8003e9c  8003e9c       76     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Init_Power_Read)
+ 8003e9c  8003e9c        0     1                 $t
+ 8003e9d  8003e9d       76     1                 Init_Power_Read
+ 8003f14  8003f14       e4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.INA3221_Init)
+ 8003f14  8003f14        0     1                 $t
+ 8003f15  8003f15       e4     1                 INA3221_Init
+ 8003ff8  8003ff8      16e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Power_Read_Loop)
+ 8003ff8  8003ff8        0     1                 $t
+ 8003ff9  8003ff9      16e     1                 Power_Read_Loop
+ 8004020  8004020        0     1                 $d
+ 8004024  8004024        0     1                 $t
+ 8004168  8004168      2e0     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Power_Voltage_Control_Loop)
+ 8004168  8004168        0     1                 $t
+ 8004169  8004169      2e0     1                 Power_Voltage_Control_Loop
+ 8004448  8004448       fc     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Power_Current_Control_Loop)
+ 8004448  8004448        0     1                 $t
+ 8004449  8004449       fc     1                 Power_Current_Control_Loop
+ 8004544  8004544      1e8     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.text.Median_Filter)
+ 8004544  8004544        0     1                 $t
+ 8004545  8004545      1e8     1                 Median_Filter
+ 800472c  800472c       26     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Init_Power_Control)
+ 800472c  800472c        0     1                 $t
+ 800472d  800472d       26     1                 Init_Power_Control
+ 8004754  8004754       38     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Power_Init)
+ 8004754  8004754        0     1                 $t
+ 8004755  8004755       38     1                 Power_Init
+ 800478c  800478c      140     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Power_Switch)
+ 800478c  800478c        0     1                 $t
+ 800478d  800478d      140     1                 Power_Switch
+ 80048cc  80048cc        6     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.text.Power_Read_Channel_State)
+ 80048cc  80048cc        0     1                 $t
+ 80048cd  80048cd        6     1                 Power_Read_Channel_State
+ 80048d4  80048d4        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.text.Send_Period_Init)
+ 80048d4  80048d4        0     1                 $t
+ 80048d5  80048d5        c     1                 Send_Period_Init
+ 80048e0  80048e0       32     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.text.Send_CAN_Message)
+ 80048e0  80048e0        0     1                 $t
+ 80048e1  80048e1       32     1                 Send_CAN_Message
+ 8004914  8004914       56     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.text.CAN_Connect_Init)
+ 8004914  8004914        0     1                 $t
+ 8004915  8004915       56     1                 CAN_Connect_Init
+ 800496c  800496c       1c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.text.Buzzer_Init)
+ 800496c  800496c        0     1                 $t
+ 800496d  800496d       1c     1                 Buzzer_Init
+ 8004988  8004988       d4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.text.Buzzer_Switch)
+ 8004988  8004988        0     1                 $t
+ 8004989  8004989       d4     1                 Buzzer_Switch
+ 8004a5c  8004a5c       16     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.Log_Init)
+ 8004a5c  8004a5c        0     1                 $t
+ 8004a5d  8004a5d       16     1                 Log_Init
+ 8004a74  8004a74       8e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.Log_Check)
+ 8004a74  8004a74        0     1                 $t
+ 8004a75  8004a75       8e     1                 Log_Check
+ 8004ace  8004ace        0     1                 $d
+ 8004ad4  8004ad4        0     1                 $t
+ 8004b04  8004b04      136     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.Log_printf)
+ 8004b04  8004b04        0     1                 $t
+ 8004b05  8004b05      136     1                 Log_printf
+ 8004c3c  8004c3c       14     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.__io_putchar)
+ 8004c3c  8004c3c        0     1                 $t
+ 8004c3d  8004c3d       14     1                 __io_putchar
+ 8004c50  8004c50       3e     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.text.HAL_UARTEx_RxEventCallback)
+ 8004c50  8004c50        0     1                 $t
+ 8004c51  8004c51       3e     1                 HAL_UARTEx_RxEventCallback
+ 8004c90  8004c90      392     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.text.HAL_TIM_PeriodElapsedCallback)
+ 8004c90  8004c90        0     1                 $t
+ 8004c91  8004c91      392     1                 HAL_TIM_PeriodElapsedCallback
+ 8005022  8005022      1d8     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(addsf3.c.obj):(.text.__addsf3)
+ 8005022  8005022        0     1                 $t
+ 8005023  8005023      1d8     1                 __addsf3
+ 8005023  8005023      1d8     1                 __aeabi_fadd
+ 80051fc  80051fc        c     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fp_mode.c.obj):(.text.__fe_getround)
+ 80051fc  80051fc        0     1                 $t
+ 80051fd  80051fd        c     1                 __fe_getround
+ 8005204  8005204        0     1                 $d
+ 8005208  8005208        4     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fp_mode.c.obj):(.text.__fe_raise_inexact)
+ 8005208  8005208        0     1                 $t
+ 8005209  8005209        4     1                 __fe_raise_inexact
+ 800520c  800520c       3c     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fixsfsi.c.obj):(.text.__fixsfsi)
+ 800520c  800520c        0     1                 $t
+ 800520d  800520d       3c     1                 __fixsfsi
+ 800520d  800520d       3c     1                 __aeabi_f2iz
+ 8005248  8005248       5e     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(floatsisf.c.obj):(.text.__floatsisf)
  8005248  8005248        0     1                 $t
- 8005249  8005249       14     1                 _set_tls
- 8005254  8005254        0     1                 $d
- 800525c  800525c       24     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_printf.c.o):(.text.printf)
- 800525c  800525c        0     1                 $t
- 800525d  800525d       24     1                 printf
- 800527c  800527c        0     1                 $d
- 8005280  8005280       44     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_puts.c.o):(.text.puts)
- 8005280  8005280        0     1                 $t
- 8005281  8005281       44     1                 puts
- 80052c0  80052c0        0     1                 $d
- 80052c4  80052c4       18     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_string_strnlen.c.o):(.text.strnlen)
- 80052c4  80052c4        0     1                 $t
- 80052c5  80052c5       18     1                 strnlen
- 80052dc  80052dc      4c4     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_vfiprintf.c.o):(.text.__i_vfprintf)
- 80052dc  80052dc        0     1                 $t
- 80052dd  80052dd      4c4     1                 __i_vfprintf
- 8005352  8005352        0     1                 $d
- 800535c  800535c        0     1                 $t
- 80054b4  80054b4        0     1                 $d
- 80054bc  80054bc        0     1                 $t
- 8005798  8005798        0     1                 $d
- 80057a0  80057a0       28     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_vfiprintf.c.o):(.text.__ultoa_invert)
- 80057a0  80057a0        0     1                 $t
- 80057a1  80057a1       28     1                 __ultoa_invert
- 80057c8  80057c8        8     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_vfiprintf.c.o):(.text.OUTLINED_FUNCTION_0)
- 80057c8  80057c8        0     1                 $t
- 80057c9  80057c9        8     1                 OUTLINED_FUNCTION_0
- 80057d0  80057d0        0     1         . = ALIGN(4)
- 80057d0  80057d0        0     1         _etext = .
- 80057d0  80057d0       80     4 .rodata
- 80057d0  80057d0        0     1         . = ALIGN(4)
- 80057d0  80057d0       10     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.rodata.AHBPrescTable)
- 80057d0  80057d0       10     1                 AHBPrescTable
- 80057e0  80057e0        8     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.rodata.APBPrescTable)
- 80057e0  80057e0        8     1                 APBPrescTable
- 80057e8  80057e8       10     1         <internal>:(.rodata.cst16)
- 80057f8  80057f8        2     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.rodata.HAL_RCC_GetSysClockFreq.aPredivFactorTable)
- 80057f8  80057f8        2     1                 HAL_RCC_GetSysClockFreq.aPredivFactorTable
- 80057fc  80057fc        4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.rodata.stdin)
- 80057fc  80057fc        4     1                 stdin
- 80057fc  80057fc        4     1                 stdout
- 80057fc  80057fc        4     1                 stderr
- 8005800  8005800        6     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.rodata..L__const.Search_Channel_To_Read.Channel_Map)
- 8005800  8005800        6     1                 .L__const.Search_Channel_To_Read.Channel_Map
- 8005806  8005806       4a     1         <internal>:(.rodata.str1.1)
- 8005850  8005850        0     1         . = ALIGN(4)
- 8005850  8005850        0     1 .ARM.extab
- 8005850  8005850        0     1         . = ALIGN(4)
- 8005850  8005850        0     1         . = ALIGN(4)
- 8005850  8005850       10     4 .ARM
- 8005850  8005850        0     1         . = ALIGN(4)
- 8005850  8005850        0     1         __exidx_start = .
- 8005850  8005850       10     4         <internal>:(.ARM.exidx)
- 8005860  8005860        0     1         __exidx_end = .
- 8005860  8005860        0     1         . = ALIGN(4)
- 8005860  8005860        4     4 .preinit_array
- 8005860  8005860        0     1         . = ALIGN(4)
- 8005860  8005860        4     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_read_tp.S.o):(.preinit_array)
- 8005864  8005864        0     1         . = ALIGN(4)
- 8005864  8005864        0     1 .init_array
- 8005864  8005864        0     1         . = ALIGN(4)
- 8005864  8005864        0     1         . = ALIGN(4)
- 8005864  8005864        0     1 .fini_array
- 8005864  8005864        0     1         . = ALIGN(4)
- 8005864  8005864        0     1         . = ALIGN(4)
- 8005864  8005864        0     1 _sidata = LOADADDR(.data)
-20000000  8005864       1c     4 .data
-20000000  8005864        0     1         . = ALIGN(4)
-20000000  8005864        0     1         _sdata = .
-20000000  8005864        4     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.data.SystemCoreClock)
-20000000  8005864        4     1                 SystemCoreClock
-20000004  8005868        4     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.data.uwTickPrio)
-20000004  8005868        4     1                 uwTickPrio
-20000008  800586c        1     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.data.uwTickFreq)
-20000008  800586c        1     1                 uwTickFreq
-2000000c  8005870       10     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.data.__stdio)
-2000000c  8005870       10     1                 __stdio
-2000001c  8005880        0     1         . = ALIGN(4)
-2000001c  8005880        0     4 .tdata
-2000001c  8005880        0     1         . = ALIGN(4)
-2000001c  8005880        0     1         _edata = .
-2000001c  8005880        0     1 PROVIDE( __tdata_start = ADDR(.tdata) )
+ 8005249  8005249       5e     1                 __floatsisf
+ 8005249  8005249       5e     1                 __aeabi_i2f
+ 80052a6  80052a6        8     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(subsf3.c.obj):(.text.__subsf3)
+ 80052a6  80052a6        0     1                 $t
+ 80052a7  80052a7        8     1                 __subsf3
+ 80052a7  80052a7        8     1                 __aeabi_fsub
+ 80052ae  80052ae       38     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fnan2.c.obj):(.text.__compiler_rt_fnan2)
+ 80052ae  80052ae        0     1                 $t
+ 80052af  80052af       38     1                 __compiler_rt_fnan2
+ 80052e6  80052e6       3c     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fnorm2.c.obj):(.text.__compiler_rt_fnorm2)
+ 80052e6  80052e6        0     1                 $t
+ 80052e7  80052e7       3c     1                 __compiler_rt_fnorm2
+ 8005322  8005322       5c     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(funder.c.obj):(.text.__compiler_rt_funder)
+ 8005322  8005322        0     1                 $t
+ 8005323  8005323       5c     1                 __compiler_rt_funder
+ 800537e  800537e        8     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(bzero.c.o):(.text.bzero)
+ 800537e  800537e        0     1                 $t
+ 800537f  800537f        8     1                 bzero
+ 800537f  800537f        8     1                 __aeabi_memclr4
+ 800537f  800537f        8     1                 __aeabi_memclr8
+ 800537f  800537f        8     1                 __aeabi_memclr
+ 8005386  8005386        e     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(memset.c.o):(.text.memset)
+ 8005386  8005386        0     1                 $t
+ 8005387  8005387        e     1                 memset
+ 8005394  8005394       1c     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_misc_init.c.o):(.text.__libc_init_array)
+ 8005394  8005394        0     1                 $t
+ 8005395  8005395       1c     1                 __libc_init_array
+ 80053a8  80053a8        0     1                 $d
+ 80053b0  80053b0       10     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_read_tp.S.o):(.text._initial_set_tls)
+ 80053b0  80053b0        0     1                 $t
+ 80053b1  80053b1        6     1                 _initial_set_tls
+ 80053b8  80053b8        0     1                 $d
+ 80053c0  80053c0       14     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_set_tls.c.o):(.text._set_tls)
+ 80053c0  80053c0        0     1                 $t
+ 80053c1  80053c1       14     1                 _set_tls
+ 80053cc  80053cc        0     1                 $d
+ 80053d4  80053d4       24     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_printf.c.o):(.text.printf)
+ 80053d4  80053d4        0     1                 $t
+ 80053d5  80053d5       24     1                 printf
+ 80053f4  80053f4        0     1                 $d
+ 80053f8  80053f8       44     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_puts.c.o):(.text.puts)
+ 80053f8  80053f8        0     1                 $t
+ 80053f9  80053f9       44     1                 puts
+ 8005438  8005438        0     1                 $d
+ 800543c  800543c       18     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_string_strnlen.c.o):(.text.strnlen)
+ 800543c  800543c        0     1                 $t
+ 800543d  800543d       18     1                 strnlen
+ 8005454  8005454      4c4     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_vfiprintf.c.o):(.text.__i_vfprintf)
+ 8005454  8005454        0     1                 $t
+ 8005455  8005455      4c4     1                 __i_vfprintf
+ 80054ca  80054ca        0     1                 $d
+ 80054d4  80054d4        0     1                 $t
+ 800562c  800562c        0     1                 $d
+ 8005634  8005634        0     1                 $t
+ 8005910  8005910        0     1                 $d
+ 8005918  8005918       28     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_vfiprintf.c.o):(.text.__ultoa_invert)
+ 8005918  8005918        0     1                 $t
+ 8005919  8005919       28     1                 __ultoa_invert
+ 8005940  8005940        8     2         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_tinystdio_vfiprintf.c.o):(.text.OUTLINED_FUNCTION_0)
+ 8005940  8005940        0     1                 $t
+ 8005941  8005941        8     1                 OUTLINED_FUNCTION_0
+ 8005948  8005948        0     1         . = ALIGN(4)
+ 8005948  8005948        0     1         _etext = .
+ 8005948  8005948       80     4 .rodata
+ 8005948  8005948        0     1         . = ALIGN(4)
+ 8005948  8005948       10     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.rodata.AHBPrescTable)
+ 8005948  8005948       10     1                 AHBPrescTable
+ 8005958  8005958        8     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.rodata.APBPrescTable)
+ 8005958  8005958        8     1                 APBPrescTable
+ 8005960  8005960       10     1         <internal>:(.rodata.cst16)
+ 8005970  8005970        2     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj:(.rodata.HAL_RCC_GetSysClockFreq.aPredivFactorTable)
+ 8005970  8005970        2     1                 HAL_RCC_GetSysClockFreq.aPredivFactorTable
+ 8005974  8005974        4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.rodata.stdin)
+ 8005974  8005974        4     1                 stdin
+ 8005974  8005974        4     1                 stdout
+ 8005974  8005974        4     1                 stderr
+ 8005978  8005978        6     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.rodata..L__const.Search_Channel_To_Read.Channel_Map)
+ 8005978  8005978        6     1                 .L__const.Search_Channel_To_Read.Channel_Map
+ 800597e  800597e       4a     1         <internal>:(.rodata.str1.1)
+ 80059c8  80059c8        0     1         . = ALIGN(4)
+ 80059c8  80059c8        0     1 .ARM.extab
+ 80059c8  80059c8        0     1         . = ALIGN(4)
+ 80059c8  80059c8        0     1         . = ALIGN(4)
+ 80059c8  80059c8       10     4 .ARM
+ 80059c8  80059c8        0     1         . = ALIGN(4)
+ 80059c8  80059c8        0     1         __exidx_start = .
+ 80059c8  80059c8       10     4         <internal>:(.ARM.exidx)
+ 80059d8  80059d8        0     1         __exidx_end = .
+ 80059d8  80059d8        0     1         . = ALIGN(4)
+ 80059d8  80059d8        4     4 .preinit_array
+ 80059d8  80059d8        0     1         . = ALIGN(4)
+ 80059d8  80059d8        4     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_read_tp.S.o):(.preinit_array)
+ 80059dc  80059dc        0     1         . = ALIGN(4)
+ 80059dc  80059dc        0     1 .init_array
+ 80059dc  80059dc        0     1         . = ALIGN(4)
+ 80059dc  80059dc        0     1         . = ALIGN(4)
+ 80059dc  80059dc        0     1 .fini_array
+ 80059dc  80059dc        0     1         . = ALIGN(4)
+ 80059dc  80059dc        0     1         . = ALIGN(4)
+ 80059dc  80059dc        0     1 _sidata = LOADADDR(.data)
+20000000  80059dc       1c     4 .data
+20000000  80059dc        0     1         . = ALIGN(4)
+20000000  80059dc        0     1         _sdata = .
+20000000  80059dc        4     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.data.SystemCoreClock)
+20000000  80059dc        4     1                 SystemCoreClock
+20000004  80059e0        4     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.data.uwTickPrio)
+20000004  80059e0        4     1                 uwTickPrio
+20000008  80059e4        1     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.data.uwTickFreq)
+20000008  80059e4        1     1                 uwTickFreq
+2000000c  80059e8       10     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.data.__stdio)
+2000000c  80059e8       10     1                 __stdio
+2000001c  80059f8        0     1         . = ALIGN(4)
+2000001c  80059f8        0     4 .tdata
+2000001c  80059f8        0     1         . = ALIGN(4)
+2000001c  80059f8        0     1         _edata = .
+2000001c  80059f8        0     1 PROVIDE( __tdata_start = ADDR(.tdata) )
 2000001c 2000001c        0     4 .tbss
 2000001c 2000001c        0     1         _sbss = .
 2000001c 2000001c        0     1         __bss_start__ = _sbss
@@ -613,7 +613,7 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
 2000001c 2000001c        0     1 PROVIDE( __tls_base = __tdata_start )
 2000001c 2000001c        0     1 PROVIDE( __tls_align = MAX(ALIGNOF(.tdata), ALIGNOF(.tbss)) )
 2000001c 2000001c        0     1 PROVIDE( __arm32_tls_tcb_offset = MAX(8, __tls_align) )
-2000001c 2000001c      3b0     4 .bss
+2000001c 2000001c      3cc     4 .bss
 2000001c 2000001c        4     4         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.bss.uwTick)
 2000001c 2000001c        4     1                 uwTick
 20000020 20000020       10     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.bss.power)
@@ -678,26 +678,32 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
 200003a0 200003a0        1     1                 Median_Filter.buffer_index
 200003a4 200003a4        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.bss.Power_Voltage_Control_Loop.last_voltage_max)
 200003a4 200003a4        c     1                 Power_Voltage_Control_Loop.last_voltage_max
-200003b0 200003b0       14     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.bss.log_buffer)
-200003b0 200003b0       14     1                 log_buffer
-200003c4 200003c4        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.bss.Log_State)
-200003c4 200003c4        1     1                 Log_State
-200003c5 200003c5        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.bss.Log_Mutex_State)
-200003c5 200003c5        1     1                 Log_Mutex_State
-200003c6 200003c6        1     1         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fp_mode.c.obj):(.bss.__arm_fe_default_rmode)
-200003c6 200003c6        1     1                 __arm_fe_default_rmode
-200003c8 200003c8        4     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_tls.c.o):(.bss.__tls)
-200003c8 200003c8        4     1                 __tls
-200003cc 200003cc        0     1         . = ALIGN(4)
-200003cc 200003cc        0     1         _ebss = .
-200003cc 200003cc        0     1         __bss_end__ = _ebss
-200003cc 200003cc      604     1 ._user_heap_stack
-200003cc 200003cc        4     1         . = ALIGN(8)
-200003d0 200003d0        0     1         PROVIDE ( _end = . )
-200003d0 200003d0      200     1         . = . + _Min_Heap_Size
-200005d0 200005d0      400     1         . = . + _Min_Stack_Size
-200009d0 200009d0        0     1         . = ALIGN(8)
-       0        0     825d     1 .debug_loclists
+200003b0 200003b0        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.bss.Power_Voltage_Control_Loop.last_tick)
+200003b0 200003b0        c     1                 Power_Voltage_Control_Loop.last_tick
+200003bc 200003bc        c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.bss.Power_Voltage_Control_Loop.low_tick)
+200003bc 200003bc        c     1                 Power_Voltage_Control_Loop.low_tick
+200003c8 200003c8        4     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.bss.Power_Voltage_Control_Loop.last_tick_decay)
+200003c8 200003c8        4     1                 Power_Voltage_Control_Loop.last_tick_decay
+200003cc 200003cc       14     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.bss.log_buffer)
+200003cc 200003cc       14     1                 log_buffer
+200003e0 200003e0        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.bss.Log_State)
+200003e0 200003e0        1     1                 Log_State
+200003e1 200003e1        1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.bss.Log_Mutex_State)
+200003e1 200003e1        1     1                 Log_Mutex_State
+200003e2 200003e2        1     1         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libclang_rt.builtins.a(fp_mode.c.obj):(.bss.__arm_fe_default_rmode)
+200003e2 200003e2        1     1                 __arm_fe_default_rmode
+200003e4 200003e4        4     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_tls.c.o):(.bss.__tls)
+200003e4 200003e4        4     1                 __tls
+200003e8 200003e8        0     1         . = ALIGN(4)
+200003e8 200003e8        0     1         _ebss = .
+200003e8 200003e8        0     1         __bss_end__ = _ebss
+200003e8 200003e8      600     1 ._user_heap_stack
+200003e8 200003e8        0     1         . = ALIGN(8)
+200003e8 200003e8        0     1         PROVIDE ( _end = . )
+200003e8 200003e8      200     1         . = . + _Min_Heap_Size
+200005e8 200005e8      400     1         . = . + _Min_Stack_Size
+200009e8 200009e8        0     1         . = ALIGN(8)
+       0        0     8274     1 .debug_loclists
        0        0       7b     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_loclists)
       7b       7b      580     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_loclists)
      5fb      5fb       85     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj:(.debug_loclists)
@@ -725,13 +731,13 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
     7811     7811      25b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_loclists)
     7a6c     7a6c       6a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_loclists)
     7ad6     7ad6      188     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_loclists)
-    7c5e     7c5e      346     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_loclists)
-    7fa4     7fa4       79     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_loclists)
-    801d     801d       9a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_loclists)
-    80b7     80b7       2b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_loclists)
-    80e2     80e2       8b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_loclists)
-    816d     816d       f0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_loclists)
-       0        0     3990     1 .debug_abbrev
+    7c5e     7c5e      35d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_loclists)
+    7fbb     7fbb       79     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_loclists)
+    8034     8034       9a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_loclists)
+    80ce     80ce       2b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_loclists)
+    80f9     80f9       8b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_loclists)
+    8184     8184       f0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_loclists)
+       0        0     3997     1 .debug_abbrev
        0        0       f0     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_abbrev)
       f0       f0       bf     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_abbrev)
      1af      1af      1d3     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_abbrev)
@@ -764,13 +770,13 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
     2dbf     2dbf       1f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_abbrev)
     2dde     2dde      192     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_abbrev)
     2f70     2f70       eb     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_abbrev)
-    305b     305b      257     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_abbrev)
-    32b2     32b2      105     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_abbrev)
-    33b7     33b7      15b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_abbrev)
-    3512     3512      128     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_abbrev)
-    363a     363a      1fa     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_abbrev)
-    3834     3834      15c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_abbrev)
-       0        0    117c9     1 .debug_info
+    305b     305b      25e     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_abbrev)
+    32b9     32b9      105     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_abbrev)
+    33be     33be      15b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_abbrev)
+    3519     3519      128     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_abbrev)
+    3641     3641      1fa     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_abbrev)
+    383b     383b      15c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_abbrev)
+       0        0    11853     1 .debug_info
        0        0      154     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_info)
      154      154       cd     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_info)
      221      221      a3e     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_info)
@@ -789,27 +795,27 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
     5dfe     5dfe     2a18     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_info)
     8816     8816      f98     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_info)
     97ae     97ae     2393     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_info)
-    bb41     bb41      5d6     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_info)
-    c117     c117      259     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_info)
-    c370     c370      503     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_info)
-    c873     c873      55d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_info)
-    cdd0     cdd0       f1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_info)
-    cec1     cec1      86d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_info)
-    d72e     d72e      5de     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_info)
-    dd0c     dd0c      6d8     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_info)
-    e3e4     e3e4      14f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_info)
-    e533     e533       ae     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_info)
-    e5e1     e5e1      573     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_info)
-    eb54     eb54      197     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_info)
-    eceb     eceb      63a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_info)
-    f325     f325      1f4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_info)
-    f519     f519      6de     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_info)
-    fbf7     fbf7      25f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_info)
-    fe56     fe56      57c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_info)
-   103d2    103d2      48d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_info)
-   1085f    1085f      810     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_info)
-   1106f    1106f      75a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_info)
-       0        0     108f     1 .debug_rnglists
+    bb41     bb41      5ea     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_info)
+    c12b     c12b      259     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_info)
+    c384     c384      503     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_info)
+    c887     c887      55d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_info)
+    cde4     cde4       f1     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_info)
+    ced5     ced5      86d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_info)
+    d742     d742      5de     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_info)
+    dd20     dd20      6d8     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_info)
+    e3f8     e3f8      14f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_info)
+    e547     e547       ae     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_info)
+    e5f5     e5f5      573     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_info)
+    eb68     eb68      197     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_info)
+    ecff     ecff      63a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_info)
+    f339     f339      1f4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_info)
+    f52d     f52d      72c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_info)
+    fc59     fc59      25f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_info)
+    feb8     feb8      57c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_info)
+   10434    10434      48d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_info)
+   108c1    108c1      824     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_info)
+   110e5    110e5      76e     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_info)
+       0        0     10a4     1 .debug_rnglists
        0        0       18     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_rnglists)
       18       18       1a     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_rnglists)
       32       32       8f     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_rnglists)
@@ -839,12 +845,12 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
      ec6      ec6       19     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_rnglists)
      edf      edf       66     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_rnglists)
      f45      f45       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_rnglists)
-     f5d      f5d       bd     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_rnglists)
-    101a     101a       1e     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_rnglists)
-    1038     1038       1a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_rnglists)
-    1052     1052       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_rnglists)
-    106a     106a       25     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_rnglists)
-       0        0     4620     1 .debug_str_offsets
+     f5d      f5d       d2     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_rnglists)
+    102f     102f       1e     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_rnglists)
+    104d     104d       1a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_rnglists)
+    1067     1067       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_rnglists)
+    107f     107f       25     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_rnglists)
+       0        0     465c     1 .debug_str_offsets
        0        0       84     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_str_offsets)
       84       84       50     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_str_offsets)
       d4       d4      2a0     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_str_offsets)
@@ -863,28 +869,28 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
     1634     1634      518     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_str_offsets)
     1b4c     1b4c      334     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_str_offsets)
     1e80     1e80      31c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_str_offsets)
-    219c     219c      274     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_str_offsets)
-    2410     2410      178     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_str_offsets)
-    2588     2588      1d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_str_offsets)
-    275c     275c      21c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_str_offsets)
-    2978     2978       6c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_str_offsets)
-    29e4     29e4      388     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_str_offsets)
-    2d6c     2d6c      2d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_str_offsets)
-    3040     3040      294     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_str_offsets)
-    32d4     32d4       70     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_str_offsets)
-    3344     3344       4c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_str_offsets)
-    3390     3390      1d0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_str_offsets)
-    3560     3560      294     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_str_offsets)
-    37f4     37f4       d0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_str_offsets)
-    38c4     38c4      21c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_str_offsets)
-    3ae0     3ae0      120     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_str_offsets)
-    3c00     3c00      244     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_str_offsets)
-    3e44     3e44      1d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_str_offsets)
-    4018     4018      300     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_str_offsets)
-    4318     4318      308     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_str_offsets)
-       0        0     6b84     1 .debug_str
-       0        0     6b84     1         <internal>:(.debug_str)
-       0        0     129c     1 .debug_addr
+    219c     219c      280     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_str_offsets)
+    241c     241c      178     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_str_offsets)
+    2594     2594      1d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_str_offsets)
+    2768     2768      21c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_str_offsets)
+    2984     2984       6c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_str_offsets)
+    29f0     29f0      388     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_str_offsets)
+    2d78     2d78      2d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_str_offsets)
+    304c     304c      294     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_str_offsets)
+    32e0     32e0       70     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_str_offsets)
+    3350     3350       4c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_str_offsets)
+    339c     339c      1d0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_str_offsets)
+    356c     356c      294     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_str_offsets)
+    3800     3800       d0     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_str_offsets)
+    38d0     38d0      234     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_str_offsets)
+    3b04     3b04      120     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_str_offsets)
+    3c24     3c24      244     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_str_offsets)
+    3e68     3e68      1d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_str_offsets)
+    403c     403c      30c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_str_offsets)
+    4348     4348      314     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_str_offsets)
+       0        0     6bb9     1 .debug_str
+       0        0     6bb9     1         <internal>:(.debug_str)
+       0        0     12a8     1 .debug_addr
        0        0       1c     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_addr)
       1c       1c       14     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_addr)
       30       30       a0     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_addr)
@@ -916,12 +922,12 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
     10a4     10a4       68     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_addr)
     110c     110c       3c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_addr)
     1148     1148       50     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_addr)
-    1198     1198       6c     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_addr)
-    1204     1204       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_addr)
-    121c     121c       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_addr)
-    1234     1234       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_addr)
-    124c     124c       40     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_addr)
-    128c     128c       10     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_addr)
+    1198     1198       78     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_addr)
+    1210     1210       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_addr)
+    1228     1228       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_addr)
+    1240     1240       18     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_addr)
+    1258     1258       40     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_addr)
+    1298     1298       10     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_addr)
        0        0       92     1 .comment
        0        0       92     1         <internal>:(.comment)
        0        0       45     1 .ARM.attributes
@@ -965,7 +971,7 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
     3088     3088       98     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_frame)
     3120     3120       3c     4         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_frame)
     315c     315c       34     4         C:/Users/Cindy/AppData/Local/stm32cube/bundles/st-arm-clang/21.1.1+st.6/bin/../lib/clang-runtimes/arm-none-eabi/armv7m_soft_nofp_exn_rtti_unaligned_size/lib/libc.a(libc_picolib_machine_arm_read_tp.S.o):(.debug_frame)
-       0        0    11362     1 .debug_line
+       0        0    1145f     1 .debug_line
        0        0      14e     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32f1xx.c.obj:(.debug_line)
      14e      14e       ee     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.obj:(.debug_line)
      23c      23c      c15     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c.obj:(.debug_line)
@@ -984,33 +990,33 @@ FLASH 0x8000000 0x010000 0x005880       34%  rx
     7a38     7a38     356f     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj:(.debug_line)
     afa7     afa7     1182     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj:(.debug_line)
     c129     c129     21ac     1         cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj:(.debug_line)
-    e2d5     e2d5      427     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_line)
-    e6fc     e6fc      119     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_line)
-    e815     e815      1db     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_line)
-    e9f0     e9f0      1bb     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_line)
-    ebab     ebab      10f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_line)
-    ecba     ecba      453     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_line)
-    f10d     f10d      1e8     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_line)
-    f2f5     f2f5      27f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_line)
-    f574     f574       d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_line)
-    f648     f648       f7     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_line)
-    f73f     f73f      357     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_line)
-    fa96     fa96       6a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_line)
-    fb00     fb00      301     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_line)
-    fe01     fe01      2a2     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_line)
-   100a3    100a3      6ec     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_line)
-   1078f    1078f      23b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_line)
-   109ca    109ca      18d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_line)
-   10b57    10b57      15f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_line)
-   10cb6    10cb6      2f3     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_line)
-   10fa9    10fa9      3b9     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_line)
+    e2d5     e2d5      439     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/main.c.obj:(.debug_line)
+    e70e     e70e      119     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/gpio.c.obj:(.debug_line)
+    e827     e827      1db     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/can.c.obj:(.debug_line)
+    ea02     ea02      1bb     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/i2c.c.obj:(.debug_line)
+    ebbd     ebbd      10f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/iwdg.c.obj:(.debug_line)
+    eccc     eccc      453     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/tim.c.obj:(.debug_line)
+    f11f     f11f      1e8     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/usart.c.obj:(.debug_line)
+    f307     f307      27f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_it.c.obj:(.debug_line)
+    f586     f586       d4     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/stm32f1xx_hal_msp.c.obj:(.debug_line)
+    f65a     f65a       f7     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/sysmem.c.obj:(.debug_line)
+    f751     f751      357     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/syscalls.c.obj:(.debug_line)
+    faa8     faa8       6a     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_line)
+    fb12     fb12      301     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Button/Button.c.obj:(.debug_line)
+    fe13     fe13      2a2     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/LED/LED.c.obj:(.debug_line)
+   100b5    100b5      7d7     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/INA3221/INA3221.c.obj:(.debug_line)
+   1088c    1088c      23b     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Power/Power.c.obj:(.debug_line)
+   10ac7    10ac7      18d     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Message/Message.c.obj:(.debug_line)
+   10c54    10c54      15f     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/BUZZER/Buzzer.c.obj:(.debug_line)
+   10db3    10db3      2f3     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Application/Debug/Log.c.obj:(.debug_line)
+   110a6    110a6      3b9     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/Core/Src/CallBack.c.obj:(.debug_line)
        0        0     197e     1 .debug_line_str
        0        0     197e     1         <internal>:(.debug_line_str)
        0        0       28     1 .debug_aranges
        0        0       28     1         CMakeFiles/PowerControl_3OutVer_CMAKE.dir/startup_stm32f103xb.s.obj:(.debug_aranges)
-       0        0     2260     4 .symtab
-       0        0     2260     4         <internal>:(.symtab)
+       0        0     2290     4 .symtab
+       0        0     2290     4         <internal>:(.symtab)
        0        0      14b     1 .shstrtab
        0        0      14b     1         <internal>:(.shstrtab)
-       0        0     186e     1 .strtab
-       0        0     186e     1         <internal>:(.strtab)
+       0        0     18dd     1 .strtab
+       0        0     18dd     1         <internal>:(.strtab)
