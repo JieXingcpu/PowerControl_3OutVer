@@ -34,6 +34,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if(power_read.current_count_flag[0]==true) power_read.current_counter[0]++;
     if(power_read.current_count_flag[1]==true) power_read.current_counter[1]++;
     if(power_read.current_count_flag[2]==true) power_read.current_counter[2]++;
+
   }
   /*1kHz*/
   if(htim->Instance == TIM4)

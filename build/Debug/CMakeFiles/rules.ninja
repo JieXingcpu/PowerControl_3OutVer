@@ -79,7 +79,7 @@ rule CLEAN_ADDITIONAL
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = C:\Users\Cindy\AppData\Local\stm32cube\bundles\ninja\1.12.1+st.9\bin\ninja.exe $FILE_ARG -t clean $TARGETS
+  command = D:\STM32CubeCLT_1.19.0\Ninja\bin\ninja.exe $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -87,6 +87,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = C:\Users\Cindy\AppData\Local\stm32cube\bundles\ninja\1.12.1+st.9\bin\ninja.exe -t targets
+  command = D:\STM32CubeCLT_1.19.0\Ninja\bin\ninja.exe -t targets
   description = All primary targets available:
 

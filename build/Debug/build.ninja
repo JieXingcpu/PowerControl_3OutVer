@@ -252,7 +252,7 @@ build PowerControl_3OutVer_CMAKE.elf: C_EXECUTABLE_LINKER__PowerControl_3OutVer_
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\HXC26\PowerControl_3OutVer_CMAKE\build\Debug && C:\Users\Cindy\AppData\Local\stm32cube\bundles\cmake\4.0.1+st.3\bin\cmake-gui.exe -SE:\HXC26\PowerControl_3OutVer_CMAKE -BE:\HXC26\PowerControl_3OutVer_CMAKE\build\Debug"
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\HXC26\PowerControl_3OutVer_CMAKE\build\Debug && C:\Users\Cindy\AppData\Local\stm32cube\bundles\cmake\4.3.1+st.1\bin\cmake-gui.exe -SE:\HXC26\PowerControl_3OutVer_CMAKE -BE:\HXC26\PowerControl_3OutVer_CMAKE\build\Debug"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -459,7 +459,7 @@ build cmake/stm32cubemx/STM32_Drivers: phony cmake/stm32cubemx/CMakeFiles/STM32_
 # Utility command for edit_cache
 
 build cmake/stm32cubemx/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\HXC26\PowerControl_3OutVer_CMAKE\build\Debug\cmake\stm32cubemx && C:\Users\Cindy\AppData\Local\stm32cube\bundles\cmake\4.0.1+st.3\bin\cmake-gui.exe -SE:\HXC26\PowerControl_3OutVer_CMAKE -BE:\HXC26\PowerControl_3OutVer_CMAKE\build\Debug"
+  COMMAND = C:\Windows\system32\cmd.exe /C "cd /D E:\HXC26\PowerControl_3OutVer_CMAKE\build\Debug\cmake\stm32cubemx && C:\Users\Cindy\AppData\Local\stm32cube\bundles\cmake\4.3.1+st.1\bin\cmake-gui.exe -SE:\HXC26\PowerControl_3OutVer_CMAKE -BE:\HXC26\PowerControl_3OutVer_CMAKE\build\Debug"
   DESC = Running CMake cache editor...
   pool = console
   restat = 1

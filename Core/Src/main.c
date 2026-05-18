@@ -124,8 +124,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim3);
   Log_Init();
   __HAL_DBGMCU_FREEZE_IWDG();
-  power.Switch(&power, POWER_OUT_1|POWER_OUT_2, POWER_ON, 0x00);
-  HAL_Delay(1000);
+  power.Switch(&power, POWER_OUT_1|POWER_OUT_2|POWER_OUT_3, POWER_ON, 0x00);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -206,8 +205,17 @@ int main(void)
       power_read.Current_Control_Loop(&power_read, &power);
     } else if(Ina3221_State == INA3221_STATE_ERROR)
     {
-      // power.Switch(&power,POWER_OUT_ALL, POWER_OFF, POWER_OUT_ALL);
-      while(1);  //如果电源检测发生错误,则进入死循环,等待系统重启
+      /*I2C通信异常，尝试重新初始化INA3221，而非死等看门狗复位*/
+      power_read.i2c_error_count++;
+      if(power_read.i2c_error_count > 10)  // 连续10次错误则重启INA3221
+      {
+        power_read.i2c_error_count = 0;
+        power_read.Init(&power_read);
+      }
+    } else
+    {
+      /*非错误状态，清零错误计数*/
+      power_read.i2c_error_count = 0;
     }
     /*打印Log数据*/
     if(Log_State == LOG_ON)
@@ -215,10 +223,12 @@ int main(void)
       Log_printf(&power, &power_read);
     }
     /*检查是否为急停*/
-    if(power.Power_Channel_State== POWER_BREAKDOWN)
+    if(power.Power_Channel_State == POWER_BREAKDOWN)
     {
-      // 处理急停逻辑
       power.Switch(&power, POWER_OUT_ALL, POWER_OFF, POWER_OUT_ALL);
+      /*急停后跳过本轮电源检测，避免断电瞬间I2C抖动导致ERROR死循环*/
+      HAL_IWDG_Refresh(&hiwdg);
+      continue;
     }
     /*清空对于关闭后的端口的电压和电流数据*/
     if(power_read.read_data_mutex != true)

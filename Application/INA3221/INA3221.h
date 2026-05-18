@@ -21,6 +21,15 @@ typedef enum
   INA3221_STATE_ERROR
 } INA3221_STATE;
 
+typedef enum
+{
+  VOLTAGE_TOO_LOW = 0,
+  VOLTAGE_NORMAL,
+  VOLTAGE_TOO_HIGH,
+  VOLTAGE_IS_SHUTDOWN,
+  VOLTAGE_SHUTDOWN
+} Voltage_State;
+
 typedef struct
 {
   float voltage[3];
@@ -31,7 +40,7 @@ typedef struct INA3221
 {
   uint8_t address;                             //寄存器地址
   uint16_t send_data_buffer;                   //发送数据缓冲区
-  int16_t read_data_buffer;                   //读取数据缓冲区
+  int16_t read_data_buffer;                    //读取数据缓冲区
   Power_DataTypeDef Power_Data;                //电压电流数据
   volatile bool read_data_mutex;               //读取数据互斥锁,防止在读取过程中被其他函数修改数据
   Power_State channel_state;                   //通道状态
@@ -43,6 +52,7 @@ typedef struct INA3221
   volatile bool current_count_flag[3];         //电流异常报警标志
   volatile bool sudden_current_count_flag[3];  //电流突变报警标志
   volatile bool filter_init;                   //滤波初始化标志,为true时表示滤波初始值已经准备好,可以进行滤波计算
+  uint8_t i2c_error_count;
   /*成员函数*/
   INA3221_STATE (*Init)(struct INA3221 *self);
   INA3221_STATE (*Read_Loop)(struct INA3221 *self, Power_Control *power);

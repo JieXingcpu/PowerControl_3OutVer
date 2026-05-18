@@ -41,6 +41,7 @@ void Init_Power_Read(INA3221 *power_read)
   power_read->read_data_mutex = false;
   power_read->channel_state = 0;
   power_read->index = 0;
+  power_read->i2c_error_count = 0;
   for(uint8_t i = 0; i < 3; i++)
   {
     power_read->voltage_counter[i] = 0;
@@ -240,12 +241,13 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
   Power_Output_Channel danger_channel = 0x00;
   Power_Output_Channel warning_channel = 0x00;
   static float last_voltage_max[3] = {0.0f};
-  static uint32_t last_tick[3] = {0};   // 各通道骤降计时
-  static uint32_t low_tick[3] = {0};    // 各通道低压急停计时
-  static uint32_t last_tick_decay = 0;  // last_voltage_max 衰减计时
-  /*电压保护*/
+  static uint32_t refresh_max_voltage_tick[3] = {0};  // 刷新电压突变参考值的计时
+  static uint32_t voltage_drop_tick[3] = {0};         // 电压骤降计时
+  static uint32_t voltage_shutdown_tick[3] = {0};     // 急停未松开计时
+  /*电压处理逻辑(由于急停设计问题,判断较冗长)*/
   for(uint8_t i = 0; i < 3; i++)
   {
+    Voltage_State v_state = VOLTAGE_NORMAL;
     /*排除未开启的通道*/
     if((power->Power_Channel_State & (1U << i)) == 0)
     {
@@ -253,83 +255,78 @@ static Power_State Power_Voltage_Control_Loop(INA3221 *handle, Power_Control *po
       handle->voltage_count_flag[i] = false;
       handle->voltage_counter[i] = 0;
       last_voltage_max[i] = 0.0f;  //重置电压突变检测的参考值
-      last_tick[i] = 0;
-      low_tick[i] = 0;
+      voltage_drop_tick[i] = HAL_GetTick();
+      voltage_shutdown_tick[i] = HAL_GetTick();
+      refresh_max_voltage_tick[i] = 0;
       continue;
     }
-    /*大于最大电压*/
+    /*电压状态判断*/
     if(handle->Power_Data.voltage[i] > MAX_POWER_VOLTAGE)
     {
-      handle->voltage_count_flag[i] = true;
-      /*持续大于最大电压*/
-      if(handle->voltage_counter[i] > MAX_HOLDING_TIME * 10)
+      v_state = VOLTAGE_TOO_HIGH;
+    } else if(handle->Power_Data.voltage[i] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[i] > 20.0f)
+    {
+      v_state = VOLTAGE_TOO_LOW;
+    } else if(last_voltage_max[i] - handle->Power_Data.voltage[i] > 20.0f)
+    {                                                 /*电压骤降20v*/
+      if(HAL_GetTick() - voltage_drop_tick[i] > 1000) /*只有大于1s才进行判断*/
       {
-        danger_channel |= (1U << i);  //标记需要断电的通道
-        handle->voltage_count_flag[i] = false;
-        handle->voltage_counter[i] = 0;
+        v_state = VOLTAGE_SHUTDOWN;
+        voltage_drop_tick[i] = HAL_GetTick();
+      }
+    } else if(handle->Power_Data.voltage[i] < 2.0f)
+    {                                                    /*急停未松开*/
+      if(HAL_GetTick() - voltage_shutdown_tick[i] > 500) /*只有大于0.5s才进行判断*/
+      {
+        v_state = VOLTAGE_IS_SHUTDOWN;
+        voltage_shutdown_tick[i] = HAL_GetTick();
       }
     } else
     {
-      if(handle->Power_Data.voltage[i] < MIN_POWER_VOLTAGE && handle->Power_Data.voltage[i] > 5.0f)
-      {
-        /*低压报警*/
+      voltage_drop_tick[i] = HAL_GetTick();
+      voltage_shutdown_tick[i] = HAL_GetTick();
+      v_state = VOLTAGE_NORMAL;
+    }
+    switch(v_state)
+    {
+      case VOLTAGE_TOO_HIGH:
+        handle->voltage_count_flag[i] = true;
+        if(handle->voltage_counter[i] > MAX_HOLDING_TIME * 10)
+        {
+          danger_channel |= (1U << i);  //标记需要断电的通道
+          handle->voltage_count_flag[i] = false;
+          handle->voltage_counter[i] = 0;
+        }
+        break;
+      case VOLTAGE_TOO_LOW:
         warning_channel |= (1U << i);
-      }
-      /*电压恢复正常，清除该通道的异常标志和计数*/
-      if(handle->Power_Data.voltage[i] >= MIN_POWER_VOLTAGE)
-      {
+        break;
+      case VOLTAGE_NORMAL:
         if(handle->voltage_count_flag[i] == true)
         {
           handle->voltage_count_flag[i] = false;
           handle->voltage_counter[i] = 0;
         }
-      }
-    }
-    /*更新最大电压（仅在正常范围内更新，噪声尖峰不纳入基准）*/
-    if(handle->Power_Data.voltage[i] > last_voltage_max[i] && handle->Power_Data.voltage[i] <= MAX_POWER_VOLTAGE)
-    {
-      last_voltage_max[i] = handle->Power_Data.voltage[i];
-    }
-    /*定期衰减 last_voltage_max，避免噪声尖峰永久抬高基准*/
-    if(HAL_GetTick() - last_tick_decay > 1000)  // 每1秒衰减一次
-    {
-      last_tick_decay = HAL_GetTick();
-      for(uint8_t j = 0; j < 3; j++)
-      {
-        if(last_voltage_max[j] > MIN_POWER_VOLTAGE + 1.0f)
-        {
-          last_voltage_max[j] -= 0.5f;  // 缓慢衰减
-        }
-      }
-    }
-    /*急停通道：电压骤降≥15V，持续>0.5s才触发*/
-    if(last_voltage_max[i] - handle->Power_Data.voltage[i] >= 15.0f && last_voltage_max[i] > MIN_POWER_VOLTAGE)  // 基准有效
-    {
-      if(last_tick[i] == 0)
-      {
-        last_tick[i] = HAL_GetTick();                // 记录骤降开始时间
-      } else if(HAL_GetTick() - last_tick[i] > 1000)  // 持续超过0.5秒
-      {
-        danger_channel |= (1U << i);
-        last_tick[i] = 0;
-        last_voltage_max[i] = handle->Power_Data.voltage[i];  // 重置基准
-      }
-    } else if(handle->Power_Data.voltage[i] <= 2.0f && handle->Power_Data.voltage[i] < last_voltage_max[i] && last_voltage_max[i] > 5.0f)  // 低压急停，基准有效
-    {
-      if(low_tick[i] == 0)
-      {
-        low_tick[i] = HAL_GetTick();
-      } else if(HAL_GetTick() - low_tick[i] > 500)
-      {
+        break;
+      case VOLTAGE_IS_SHUTDOWN:
         power->Power_Channel_State = POWER_BREAKDOWN;
-        return power->Power_Channel_State;
-      }
-    } else
-    {
-      /*电压正常，清除急停计时器（但不影响其他逻辑设置的danger_channel位）*/
-      last_tick[i] = 0;
-      low_tick[i] = 0;
+        break;
+      case VOLTAGE_SHUTDOWN:
+        power->Power_Channel_State = POWER_BREAKDOWN;
+        break;
+      default:
+        break;
     }
+    if(handle->Power_Data.voltage[i] > last_voltage_max[i])
+    {
+      if(HAL_GetTick() - refresh_max_voltage_tick[i] > 500)  //每0.5秒刷新一次电压突变的参考值
+      {
+        last_voltage_max[i] = handle->Power_Data.voltage[i];
+        refresh_max_voltage_tick[i] = HAL_GetTick();
+      }
+    }
+    /*电压突变参考值逐渐衰减*/
+    if(last_voltage_max[i] > 0.0f) last_voltage_max[i] -= 0.001f;
   }
   power->Power_Channel_State &(warning_channel | danger_channel) ? Buzzer_Switch(BUZZER_WARNING) : Buzzer_Switch(BUZZER_OFF);
   if(danger_channel != 0x00) power->Switch(power, danger_channel, POWER_OFF, danger_channel);
